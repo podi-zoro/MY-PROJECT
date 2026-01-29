@@ -1,249 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-  <title>QUEEN RASHU MD Pairing</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <style>
-    /* මූලික සැකසුම් */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QUEEN ASHI MD MINI BOT</title>
 
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-      overflow: hidden;
-      color: white;
-    }
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    /* පසුබිමේ යන බෝල (Animation) */
-    .background-circle {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(80px);
-      z-index: -1;
-      opacity: 0.6;
-    }
-    .c1 { width: 300px; height: 300px; background: #ff00cc; top: -50px; left: -50px; animation: float 6s infinite ease-in-out; }
-    .c2 { width: 400px; height: 400px; background: #333399; bottom: -100px; right: -100px; animation: float 8s infinite ease-in-out reverse; }
+<style>
+/* Only Theme Colors - Pink & Black */
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;color:#ff69b4;}
+body{height:100vh;overflow:hidden;background:#000;}
+#bg{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;}
 
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(20px); }
-    }
-
-    /* ප්‍රධාන කොටුව (Glass Effect) */
-    .container {
-      position: relative;
-      width: 100%;
-      max-width: 400px;
-      padding: 20px;
-    }
-
-    .box {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(15px);
-      -webkit-backdrop-filter: blur(15px);
-      border-radius: 20px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      padding: 40px 30px;
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-      text-align: center;
-      animation: fadeIn 1s ease;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* අකුරු සහ අයිකන */
-    .icon-box {
-      font-size: 50px;
-      background: linear-gradient(to right, #00c6ff, #0072ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 10px;
-    }
-
-    h3 {
-      font-size: 28px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      margin-bottom: 5px;
-    }
-
-    h6 {
-      font-size: 14px;
-      color: #ccc;
-      margin-bottom: 25px;
-      font-weight: 400;
-    }
-
-    h6 span {
-      color: #00c6ff;
-      font-weight: 600;
-    }
-
-    /* නම්බර් ගහන තැන */
-    .input-container {
-      display: flex;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 50px;
-      padding: 5px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      margin-bottom: 20px;
-    }
-
-    .input-container input {
-      flex: 1;
-      background: transparent;
-      border: none;
-      outline: none;
-      color: white;
-      padding: 10px 20px;
-      font-size: 16px;
-    }
-
-    .input-container input::placeholder {
-      color: rgba(255, 255, 255, 0.6);
-    }
-
-    /* Submit Button එක */
-    .input-container button {
-      background: linear-gradient(90deg, #00c6ff, #0072ff);
-      border: none;
-      border-radius: 50px;
-      color: white;
-      padding: 10px 25px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: 0.3s;
-      box-shadow: 0 5px 15px rgba(0, 114, 255, 0.4);
-    }
-
-    .input-container button:hover {
-      transform: scale(1.05);
-      box-shadow: 0 8px 20px rgba(0, 114, 255, 0.6);
-    }
-
-    /* ප්‍රතිඵල පෙන්වන තැන */
-    #pair {
-      margin-top: 20px;
-      font-size: 18px;
-      font-weight: 500;
-      min-height: 40px;
-    }
-
-    .code-display {
-      background: rgba(0, 255, 0, 0.1);
-      border: 1px solid #00ff00;
-      color: #00ff00;
-      padding: 10px;
-      border-radius: 10px;
-      cursor: pointer;
-      font-family: monospace;
-      font-size: 24px;
-      letter-spacing: 2px;
-    }
-
-    .loading {
-      color: #00c6ff;
-      animation: pulse 1.5s infinite;
-    }
-
-    @keyframes pulse {
-      0% { opacity: 0.5; }
-      50% { opacity: 1; }
-      100% { opacity: 0.5; }
-    }
-  </style>
+.container{display:flex;justify-content:center;align-items:center;height:100vh;}
+.box{width:330px;padding:25px;background:rgba(0,0,0,.85);border-radius:15px;text-align:center;border:2px solid #ff69b4;box-shadow:0 0 20px #ff69b4;position:relative;transition:transform .2s;}
+.rgb-text{font-size:22px;font-weight:bold;background:linear-gradient(90deg,#ff69b4,#ff1493,#ff69b4);-webkit-background-clip:text;color:transparent;animation:grad 5s linear infinite;}
+@keyframes grad{to{background-position:300px;}}
+h6{margin-top:8px;}
+.input-container{display:flex;margin-top:15px;}
+.input-container input{width:70%;height:45px;border:1px solid #ff69b4;background:#000;color:#ff69b4;outline:none;border-radius:10px 0 0 10px;padding-left:10px;font-size:16px;}
+.input-container button{width:30%;height:45px;border:1px solid #ff69b4;border-left:none;border-radius:0 10px 10px 0;background:#000;color:#ff69b4;font-weight:bold;cursor:pointer;}
+.music-btn{position:fixed;right:15px;bottom:60px;background:#000;color:#ff69b4;padding:12px 18px;border-radius:30px;font-weight:bold;cursor:pointer;box-shadow:0 0 15px #ff69b4;border:1px solid #ff69b4;z-index:10;}
+.volume{position:fixed;right:20px;bottom:25px;width:120px;}
+.cooldown{font-size:12px;margin-top:6px;opacity:.7;}
+</style>
 </head>
+
 <body>
 
-  <div class="background-circle c1"></div>
-  <div class="background-circle c2"></div>
+<canvas id="bg"></canvas>
 
-  <div class="container">
-    <div class="box">
-      <div class="icon-box">
-        <i class="fas fa-robot"></i>
-      </div>
-      <h3>RASHU MINI</h3>
-      <h6>Powerd By <span>Nipun Harshana</span></h6>
-      
-      <p style="font-size: 12px; color: #aaa; margin-bottom: 15px;">Enter WhatsApp number with Country Code</p>
+<div class="container">
+  <div class="box" id="box">
+    <i class="fa-solid fa-user-astronaut" style="font-size:26px;"></i>
+    <div class="rgb-text" id="title"></div>
+    <h6>CREATED BY DEV XANZ</h6>
+    <h6><i class="fa-solid fa-bell"></i> Enter your number with country code</h6>
 
-      <div class="input-container">
-        <input placeholder="Ex: 9477xxxxxxx" type="number" id="number">
-        <button id="submit">Get Code</button>
-      </div>
-
-      <main id="pair"></main>
+    <div class="input-container">
+      <input type="number" id="number" placeholder="94xxxxxxxxx">
+      <button id="submit"><i class="fa-solid fa-arrow-right"></i></button>
     </div>
+
+    <div class="cooldown" id="cooldown"></div>
+    <main id="pair"></main>
   </div>
+</div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js"></script>
-  <script>
-    let a = document.getElementById("pair");
-    let b = document.getElementById("submit");
-    let c = document.getElementById("number");
+<audio id="bgMusic" loop autoplay muted playsinline>
+  <source src="https://files.catbox.moe/e1umjr.mpeg" type="audio/mpeg">
+</audio>
 
-    // Code එක Click කළාම Copy වෙන්න
-    async function Copy() {
-      let textElement = document.getElementById("copy");
-      let codeText = textElement.innerText;
-      
-      await navigator.clipboard.writeText(codeText);
-      
-      textElement.innerText = "COPIED! ✅";
-      textElement.style.color = "#00ff00";
-      
-      setTimeout(() => {
-        textElement.innerText = codeText;
-        textElement.style.color = "#00ff00";
-      }, 1000);
-    }
+<div class="music-btn" onclick="toggleMusic()" id="musicBtn">
+  <i class="fa-solid fa-circle-play"></i> Play
+</div>
+<input class="volume" type="range" min="0" max="1" step="0.01" value="0.5" onchange="bgMusic.volume=this.value">
 
-    b.addEventListener("click", async (e) => {
-      e.preventDefault();
-      
-      if (!c.value) {
-        a.innerHTML = '<span style="color:#ff4d4d; font-size: 14px;">⚠️ Please enter your number!</span>';
-      } else if (c.value.replace(/[^0-9]/g, "").length < 10) {
-        a.innerHTML = '<span style="color:#ff4d4d; font-size: 14px;">⚠️ Invalid Number Format!</span>';
-      } else {
-        const number = c.value.replace(/[^0-9]/g, "");
-        
-        // Loading Animation
-        a.innerHTML = '<span class="loading"><i class="fas fa-spinner fa-spin"></i> Getting Code...</span>';
-        
-        try {
-          let { data } = await axios(`/code?number=${number}`);
-          let code = data.code || "Service Unavailable";
-          
-          // Result Display
-          a.innerHTML = `
-            <div onclick="Copy()" class="code-display" title="Click to Copy">
-              <span id="copy">${code}</span>
-            </div>
-            <p style="font-size:10px; color:#aaa; margin-top:5px;">Click the code to copy</p>
-          `;
-        } catch (error) {
-          a.innerHTML = '<span style="color:#ff4d4d;">❌ Error! Please try again.</span>';
-        }
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js"></script>
+
+<script>
+/* Typewriter */
+const text="QUEEN ASHI MD MINI BOT";
+let i=0;
+const title=document.getElementById("title");
+(function type(){ if(i<text.length){ title.textContent+=text.charAt(i++); setTimeout(type,100);} })();
+
+/* 3D tilt */
+const box=document.getElementById("box");
+box.addEventListener("mousemove",e=>{
+  const x=(e.offsetX-box.clientWidth/2)/20;
+  const y=(e.offsetY-box.clientHeight/2)/20;
+  box.style.transform=`rotateY(${x}deg) rotateX(${-y}deg)`;
+});
+box.addEventListener("mouseleave",()=>box.style.transform="rotate(0)");
+
+/* Auto country code */
+const c=document.getElementById("number");
+if(!c.value) c.value="94";
+
+/* Cooldown */
+let canSend=true;
+const cd=document.getElementById("cooldown");
+function startCooldown(){
+  let t=30; canSend=false;
+  const timer=setInterval(()=>{
+    cd.textContent=`Wait ${t--}s before next request`;
+    if(t<0){ clearInterval(timer); cd.textContent=""; canSend=true; }
+  },1000);
+}
+
+const a=document.getElementById("pair");
+const b=document.getElementById("submit");
+
+b.addEventListener("click",async e=>{
+  e.preventDefault();
+  if(!canSend) return;
+  if(c.value.length<11){ a.innerHTML="Invalid number"; return; }
+  startCooldown();
+  a.innerHTML="Please wait...";
+  let {data}=await axios(`/code?number=${c.value}`);
+  a.innerHTML=`CODE: ${data.code||"Unavailable"}`;
+});
+
+/* Sound */
+let music=document.getElementById("bgMusic");
+let musicBtn=document.getElementById("musicBtn");
+window.addEventListener("click",()=>{
+  if(music.muted){ music.muted=false; music.play(); musicBtn.innerHTML='<i class="fa-solid fa-circle-pause"></i> Pause'; }
+},{once:true});
+
+function toggleMusic(){
+  if(music.paused){ music.play(); musicBtn.innerHTML='<i class="fa-solid fa-circle-pause"></i> Pause'; }
+  else{ music.pause(); musicBtn.innerHTML='<i class="fa-solid fa-circle-play"></i> Play'; }
+}
+
+/* Connected evenly spread particles */
+const canvas=document.getElementById("bg");
+const ctx=canvas.getContext("2d");
+let w,h;
+function resize(){
+  w=canvas.width=window.innerWidth;
+  h=canvas.height=window.innerHeight;
+}
+window.addEventListener("resize",resize);
+resize();
+
+let particles=[];
+const count=140;
+for(let i=0;i<count;i++){
+  particles.push({
+    x:Math.random()*w,
+    y:Math.random()*h,
+    r:Math.random()*2+1,
+    vx:(Math.random()-0.5)*0.35,
+    vy:(Math.random()-0.5)*0.35
+  });
+}
+
+function draw(){
+  ctx.clearRect(0,0,w,h);
+  for(let i=0;i<particles.length;i++){
+    let p=particles[i];
+    p.x+=p.vx; p.y+=p.vy;
+
+    if(p.x<0) p.x=w;
+    if(p.x>w) p.x=0;
+    if(p.y<0) p.y=h;
+    if(p.y>h) p.y=0;
+
+    ctx.beginPath();
+    ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    ctx.fillStyle="#ff69b4";
+    ctx.fill();
+
+    for(let j=i+1;j<particles.length;j++){
+      let q=particles[j];
+      let dx=p.x-q.x, dy=p.y-q.y;
+      let d=Math.sqrt(dx*dx+dy*dy);
+      if(d<140){
+        ctx.beginPath();
+        ctx.moveTo(p.x,p.y);
+        ctx.lineTo(q.x,q.y);
+        ctx.strokeStyle=`rgba(255,105,180,${1-d/140})`;
+        ctx.stroke();
       }
-    });
-  </script>
+    }
+  }
+  requestAnimationFrame(draw);
+}
+draw();
+</script>
 
 </body>
 </html>
