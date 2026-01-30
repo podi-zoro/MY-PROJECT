@@ -2716,100 +2716,99 @@ case 'system': {
   break;
 }
 case 'menu': {
-  await socket.sendMessage(sender, { react: { text: "📁", key: msg.key } }).catch(()=>{});
+  try { await socket.sendMessage(sender, { react: { text: "🗒️", key: msg.key } }); } catch(e){}
 
   try {
-    const pushname = msg.pushName || 'User';
-    const startTime = socketCreationTime?.get(number || sender) || Date.now();
+    const startTime = socketCreationTime.get(number) || Date.now();
     const uptime = Math.floor((Date.now() - startTime) / 1000);
-    const h = Math.floor(uptime / 3600);
-    const m = Math.floor((uptime % 3600) / 60);
-    const s = Math.floor(uptime % 60);
+    const hours = Math.floor(uptime / 3600);
+    const minutes = Math.floor((uptime % 3600) / 60);
+    const seconds = Math.floor(uptime % 60);
 
-    const hr = new Date().getHours();
-    const greeting =
-      hr < 12 ? '☀️ Gᴏᴏᴅ ᴍᴏʀɴɪɴɢ' :
-      hr < 18 ? '🌞 Gᴏᴏᴅ ᴀꜰᴛᴇʀɴᴏᴏɴ' :
-      '🌘 Gᴏᴏᴅ ɴɪɢʜᴛ';
-
+    // load per-session config (logo, botName)
     let userCfg = {};
-    try {
-      if (number && typeof loadUserConfigFromMongo === 'function')
-        userCfg = await loadUserConfigFromMongo((number || '').replace(/[^0-9]/g, '')) || {};
-    } catch(e){ userCfg = {}; }
+    try { if (number && typeof loadUserConfigFromMongo === 'function') userCfg = await loadUserConfigFromMongo((number || '').replace(/[^0-9]/g, '')) || {}; }
+    catch(e){ console.warn('menu: failed to load config', e); userCfg = {}; }
 
-    const title = userCfg.botName || 'QUEEN ASHI MD MINI';
+    const title = userCfg.botName || '© 𝐇ɪʀᴜ ✘ 𝐌ᴅ';
 
+    // 🔹 Fake contact for Meta AI mention
     const shonux = {
-      key: {
-        remoteJid: "status@broadcast",
-        participant: "0@s.whatsapp.net",
-        fromMe: false,
-        id: "META_AI_FAKE_ID_MENU"
-      },
-      message: {
-        contactMessage: {
-          displayName: title,
-          vcard: `BEGIN:VCARD
+        key: {
+            remoteJid: "status@broadcast",
+            participant: "0@s.whatsapp.net",
+            fromMe: false,
+            id: "META_AI_FAKE_ID_MENU"
+        },
+        message: {
+            contactMessage: {
+                displayName: title,
+                vcard: `BEGIN:VCARD
 VERSION:3.0
 N:${title};;;;
 FN:${title}
 ORG:Meta Platforms
 TEL;type=CELL;type=VOICE;waid=13135550002:+1 313 555 0002
 END:VCARD`
+            }
         }
-      }
     };
 
-    const menuText = `
- ${greeting}, *${pushname}*
+    const text = `
+*HI 👋 ${title} MINI BOT USER 😉💗*
 
-╭─ *「 ʙᴏᴛ ᴅᴇᴛᴀɪʟꜱ 」*
-│ 🎀 *\`Nᴀᴍᴇ :\`* ${botName}
-│ 👑 *\`Oᴡɴᴇʀ :\`*  Ash girl
-│ 👨‍💻 *\`Dᴇᴠᴇʟᴏᴘᴇʀ :\`* (Dev) xanz
-│ 🧬 *\`Vᴇʀꜱɪᴏɴ :\`*  ${config.BOT_VERSION || '1.0.0'}
-│ ⌛ *\`Uᴘᴛɪᴍᴇ :\`*  ${h}h ${m}m ${s}s
-│ 🔮 *\`Pʟᴀᴛꜰᴏʀᴍ :\`*  ${process.env.PLATFORM || 'Linux'}
-│ 💡 *\`Cᴏᴍᴍᴀᴅꜱ :\`*  50+
-╰──────────────────⦁✦⦁
+*╭─「 𝐁ot 𝐒tatus 」 ───◉◉➢*  
+*│📄 𝐁ot 𝐍ame :*${title}
+*│🥷 𝐎wner :* ${config.OWNER_NAME || 'Hirun Vikasitha'}
+*│📡 𝐕ersion :* ${config.BOT_VERSION || '0.0001+'}
+*│🏷️ 𝐏latform :* ${process.env.PLATFORM || 'Heroku'}
+*│⏳𝐔ptime :* ${hours}h ${minutes}m ${seconds}s
+*╰────────────◉◉➢*
 
-*「 ʟɪꜱᴛ ᴏꜰ ᴍᴇɴᴜ 」*
+*╭─「 𝐌ain 𝐎ptions 」 ──◉◉➢*
+ *◈ 📥 𝐃𝙾𝚆𝙽𝙻𝙾𝙰𝙳 𝐌𝙴𝙽𝚄*
+ *◈ 🎨 𝐂𝚁𝙴𝙰𝚃𝙸𝚅𝙴 𝐌𝙴𝙽𝚄*
+ *◈ 🛠️ 𝐓𝙾𝙾𝙻𝚂 𝐌𝙴𝙽𝚄*
+ *◈ ⚙️ 𝐒𝙴𝚃𝚃𝙸𝙽𝙶𝚂 𝐌𝙴𝙽𝚄*
+ *◈ 🥷 𝐎𝚆𝙽𝙴𝚁 𝐌𝙴𝙽𝚄*
+*╰────────────◉◉➢*
 
-🕯️ ❯❯ 𝐃𝐎𝐖𝐍𝐋𝐎𝐀𝐃 𝐌𝐄𝐍𝐔
-🕯️ ❯❯ 𝐔𝐒𝐄𝐑 𝐌𝐄𝐍𝐔
-🕯️ ❯❯ 𝐆𝐑𝐔𝐎𝐏 𝐌𝐄𝐍𝐔
-🕯️ ❯❯ 𝐂𝐎𝐍𝐅𝐈𝐆 𝐌𝐄𝐍𝐔
-🕯️ ❯❯ 𝐍𝐄𝐖𝐒 𝐌𝐄𝐍𝐔
-
-> © ${config.BOT_FOOTER || '𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 𝐋𝙸𝚃𝙴'}
+*𝐇𝙸𝚁𝚄 𝚇 𝐌𝙳 𝐌𝙸𝙽𝙸 𝐁𝙾𝚃*
 `.trim();
 
     const buttons = [
-      { buttonId: `${config.PREFIX}download`, buttonText: { displayText: "㋚ 𝐃𝐎𝐖𝐍𝐋𝐎𝐀𝐃" }, type: 1 },
-      { buttonId: `${config.PREFIX}user`, buttonText: { displayText: "㋚ 𝐔𝐒𝐄𝐑" }, type: 1 },
-      { buttonId: `${config.PREFIX}group`, buttonText: { displayText: "㋚ 𝐆𝐑𝐔𝐎𝐏" }, type: 1 },
-      { buttonId: `${config.PREFIX}settings`, buttonText: { displayText: "㋚ 𝐂𝐎𝐍𝐅𝐈𝐆" }, type: 1 },
-      { buttonId: `${config.PREFIX}news`, buttonText: { displayText: "㋚ 𝐍𝐄𝐖𝐒" }, type: 1 }
+      { buttonId: `${config.PREFIX}download`, buttonText: { displayText: "📥 𝐃𝙾𝚆𝙽𝙻𝙾𝙰𝙳 𝐌𝙴𝙽𝚄" }, type: 1 },
+      { buttonId: `${config.PREFIX}creative`, buttonText: { displayText: "🎨 𝐂𝚁𝙴𝙰𝚃𝙸𝚅𝙴 𝐌𝙴𝙽𝚄" }, type: 1 },
+      { buttonId: `${config.PREFIX}tools`, buttonText: { displayText: "🛠️ 𝐓𝙾𝙾𝙻𝚂 𝐌𝙴𝙽𝚄" }, type: 1 },
+      { buttonId: `${config.PREFIX}settings`, buttonText: { displayText: "⚙️ 𝐒𝙴𝚃𝚃𝙸𝙽𝙶𝚂 𝐌𝙴𝙽𝚄" }, type: 1 },
+      { buttonId: `${config.PREFIX}owner`, buttonText: { displayText: "🥷 𝐎𝚆𝙽𝙴𝚁 𝐌𝙴𝙽𝚄" }, type: 1 }
     ];
 
-    const imageUrl = userCfg.logo || 'https://files.catbox.moe/i6kedi.jpg';
+    const defaultImg = 'https://files.catbox.moe/p2f8x0.jpg';
+    const useLogo = userCfg.logo || defaultImg;
+
+    // build image payload (url or buffer)
+    let imagePayload;
+    if (String(useLogo).startsWith('http')) imagePayload = { url: useLogo };
+    else {
+      try { imagePayload = fs.readFileSync(useLogo); } catch(e){ imagePayload = { url: defaultImg }; }
+    }
 
     await socket.sendMessage(sender, {
-      image: { url: imageUrl },
-      caption: menuText,
-      footer: "",
+      image: imagePayload,
+      caption: text,
+      footer: "𝐇𝙸𝚁𝚄 ✘ 𝐌𝙳",
       buttons,
       headerType: 4
     }, { quoted: shonux });
 
   } catch (err) {
     console.error('menu command error:', err);
-    await socket.sendMessage(sender, { text: '❌ Failed to show menu.' }, { quoted: msg });
+    try { await socket.sendMessage(sender, { text: '❌ Failed to show menu.' }, { quoted: msg }); } catch(e){}
   }
-
   break;
-	  }	  
+}
+	  
 // ==================== DOWNLOAD MENU ====================
 case 'download': {
   try { await socket.sendMessage(sender, { react: { text: "📥", key: msg.key } }); } catch(e){}
