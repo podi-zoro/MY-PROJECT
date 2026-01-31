@@ -43,11 +43,11 @@ const config = {
   WORK_TYPE: 'private',
   OWNER_NUMBER: process.env.OWNER_NUMBER || '94776803526',
   CHANNEL_LINK: 'https://whatsapp.com/channel/0029Vb6yaNMIt5s3s5iUK51g',
-  BOT_NAME: '㋚ 𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 𝐌𝙸𝙽𝙸',
+  BOT_NAME: ' 𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 𝐌𝙸𝙽𝙸',
   BOT_VERSION: '1.0.0V',
   OWNER_NAME: '(dev) xanz',
   IMAGE_PATH: 'https://files.catbox.moe/i6kedi.jpg',
-  BOT_FOOTER: '㋚ 𝐏𝙾𝚆𝙴𝚁𝙴𝙳 𝐁𝚈 𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 𝐌𝙸𝙽𝙸',
+  BOT_FOOTER: '𝐏𝙾𝚆𝙴𝚁𝙴𝙳 𝐁𝚈 𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 𝐌𝙸𝙽𝙸',
   BUTTON_IMAGES: { ALIVE: 'https://files.catbox.moe/i6kedi.jpg' }
 };
 
@@ -725,16 +725,16 @@ case 'setting': {
       headerType: 1,
       viewOnce: true,
       image: { url: currentConfig.logo || config.RCD_IMAGE_PATH },
-      caption: `*╭────────────╮*\n𝐔𝙿𝙳𝙰𝚃𝙴 𝐒𝙴𝚃𝚃𝙸𝙽𝙶\n*╰────────────╯*\n\n` +
+      caption: `*╭────────────╮*\n𝐔𝙿𝙳𝙰𝚃𝙴 𝐘𝙾𝚄𝚁 𝐁𝙾𝚃 𝐒𝙴𝚃𝚃𝙸𝙽𝙶\n*╰────────────╯*\n\n` +
         `┏━━━━━━━━━━⦁✦⦁\n` +
-        `┃❖ *Wᴏʀᴋ ᴛʏᴘᴇ :* ${currentConfig.WORK_TYPE || 'public'}\n` +
+        `┃❖ *Wᴏʀᴋ ᴛʏᴘᴇ :* ${currentConfig.WORK_TYPE || 'private'}\n` +
         `┃❖ *Bᴏᴛ ᴘʀᴇꜱᴇɴᴄᴇ:* ${currentConfig.PRESENCE || 'available'}\n` +
         `┃❖ *Aᴜᴛo ꜱᴛᴀᴛᴜꜱ sᴇᴇɴ:* ${currentConfig.AUTO_VIEW_STATUS || 'true'}\n` +
         `┃❖ *Aᴜᴛᴏ ꜱᴛᴀᴛᴜꜱ ʀᴇᴀᴄᴛ:* ${currentConfig.AUTO_LIKE_STATUS || 'true'}\n` +
         `┃❖ *Aᴜᴛᴏ ʀᴇᴊᴇᴄᴛ ᴄᴀʟʟ:* ${currentConfig.ANTI_CALL || 'off'}\n` +
         `┃❖ *Aᴜᴛᴏ ᴍᴇꜱꜱᴀɢᴇ ʀᴇᴀᴅ:* ${currentConfig.AUTO_READ_MESSAGE || 'off'}\n` +
-        `┃❖ *Aᴀᴜᴛᴏ 𝐑ᴇᴄᴏʀᴅɪɴɢ:* ${currentConfig.AUTO_RECORDING || 'false'}\n` +
-        `┃❖ *Aᴜᴛᴏ 𝐓ʏᴘɪɴɢ:* ${currentConfig.AUTO_TYPING || 'false'}\n` +
+        `┃❖ *Aᴜᴛᴏ ʀᴇᴄᴏʀᴅɪɴɢ:* ${currentConfig.AUTO_RECORDING || 'false'}\n` +
+        `┃❖ *Aᴜᴛᴏ ᴛʏᴘɪɴɢ:* ${currentConfig.AUTO_TYPING || 'false'}\n` +
         `┗━━━━━━━━━━⦁✦⦁`,
       buttons: [
         {
@@ -1227,7 +1227,7 @@ case 'settings': {
     const botName = currentConfig.botName || BOT_NAME_FANCY;
     
     const settingsText = `
-*╭─「 𝐂𝚄𝚁𝚁𝙴𝙽𝚃 𝐒𝙴𝚃𝚃𝙸𝙽𝙶𝚂 」*  
+*╭─「 𝐂𝚄𝚁𝚁𝙴𝙽𝚃 𝐁𝙾𝚃𝐒𝙴𝚃𝚃𝙸𝙽𝙶𝚂 」*  
 *│ 🛸  Wᴏʀᴋ ᴛʏᴘᴇ :* ${currentConfig.WORK_TYPE || 'public'}
 *│ 🪇  Pʀᴇꜱᴇɴᴄᴇ :* ${currentConfig.PRESENCE || 'available'}
 *│ 👁️  Aᴜᴛᴏ ꜱᴛᴀᴛᴜꜱ ꜱᴇᴇɴ :* ${currentConfig.AUTO_VIEW_STATUS || 'true'}
@@ -1240,7 +1240,7 @@ case 'settings': {
 *│ 🥏  Sᴛᴀᴛᴜꜱ ᴇᴍᴏᴊɪꜱ :* ${(currentConfig.AUTO_LIKE_EMOJI || config.AUTO_LIKE_EMOJI).join(' ')}
 *╰──────────────⦁✦⦁*
 
-*𝐔se ${currentConfig.PREFIX || '.'}𝐒etting 𝐓o 𝐂hange 𝐒ettings 𝐕ia 𝐌enu*
+*Use ${currentConfig.PREFIX || '.'}Setting To Change Settings Via Menu*
     `;
 
     await socket.sendMessage(sender, {
@@ -2001,7 +2001,7 @@ case 'cfn': {
     await socket.sendMessage(sender, {
       image: imagePayload,
       caption: `✅ Channel followed and saved!\n\nJID: ${jid}\nEmojis: ${emojiText}\nSaved by: @${senderIdSimple}`,
-      footer: `🍁 ${botName}`,
+      footer: `${botName}`,
       mentions: [nowsender], // user mention
       buttons: [{ buttonId: `${config.PREFIX}menu`, buttonText: { displayText: "㋚ 𝐌𝐄𝐍𝐔" }, type: 1 }],
       headerType: 4
@@ -2406,7 +2406,7 @@ END:VCARD`
 │ 👾 \`${config.PREFIX}alive\`
 │ 👻 \`${config.PREFIX}ping\`
 │ 🐉 \`${config.PREFIX}system\`
-│ 👨‍💻 \`${config.PREFIX}owner
+│ 👨‍💻 \`${config.PREFIX}owner\`
 ╰─────────────⦁✦⦁
 `;
 
@@ -2535,7 +2535,7 @@ case 'song': {
     const { ytsearch } = require('@dark-yasiya/yt-dl.js');
     const axios = require('axios');
 
-    const botName = 'QUEEN ASHI MD'; 
+    const botName = '𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 𝐌𝙸𝙽𝙸'; 
     
     const botMention = {
         key: {
@@ -2588,15 +2588,15 @@ case 'song': {
 
         const menuCaption = `*\`❝ ${title} ❞\`*
    
-   ●  ⏱️  *Dᴜʀᴀᴛɪᴏɴ :* ${videoInfo.timestamp}
-   ●  🎶  *Qᴜᴀʟɪᴛʏ :* ${quality || "128"}kbps
-   ●  🖇️  *Lɪɴᴋ :* ${videoInfo.url}
+   ▫️  ⏱️  *Dᴜʀᴀᴛɪᴏɴ :* ${videoInfo.timestamp}
+   ▫️  🎶  *Qᴜᴀʟɪᴛʏ :* ${quality || "128"}kbps
+   ▫️  🖇️  *Lɪɴᴋ :* ${videoInfo.url}
 
    *「 ᴀᴠᴀɪʟᴀʙʟᴇ ꜰᴏʀᴍᴀᴛꜱ 」*
 
-   ➀. 📁 ❯❯ 𝐃𝐎𝐂𝐔𝐌𝐄𝐍𝐓 
-   ➁. 🎧 ❯❯ 𝐀𝐔𝐃𝐈𝐎
-   ➂. 🎤 ❯❯ 𝐕𝐎𝐈𝐂𝐄 𝐍𝐎𝐓𝐄
+   ➀.  📁 ❯❯ 𝐃𝐎𝐂𝐔𝐌𝐄𝐍𝐓 
+   ➁.  🎧 ❯❯ 𝐀𝐔𝐃𝐈𝐎
+   ➂.  🎤 ❯❯ 𝐕𝐎𝐈𝐂𝐄 𝐍𝐎𝐓𝐄
 
 ㋚  𝐏𝙾𝚆𝙴𝚁𝙴𝙳 𝐁𝚈 ${botName}
 `;
@@ -2730,7 +2730,7 @@ case 'menu': {
     try { if (number && typeof loadUserConfigFromMongo === 'function') userCfg = await loadUserConfigFromMongo((number || '').replace(/[^0-9]/g, '')) || {}; }
     catch(e){ console.warn('menu: failed to load config', e); userCfg = {}; }
 
-    const title = userCfg.botName || '© 𝐇ɪʀᴜ ✘ 𝐌ᴅ';
+    const title = userCfg.botName || '㋚ 𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 𝐌𝙸𝙽𝙸';
 
     // 🔹 Fake contact for Meta AI mention
     const shonux = {
@@ -2755,7 +2755,7 @@ END:VCARD`
     };
 
     const text = `
-*HI 👋 ${title} MINI BOT USER 😉💗*
+🎀 𝐐𝐔𝐄𝐄𝐍 𝐀𝐒𝐇𝐈 𝐌𝐃 𝐌𝐈𝐍𝐈 
 
 *╭─「 𝐁ot 𝐒tatus 」 ───◉◉➢*  
 *│📄 𝐁ot 𝐍ame :*${title}
