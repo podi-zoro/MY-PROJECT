@@ -2765,23 +2765,22 @@ END:VCARD`
 *│⏱️ \`Uᴘᴛɪᴍᴇ :\`* ${hours}h ${minutes}m ${seconds}s
 *╰────────────⦁✦⦁*
 
-*╭─「 ᴍᴇɴᴜ ᴏᴘᴛɪᴏɴꜱ 」
- │◈ 📥 𝐃𝙾𝚆𝙽𝙻𝙾𝙰𝙳 𝐌𝙴𝙽𝚄*
- │◈ 🎨 𝐂𝚁𝙴𝙰𝚃𝙸𝚅𝙴 𝐌𝙴𝙽𝚄*
- │◈ 🛠️ 𝐓𝙾𝙾𝙻𝚂 𝐌𝙴𝙽𝚄*
- │◈ ⚙️ 𝐒𝙴𝚃𝚃𝙸𝙽𝙶𝚂 𝐌𝙴𝙽𝚄*
- │◈ 🥷 𝐎𝚆𝙽𝙴𝚁 𝐌𝙴𝙽𝚄*
-*╰────────────⦁✦⦁*
+*「 ᴍᴇɴᴜ ᴏᴘᴛɪᴏɴꜱ 」*
+ 🕯️ ❯❯ 𝐃𝐎𝐖𝐍𝐋𝐎𝐀𝐃 𝐌𝐄𝐍𝐔
+ 🕯️ ❯❯ 𝐂𝐑𝐄𝐀𝐓𝐈𝐕𝐄 𝐌𝐄𝐍𝐔
+ 🕯️ ❯❯ 𝐓𝐎𝐎𝐋𝐒 𝐌𝐄𝐍𝐔
+ 🕯️ ❯❯ 𝐒𝐄𝐓𝐓𝐈𝐍𝐆𝐒 𝐌𝐄𝐍𝐔
+ 🕯️ ❯❯ 𝐎𝐖𝐍𝐄𝐑 𝐌𝐄𝐍𝐔
 
 ㋚ 𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 𝐌𝙸𝙽𝙸
 `.trim();
 
     const buttons = [
-      { buttonId: `${config.PREFIX}download`, buttonText: { displayText: "📥 𝐃𝙾𝚆𝙽𝙻𝙾𝙰𝙳 𝐌𝙴𝙽𝚄" }, type: 1 },
-      { buttonId: `${config.PREFIX}creative`, buttonText: { displayText: "🎨 𝐂𝚁𝙴𝙰𝚃𝙸𝚅𝙴 𝐌𝙴𝙽𝚄" }, type: 1 },
-      { buttonId: `${config.PREFIX}tools`, buttonText: { displayText: "🛠️ 𝐓𝙾𝙾𝙻𝚂 𝐌𝙴𝙽𝚄" }, type: 1 },
-      { buttonId: `${config.PREFIX}settings`, buttonText: { displayText: "⚙️ 𝐒𝙴𝚃𝚃𝙸𝙽𝙶𝚂 𝐌𝙴𝙽𝚄" }, type: 1 },
-      { buttonId: `${config.PREFIX}owner`, buttonText: { displayText: "🥷 𝐎𝚆𝙽𝙴𝚁 𝐌𝙴𝙽𝚄" }, type: 1 }
+      { buttonId: `${config.PREFIX}download`, buttonText: { displayText: "㋚ 𝐃𝐎𝐖𝐍𝐋𝐎𝐀𝐃" }, type: 1 },
+      { buttonId: `${config.PREFIX}creative`, buttonText: { displayText: "㋚ 𝐂𝐑𝐄𝐀𝐓𝐈𝐕𝐄" }, type: 1 },
+      { buttonId: `${config.PREFIX}tools`, buttonText: { displayText: "㋚ 𝐓𝐎𝐎𝐋𝐒" }, type: 1 },
+      { buttonId: `${config.PREFIX}settings`, buttonText: { displayText: "㋚ 𝐒𝐄𝐓𝐓𝐈𝐍𝐆𝐒" }, type: 1 },
+      { buttonId: `${config.PREFIX}owner`, buttonText: { displayText: "㋚ 𝐎𝐖𝐍𝐄𝐑" }, type: 1 }
     ];
 
     const defaultImg = 'https://files.catbox.moe/i6kedi.jpg';
@@ -2840,30 +2839,30 @@ END:VCARD`
     };
 
     const text = `
-*╭─「𝐃ownload 𝐌enu」 ──◉◉➢*   
+*「 ᴅᴏᴡɴʟᴏᴀᴅ ᴍᴇɴᴜ 」*   
 
-*╭──────────◉◉➢*
-✘ 🎵 *𝐌usic 𝐃ownloaders*
-✘ ${config.PREFIX}song [query]
-✘ ${config.PREFIX}csong [jid] [query]
-✘ ${config.PREFIX}ringtone [name]
+*╭─────────────────⦁✦⦁*
+ │ 🎵 *𝐌usic 𝐃ownloaders*
+ │ ${config.PREFIX}song [query]
+ │ ${config.PREFIX}csong [jid] [query]
+ │ ${config.PREFIX}ringtone [name]
+ │
+ │ 🎬 *𝐕ideo 𝐃ownloaders*
+ │ ${config.PREFIX}tiktok [url]
+ │ ${config.PREFIX}video [query]
+ │ ${config.PREFIX}xvideo [query]
+ │ ${config.PREFIX}xnxx [query]
+ │ ${config.PREFIX}fb [url]
+ │ ${config.PREFIX}ig [url]
+ │
+ │ 📱 *𝐀pp & 𝐅iles*
+ │ ${config.PREFIX}apk [app id]
+ │ ${config.PREFIX}apksearch [app name]
+ │ ${config.PREFIX}mediafire [url]
+ │ ${config.PREFIX}gdrive [url]
+*╰──────────────⦁✦⦁*
 
-✘ 🎬 *𝐕ideo 𝐃ownloaders*
-✘ ${config.PREFIX}tiktok [url]
-✘ ${config.PREFIX}video [query]
-✘ ${config.PREFIX}xvideo [query]
-✘ ${config.PREFIX}xnxx [query]
-✘ ${config.PREFIX}fb [url]
-✘ ${config.PREFIX}ig [url]
-
-✘ 📱 *𝐀pp & 𝐅iles*
-✘ ${config.PREFIX}apk [app id]
-✘ ${config.PREFIX}apksearch [app name]
-✘ ${config.PREFIX}mediafire [url]
-✘ ${config.PREFIX}gdrive [url]
-*╰──────────◉◉➢*
-
-> *𝐇𝙸𝚁𝚄 𝚇 𝐌𝙳 𝐌𝙸𝙽𝙸 𝐁𝙾𝚃*
+㋚ 𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 𝐌𝙸𝙽𝙸
 `.trim();
 
     const buttons = [
@@ -2915,23 +2914,23 @@ END:VCARD`
     };
 
     const text = `
-*╭─「𝐂reative 𝐌enu」 ──◉◉➢*  
+*「 ᴄʀᴇᴀᴛɪᴠᴇ ᴍᴇɴᴜ 」 *  
 
-*╭──────────◉◉➢*
-✘ 🤖 *𝐀I 𝐅eatures*
-✘ ${config.PREFIX}ai [message]
-✘ ${config.PREFIX}aiimg [prompt]
-✘ ${config.PREFIX}aiimg2 [prompt]
-
-✘ ✍️ *𝐓ext 𝐓ools*
-✘ ${config.PREFIX}font [text]
- 
-✘ 🖼️ *𝐈mage 𝐓ools*
-✘ ${config.PREFIX}getdp [number]
- 
-✘ 💾 *𝐌edia 𝐒aver*
-✘ ${config.PREFIX}save (reply to status) 
-*╰──────────◉◉➢*
+*╭──────────⦁✦⦁*
+ │ 🤖 *𝐀I 𝐅eatures*
+ │ ${config.PREFIX}ai [message]
+ │ ${config.PREFIX}aiimg [prompt]
+ │ ${config.PREFIX}aiimg2 [prompt]
+ │
+ │ ✍️ *𝐓ext 𝐓ools*
+ │ ${config.PREFIX}font [text]
+ │
+ │ 🖼️ *𝐈mage 𝐓ools*
+ │ ${config.PREFIX}getdp [number]
+ │
+ │ 💾 *𝐌edia 𝐒aver*
+ │ ${config.PREFIX}save (reply to status) 
+*╰──────────⦁✦⦁*
 
 ㋚ 𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 𝐌𝙸𝙽𝙸
 `.trim();
@@ -2985,45 +2984,45 @@ END:VCARD`
     };
 
     const text = `
-*╭─「𝐓ools 𝐌enu」 ──◉◉➢*  
+*「 ᴛᴏᴏʟꜱ ᴍᴇɴᴜ 」*  
 
-*╭──────────◉◉➢*
-✘ 🆔 *𝐈nfo 𝐓ools*
-✘ ${config.PREFIX}jid
-✘ ${config.PREFIX}cid [channel-link]
-✘ ${config.PREFIX}system
-
-✘ 👥 *𝐆roup 𝐓ools*
-✘ ${config.PREFIX}tagall [message]
-✘ ${config.PREFIX}online
-
-✘ 📰 *𝐍ews 𝐓ools*
-✘ ${config.PREFIX}adanews
-✘ ${config.PREFIX}sirasanews
-✘ ${config.PREFIX}lankadeepanews
-✘ ${config.PREFIX}gagananews
-
-✘ *𝐔ser 𝐌anagement*
-✘ ${config.PREFIX}block [number]
-✘ ${config.PREFIX}unblock [number]
-✘ ${config.PREFIX}prefix
-✘ ${config.PREFIX}autorecording
-✘ ${config.PREFIX}mread
-✘ ${config.PREFIX}creject
-✘ ${config.PREFIX}wtyp
-✘ ${config.PREFIX}arm
-✘ ${config.PREFIX}rstatus
-✘ ${config.PREFIX}botpresence
-
-
-✘ 👥 *𝐆oogle 𝐒earch 𝐓ools*
-✘ ${config.PREFIX}img [query]
-✘ ${config.PREFIX}google [query]
- 
-✘ 📊 *𝐁ot 𝐒tatus*
-✘ ${config.PREFIX}ping
-✘ ${config.PREFIX}alive
-*╰──────────◉◉➢*
+*╭──────────⦁✦⦁*
+ │ 🆔 *𝐈nfo 𝐓ools*
+ │ ${config.PREFIX}jid
+ │ ${config.PREFIX}cid [channel-link]
+ │ ${config.PREFIX}system
+ │
+ │ 👥 *𝐆roup 𝐓ools*
+ │ ${config.PREFIX}tagall [message]
+ │ ${config.PREFIX}online
+ │
+ │ 📰 *𝐍ews 𝐓ools*
+ │ ${config.PREFIX}adanews
+ │ ${config.PREFIX}sirasanews 
+ │ ${config.PREFIX}lankadeepanews
+ │ ${config.PREFIX}gagananews
+ │
+ │ *𝐔ser 𝐌anagement*
+ │ ${config.PREFIX}block [number]
+ │ ${config.PREFIX}unblock [number]
+ │ ${config.PREFIX}prefix
+ │ ${config.PREFIX}autorecording
+ │ ${config.PREFIX}mread
+ │ ${config.PREFIX}creject
+ │ ${config.PREFIX}wtyp
+ │ ${config.PREFIX}arm
+ │ ${config.PREFIX}rstatus
+ │ ${config.PREFIX}botpresence
+ │
+ │
+ │ 👥 *𝐆oogle 𝐒earch 𝐓ools*
+ │ ${config.PREFIX}img [query]
+ │ ${config.PREFIX}google [query]
+ │
+ │ 📊 *𝐁ot 𝐒tatus*
+ │ ${config.PREFIX}ping
+ │ ${config.PREFIX}alive
+*╰──────────⦁✦⦁*
 
 ㋚ 𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 𝐌𝙸𝙽𝙸
 `.trim();
@@ -3300,7 +3299,7 @@ END:VCARD` } }
         const buttonMessage = {
             image: { url: randomImage },
             caption: `🖼️ *𝐈mage 𝐒earch:* ${q}\n\n*𝐏rovided 𝐁y ${botName}*`,
-            footer: config.FOOTER || '> *𝐇𝙸𝚁𝚄 𝚇 𝐌𝙳 𝐌𝙸𝙽𝙸 𝐁𝙾𝚃*',
+            footer: config.FOOTER || '㋚ 𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 𝐌𝙸𝙽𝙸',
             buttons: buttons,
              headerType: 4,
             contextInfo: { mentionedJid: [sender] }
@@ -3382,7 +3381,7 @@ END:VCARD` } }
     if (!res.data?.status || !res.data.result) return await socket.sendMessage(sender, { text: '❌ Failed to fetch Ada News.' }, { quoted: botMention });
 
     const n = res.data.result;
-    const caption = `📰 *${n.title}*\n\n*📅 𝐃ate:* ${n.date}\n*⏰ 𝐓ime:* ${n.time}\n\n${n.desc}\n\n*🔗 [Read more]* (${n.url})\n\n*Pᴏᴡᴇʀᴇᴅ ʙʏ ${botName}*`;
+    const caption = `*News Founded 🇱🇰*\n\n📰 *${n.title}*\n\n*📅 Date:* ${n.date}\n*⏰ Time:* ${n.time}\n\n${n.desc}\n\n*🔗 Full story* (${n.url})\n\n㋚ 𝐏𝙾𝚆𝙴𝚁𝙴𝙳 𝐁𝚈 ${botName}`;
 
     await socket.sendMessage(sender, { image: { url: n.image }, caption, contextInfo: { mentionedJid: [sender] } }, { quoted: botMention });
 
@@ -3444,7 +3443,7 @@ END:VCARD` } }
     if (!res.data?.status || !res.data.result) return await socket.sendMessage(sender, { text: '❌ Failed to fetch Lankadeepa News.' }, { quoted: botMention });
 
     const n = res.data.result;
-    const caption = `📰 *${n.title}*\n\n*📅 𝐃ate:* ${n.date}\n*⏰ 𝐓ime:* ${n.time}\n\n${n.desc}\n\n*🔗 [𝐑ead more]* (${n.url})\n\n*Pᴏᴡᴇʀᴇᴅ ʙʏ ${botName}*`;
+    const caption = `*News Founded 🇱🇰*\n\n📰 *${n.title}*\n\n*📅 𝐃ate:* ${n.date}\n*⏰ 𝐓ime:* ${n.time}\n\n${n.desc}\n\n*🔗 [𝐑ead more]* (${n.url})\n\n*Pᴏᴡᴇʀᴇᴅ ʙʏ ${botName}*`;
 
     await socket.sendMessage(sender, { image: { url: n.image }, caption, contextInfo: { mentionedJid: [sender] } }, { quoted: botMention });
 
@@ -3475,7 +3474,7 @@ END:VCARD` } }
     if (!res.data?.status || !res.data.result) return await socket.sendMessage(sender, { text: '❌ Failed to fetch Gagana News.' }, { quoted: botMention });
 
     const n = res.data.result;
-    const caption = `📰 *${n.title}*\n\n*📅 𝐃ate:* ${n.date}\n*⏰ 𝐓ime:* ${n.time}\n\n${n.desc}\n\n*🔗 [Read more]* (${n.url})\n\n*Pᴏᴡᴇʀᴇᴅ ʙʏ ${botName}*`;
+    const caption = `*News Founded 🇱🇰*\n\n📰 *${n.title}*\n\n*📅 𝐃ate:* ${n.date}\n*⏰ 𝐓ime:* ${n.time}\n\n${n.desc}\n\n*🔗 [Read more]* (${n.url})\n\n*Pᴏᴡᴇʀᴇᴅ ʙʏ ${botName}*`;
 
     await socket.sendMessage(sender, { image: { url: n.image }, caption, contextInfo: { mentionedJid: [sender] } }, { quoted: botMention });
 
