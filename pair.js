@@ -656,7 +656,7 @@ case 'setting': {
     const settingOptions = {
       name: 'single_select',
       paramsJson: JSON.stringify({
-        title: `🔧 ${botName} SETTINGS`,
+        title: `𝐂𝐋𝐈𝐂𝐊 𝐇𝐄𝐑𝐄 ㋚`,
         sections: [
           {
             title: '㋚ 𝐖𝙾𝚁𝙺 𝐓𝚈𝙿𝙴',
@@ -1227,7 +1227,7 @@ case 'settings': {
     const botName = currentConfig.botName || BOT_NAME_FANCY;
     
     const settingsText = `
-*╭─「 𝐂𝚄𝚁𝚁𝙴𝙽𝚃 𝐁𝙾𝚃𝐒𝙴𝚃𝚃𝙸𝙽𝙶𝚂 」*  
+*╭─「 𝐂𝚄𝚁𝚁𝙴𝙽𝚃 𝐁𝙾𝚃 𝐒𝙴𝚃𝚃𝙸𝙽𝙶𝚂 」*  
 *│ 🛸  Wᴏʀᴋ ᴛʏᴘᴇ :* ${currentConfig.WORK_TYPE || 'public'}
 *│ 🪇  Pʀᴇꜱᴇɴᴄᴇ :* ${currentConfig.PRESENCE || 'available'}
 *│ 👁️  Aᴜᴛᴏ ꜱᴛᴀᴛᴜꜱ ꜱᴇᴇɴ :* ${currentConfig.AUTO_VIEW_STATUS || 'true'}
@@ -2716,7 +2716,7 @@ case 'system': {
   break;
 }
 case 'menu': {
-  try { await socket.sendMessage(sender, { react: { text: "🗒️", key: msg.key } }); } catch(e){}
+  try { await socket.sendMessage(sender, { react: { text: "🛸", key: msg.key } }); } catch(e){}
 
   try {
     const startTime = socketCreationTime.get(number) || Date.now();
@@ -2758,11 +2758,11 @@ END:VCARD`
 🎀 𝐁𝐎𝐓❜𝐒 𝐌𝐀𝐈𝐍 𝐌𝐄𝐍𝐔
 
 *╭─「 ʙᴏᴛ ꜱᴛᴀᴛᴜꜱ 」* 
-*│📄 Bᴏᴛ ɴᴀᴍᴇ :*${title}
-*│👨‍💻 Oᴡɴᴇʀ :* ${config.OWNER_NAME || 'Hirun Vikasitha'}
-*│🧬 Vᴇʀꜱɪᴏɴ :* ${config.BOT_VERSION || '0.0001+'}
-*│☁️ Pʟᴀᴛꜰᴏʀᴍ :* ${process.env.PLATFORM || 'Heroku'}
-*│⏱️ Uᴘᴛɪᴍᴇ :* ${hours}h ${minutes}m ${seconds}s
+*│📄 \`Bᴏᴛ ɴᴀᴍᴇ :\`*${title}
+*│👨‍💻 \`Oᴡɴᴇʀ :\`* ${config.OWNER_NAME || '(Dev) xanz'}
+*│🧬 \`Vᴇʀꜱɪᴏɴ :\`* ${config.BOT_VERSION || '0.0001+'}
+*│☁️ \`Pʟᴀᴛꜰᴏʀᴍ :\`* ${process.env.PLATFORM || 'Heroku'}
+*│⏱️ \`Uᴘᴛɪᴍᴇ :\`* ${hours}h ${minutes}m ${seconds}s
 *╰────────────⦁✦⦁*
 
 *╭─「 ᴍᴇɴᴜ ᴏᴘᴛɪᴏɴꜱ 」
@@ -3413,7 +3413,7 @@ END:VCARD` } }
     if (!res.data?.status || !res.data.result) return await socket.sendMessage(sender, { text: '❌ Failed to fetch Sirasa News.' }, { quoted: botMention });
 
     const n = res.data.result;
-    const caption = `📰 *${n.title}*\n\n*📅 𝐃ate:* ${n.date}\n*⏰ 𝐓ime:* ${n.time}\n\n${n.desc}\n\n*🔗 [Read more]* (${n.url})\n\n*Pᴏᴡᴇʀᴇᴅ ʙʏ ${botName}*`;
+    const caption = `*News Founded 🇱🇰*\n\n📰 *${n.title}*\n\n*📅 Date:* ${n.date}\n*⏰ Time:* ${n.time}\n\n${n.desc}\n\n*🔗 Full story* (${n.url})\n\n㋚ 𝐏𝙾𝚆𝙴𝚁𝙴𝙳 𝐁𝚈 ${botName}`;
 
     await socket.sendMessage(sender, { image: { url: n.image }, caption, contextInfo: { mentionedJid: [sender] } }, { quoted: botMention });
 
