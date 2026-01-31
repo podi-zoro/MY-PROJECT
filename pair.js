@@ -2758,7 +2758,7 @@ END:VCARD`
 🎀 𝐁𝐎𝐓❜𝐒 𝐌𝐀𝐈𝐍 𝐌𝐄𝐍𝐔
 
 *╭─「 ʙᴏᴛ ꜱᴛᴀᴛᴜꜱ 」* 
-*│📄 \`Bᴏᴛ ɴᴀᴍᴇ :\`*${title}
+*│📄 \`Bᴏᴛ ɴᴀᴍᴇ :\`* ${botName}
 *│👨‍💻 \`Oᴡɴᴇʀ :\`* ${config.OWNER_NAME || '(Dev) xanz'}
 *│🧬 \`Vᴇʀꜱɪᴏɴ :\`* ${config.BOT_VERSION || '0.0001+'}
 *│☁️ \`Pʟᴀᴛꜰᴏʀᴍ :\`* ${process.env.PLATFORM || 'Heroku'}
@@ -2766,6 +2766,7 @@ END:VCARD`
 *╰────────────⦁✦⦁*
 
 *「 ᴍᴇɴᴜ ᴏᴘᴛɪᴏɴꜱ 」*
+
  🕯️ ❯❯ 𝐃𝐎𝐖𝐍𝐋𝐎𝐀𝐃 𝐌𝐄𝐍𝐔
  🕯️ ❯❯ 𝐂𝐑𝐄𝐀𝐓𝐈𝐕𝐄 𝐌𝐄𝐍𝐔
  🕯️ ❯❯ 𝐓𝐎𝐎𝐋𝐒 𝐌𝐄𝐍𝐔
@@ -2842,13 +2843,18 @@ END:VCARD`
 *「 ᴅᴏᴡɴʟᴏᴀᴅ ᴍᴇɴᴜ 」*   
 
 *╭─────────────────⦁✦⦁*
- │ 🎵 *𝐌usic 𝐃ownloaders*
- │ ${config.PREFIX}song [query]
- │ ${config.PREFIX}csong [jid] [query]
- │ ${config.PREFIX}ringtone [name]
- │
- │ 🎬 *𝐕ideo 𝐃ownloaders*
- │ ${config.PREFIX}tiktok [url]
+*│*
+*│┤ 🎵 Music Commands*
+*│*
+*│* 🕯️ \`Command ${config.PREFIX}song\`
+*│* 🕯️${config.PREFIX}song [query]*
+ 
+*│* 🕯️${config.PREFIX}csong [jid] [query]
+*│* 🕯️${config.PREFIX}ringtone [name]
+*│*
+*│┤ 🎬 Video Commands*
+*│*
+*│*${config.PREFIX}tiktok [url]
  │ ${config.PREFIX}video [query]
  │ ${config.PREFIX}xvideo [query]
  │ ${config.PREFIX}xnxx [query]
@@ -2866,7 +2872,7 @@ END:VCARD`
 `.trim();
 
     const buttons = [
-      { buttonId: `${config.PREFIX}menu`, buttonText: { displayText: "📄 𝐌𝙰𝙸𝙽 𝐌𝙴𝙽𝚄" }, type: 1 },
+      { buttonId: `${config.PREFIiX}menu`, buttonText: { displayText: "📄 𝐌𝙰𝙸𝙽 𝐌𝙴𝙽𝚄" }, type: 1 },
       { buttonId: `${config.PREFIX}creative`, buttonText: { displayText: "🎨 𝐂𝚁𝙴𝙰𝚃𝙸𝚅𝙴 𝐌𝙴𝙽𝚄" }, type: 1 }
     ];
 
@@ -2914,7 +2920,7 @@ END:VCARD`
     };
 
     const text = `
-*「 ᴄʀᴇᴀᴛɪᴠᴇ ᴍᴇɴᴜ 」 *  
+*「 ᴄʀᴇᴀᴛɪᴠᴇ ᴍᴇɴᴜ 」*  
 
 *╭──────────⦁✦⦁*
  │ 🤖 *𝐀I 𝐅eatures*
@@ -2986,13 +2992,24 @@ END:VCARD`
     const text = `
 *「 ᴛᴏᴏʟꜱ ᴍᴇɴᴜ 」*  
 
-*╭──────────⦁✦⦁*
- │ 🆔 *𝐈nfo 𝐓ools*
- │ ${config.PREFIX}jid
- │ ${config.PREFIX}cid [channel-link]
- │ ${config.PREFIX}system
+*╭─────────────⦁✦⦁*
  │
- │ 👥 *𝐆roup 𝐓ools*
+ │┤ 🆔 *Info Commands*
+ │
+ │ 🕯️ \`Command ${config.PREFIX}jid\`
+ │ ☛ *Usage : ${config.PREFIX}jid*
+ │ ✨ _Desc : Get meta id_
+ │
+ │ 🕯️ \`Command${config.PREFIX}cid\`
+ │ ☛ *Usage : ${config.PREFIX}cid < channel link >*
+ │ ✨ _Desc : Get channel info_
+ │ 
+ │ 🕯️ \`Command${config.PREFIX}system\`
+ │ ☛ *Usage : ${config.PREFIX}system*
+ │ ✨ _Desc : Get bot sytem info_
+ │
+ │┤ 👥 *Gruop Commands*
+ │ 🕯️
  │ ${config.PREFIX}tagall [message]
  │ ${config.PREFIX}online
  │
@@ -3022,7 +3039,7 @@ END:VCARD`
  │ 📊 *𝐁ot 𝐒tatus*
  │ ${config.PREFIX}ping
  │ ${config.PREFIX}alive
-*╰──────────⦁✦⦁*
+*╰─────────────⦁✦⦁*
 
 ㋚ 𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 𝐌𝙸𝙽𝙸
 `.trim();
