@@ -659,62 +659,62 @@ case 'setting': {
         title: `𝐂𝐋𝐈𝐂𝐊 𝐇𝐄𝐑𝐄 ㋚`,
         sections: [
           {
-            title: '㋚ 𝐖𝙾𝚁𝙺 𝐓𝚈𝙿𝙴',
+            title: 'WORK TYPE',
             rows: [
-              { title: '𝐏𝚄𝙱𝙻𝙸𝙲', description: '', id: `${prefix}wtype public` },
-              { title: '𝐎𝙽𝙻𝚈 𝐆𝚁𝙾𝚄𝙿', description: '', id: `${prefix}wtype groups` },
-              { title: '𝐎𝙽𝙻𝚈 𝐈𝙽𝙱𝙾𝚇', description: '', id: `${prefix}wtype inbox` },
-              { title: '𝐎𝙽𝙻𝚈 𝐏𝚁𝙸𝚅𝙰𝚃𝙴', description: '', id: `${prefix}wtype private` },
+              { title: 'PUBLIC', description: '', id: `${prefix}wtype public` },
+              { title: 'GRUOP ONLY', description: '', id: `${prefix}wtype groups` },
+              { title: 'INBOX ONLY', description: '', id: `${prefix}wtype inbox` },
+              { title: 'PRIVATE ONLY', description: '', id: `${prefix}wtype private` },
             ],
           },
           {
-            title: '㋚ 𝐅𝙰𝙺𝙴 𝐓𝚈𝙿𝙸𝙽𝙶',
+            title: 'FAKE TYPING',
             rows: [
-              { title: '𝐀𝚄𝚃𝙾 𝐓𝚈𝙿𝙸𝙽𝙶 𝐎𝐍', description: '', id: `${prefix}autotyping on` },
-              { title: '𝐀𝚄𝚃𝙾 𝐓𝚈𝙿𝙸𝙽𝙶 𝐎𝐅𝐅', description: '', id: `${prefix}autotyping off` },
+              { title: 'AUTO TYPING ON', description: '', id: `${prefix}autotyping on` },
+              { title: 'AUTO TYPING OFF', description: '', id: `${prefix}autotyping off` },
             ],
           },
           {
-            title: '㋚ 𝐅𝙰𝙺𝙴 𝐑𝙴𝙲𝙾𝙳𝙸𝙽𝙶',
+            title: 'FAKE RECORDING',
             rows: [
-              { title: '𝐀𝚄𝚃𝙾 𝐑𝙴𝙲𝙾𝚁𝙳𝙸𝙽𝙶 𝐎𝐍', description: '', id: `${prefix}autorecording on` },
-              { title: '𝐀𝚄𝚃𝙾 𝐑𝙴𝙲𝙾𝚁𝙳𝙸𝙽𝙶 𝐎𝐅𝐅', description: '', id: `${prefix}autorecording off` },
+              { title: 'AUTO RECORDING ON', description: '', id: `${prefix}autorecording on` },
+              { title: 'AUTO RECORDING ON', description: '', id: `${prefix}autorecording off` },
             ],
           },
           {
-            title: '㋚ 𝐀𝙻𝙻𝚆𝙰𝚈𝚂 𝐎𝙽𝙻𝙸𝙽𝙴',
+            title: 'ALLWAYS ONLINE',
             rows: [
-              { title: '𝐀𝙻𝙻𝚆𝙰𝚈𝚂 𝐎𝙽𝙻𝙸𝙽𝙴 𝐎𝙽', description: '', id: `${prefix}botpresence online` },
-              { title: '㋚ 𝐀𝙻𝙻𝚆𝙰𝚈𝚂 𝐎𝙽𝙻𝙸𝙽𝙴 𝐎𝙵𝙵', description: '', id: `${prefix}botpresence offline` },
+              { title: 'ALLWAYS ONLINE ON', description: '', id: `${prefix}botpresence online` },
+              { title: 'ALLWAYS ONLINE OFF', description: '', id: `${prefix}botpresence offline` },
             ],
           },
           {
-            title: '㋚ 𝐀𝚄𝚃𝙾 𝐒𝚃𝙰𝚃𝚄𝚂 𝐒𝙴𝙴𝙽',
+            title: 'AUTO STATUS SEEN',
             rows: [
-              { title: '𝐒𝚃𝙰𝚃𝚄𝚂 𝐒𝙴𝙴𝙽 𝐎𝙽', description: '', id: `${prefix}rstatus on` },
-              { title: '𝐒𝚃𝙰𝚃𝚄𝚂 𝐒𝙴𝙴𝙽 𝐎𝙵𝙵', description: '', id: `${prefix}rstatus off` },
+              { title: 'STATUS SEEN ON', description: '', id: `${prefix}rstatus on` },
+              { title: 'STATUS SEEN OFF', description: '', id: `${prefix}rstatus off` },
             ],
           },
           {
-            title: '㋚ 𝐀𝚄𝚃𝙾 𝐒𝚃𝙰𝚃𝚄𝚂 𝐑𝙴𝙰𝙲𝚃',
+            title: 'AUTO LIKE STATUS',
             rows: [
-              { title: '𝐒𝚃𝙰𝚃𝚄𝚂 𝐑𝙴𝙰𝙲𝚃 𝐎𝙽', description: '', id: `${prefix}arm on` },
-              { title: '𝐒𝚃𝙰𝚃𝚄𝚂 𝐑𝙴𝙰𝙲𝚃 𝐎𝙵𝙵', description: '', id: `${prefix}arm off` },
+              { title: 'AUTO LIKE ON', description: '', id: `${prefix}arm on` },
+              { title: 'AUTO LIKE OFF', description: '', id: `${prefix}arm off` },
             ],
           }, 
           {
-            title: '㋚ 𝐀𝚄𝚃𝙾 𝐑𝙴𝙹𝙴𝙲𝚃 𝐂𝙰𝙻𝙻',
+            title: 'AUTO REJECT CALL',
             rows: [
-              { title: '𝐀𝚄𝚃𝙾 𝐑𝙴𝙹𝙴𝙲𝚃 𝐂𝙰𝙻𝙻 𝐎𝙽', description: '', id: `${prefix}creject on` },
-              { title: '𝐀𝚄𝚃𝙾 𝐑𝙴𝙹𝙴𝙲𝚃 𝐂𝙰𝙻𝙻 𝐎𝙵𝙵', description: '', id: `${prefix}creject off` },
+              { title: 'AUTO REJECT ON', description: '', id: `${prefix}creject on` },
+              { title: 'AUTO REJECT OFF', description: '', id: `${prefix}creject off` },
             ],
           },
           {
-            title: '㋚ 𝐀𝚄𝚃𝙾 𝐌𝙰𝚂𝚂𝙰𝙶𝙴 𝐑𝙴𝙰𝙳',
+            title: 'AUTO MASSAGE READ',
             rows: [
-              { title: '𝐑𝙴𝙰𝙳 𝐀𝙻𝙻 𝐌𝙰𝚂𝚂𝙰𝙶𝙴𝚂', description: '', id: `${prefix}mread all` },
-              { title: '𝐑𝙴𝙰𝙳 𝐀𝙻𝙻 𝐌𝙰𝚂𝚂𝙰𝙶𝙴𝚂 𝐂𝙾𝙼𝙼𝙰𝙽𝙳𝚂', description: '', id: `${prefix}mread cmd` },
-              { title: '𝐃𝙾𝙽𝚃 𝐑𝙴𝙰𝙳 𝐀𝙽𝚈 𝐌𝙰𝚂𝚂𝙰𝙶𝙴', description: '', id: `${prefix}mread off` },
+              { title: 'READ ALL MASSAGES', description: '', id: `${prefix}mread all` },
+              { title: 'READ COMMAND ONLY', description: '', id: `${prefix}mread cmd` },
+              { title: 'DONT READ MASSAGES', description: '', id: `${prefix}mread off` },
             ],
           },
         ],
@@ -725,7 +725,7 @@ case 'setting': {
       headerType: 1,
       viewOnce: true,
       image: { url: currentConfig.logo || config.RCD_IMAGE_PATH },
-      caption: `*╭────────────╮*\n𝐔𝙿𝙳𝙰𝚃𝙴 𝐘𝙾𝚄𝚁 𝐁𝙾𝚃 𝐒𝙴𝚃𝚃𝙸𝙽𝙶\n*╰────────────╯*\n\n` +
+      caption: `\n*UPDATE YOUR SETTINGS*\n\n\n` +
         `┏━━━━━━━━━━⦁✦⦁\n` +
         `┃❖ *Wᴏʀᴋ ᴛʏᴘᴇ :* ${currentConfig.WORK_TYPE || 'private'}\n` +
         `┃❖ *Bᴏᴛ ᴘʀᴇꜱᴇɴᴄᴇ:* ${currentConfig.PRESENCE || 'available'}\n` +
