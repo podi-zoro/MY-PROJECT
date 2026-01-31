@@ -1227,7 +1227,7 @@ case 'settings': {
     const botName = currentConfig.botName || BOT_NAME_FANCY;
     
     const settingsText = `
-*╭─「 𝐂𝚄𝚁𝚁𝙴𝙽𝚃 𝐁𝙾𝚃 𝐒𝙴𝚃𝚃𝙸𝙽𝙶𝚂 」*  
+*╭─「 ᴄᴏʀʀᴇɴᴛ ʙᴏᴛ ꜱᴇᴛᴛɪɴɢꜱ 」*  
 *│ 🛸  Wᴏʀᴋ ᴛʏᴘᴇ :* ${currentConfig.WORK_TYPE || 'public'}
 *│ 🪇  Pʀᴇꜱᴇɴᴄᴇ :* ${currentConfig.PRESENCE || 'available'}
 *│ 👁️  Aᴜᴛᴏ ꜱᴛᴀᴛᴜꜱ ꜱᴇᴇɴ :* ${currentConfig.AUTO_VIEW_STATUS || 'true'}
