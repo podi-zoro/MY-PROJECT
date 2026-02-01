@@ -2854,26 +2854,47 @@ END:VCARD`
 *│  ☛ Usage : ${config.PREFIX}csong [jid] [query]*
 *│* ✨ _Desc : Post channels to songs
 *│* 
-*│* 🕯️ \`Command ${config.PREFIX}rington
-*│  ☛ ${config.PREFIX}ringtone [name]*
+*│* 🕯️ \`Command ${config.PREFIX}rington\`
+*│  ☛ Usage : ${config.PREFIX}ringtone [name]*
 *│* ✨ _Desc : Download rigntones_
 *│*
 *│┤ 🎬 Video Commands*
 *│*
-*│* 🕯️\`Commands${config.PREFIX}tiktok
-*│  ☛ ${config.PREFIX}tiktok [url]*
+*│* 🕯️ \`Command${config.PREFIX}tiktok\`
+*│  ☛ Usage :${config.PREFIX}tiktok [url]*
 *│* ✨ _Desc : Download tiktok videos_
 *│*
+*│* 🕯️ \`Command${config.PREFIX}video
+*│  ☛ Usage : 
+*│  ☛ Usage : ${config.PREFIX}video [query]*
+*│* ✨ _Desc : Download yt videos_
+*│*
+*│* 🕯️ \`Command${config.PREFIX}xvideo
+*│  ☛ Usage : ${config.PREFIX}xvideo [query]*
+*│* ✨ _Desc : Download porn videos_
+*│*
+*│* 🕯️ \`Command${config.PREFIX}xnxx
+*│  ☛ Usage : ${config.PREFIX}xnxx [query]*
+*│* ✨ _Desc : Download porn videos_
 *│* 
- │ ${config.PREFIX}video [query]
- │ ${config.PREFIX}xvideo [query]
- │ ${config.PREFIX}xnxx [query]
- │ ${config.PREFIX}fb [url]
- │ ${config.PREFIX}ig [url]
- │
- │ 📱 *𝐀pp & 𝐅iles*
- │ ${config.PREFIX}apk [app id]
- │ ${config.PREFIX}apksearch [app name]
+*│* 🕯️ \`Command${config.PREFIX}fb
+*│  ☛ Usage : ${config.PREFIX}fb [url]*
+*│* ✨ _Desc : Download facebook videos_
+*│*
+*│* 🕯️ \`Command${config.PREFIX}ig
+*│  ☛ Usage : ${config.PREFIX}ig [url]*
+*│* ✨ _Desc : Download insta videos
+*│*
+*│┤ 📱 Apps and files*
+*│*
+*│* 🕯️ \`Command${config.PREFIX}apk\`
+*│  ☛ Usage : ${config.PREFIX}apk [app id]*
+*│* ✨ _Desc : Download apk files
+*│*
+*│* 🕯️ \`Command${config.PREFIX}apksearch\`
+*│  ☛ Usage : ${config.PREFIX}apksearch [app name]*
+*│* ✨ _Desc : Get apk id
+*│*
  │ ${config.PREFIX}mediafire [url]
  │ ${config.PREFIX}gdrive [url]
 *╰──────────────⦁✦⦁*
