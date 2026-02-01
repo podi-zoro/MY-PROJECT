@@ -2864,20 +2864,19 @@ END:VCARD`
 *│  ☛ Usage :${config.PREFIX}tiktok [url]*
 *│* ✨ _Desc : Download tiktok videos_
 *│*
-*│* 🕯️ \`Command${config.PREFIX}video
-*│  ☛ Usage : 
+*│* 🕯️ \`Command${config.PREFIX}video\`
 *│  ☛ Usage : ${config.PREFIX}video [query]*
 *│* ✨ _Desc : Download yt videos_
 *│*
-*│* 🕯️ \`Command${config.PREFIX}xvideo
+*│* 🕯️ \`Command${config.PREFIX}xvideo\`
 *│  ☛ Usage : ${config.PREFIX}xvideo [query]*
 *│* ✨ _Desc : Download porn videos_
 *│*
-*│* 🕯️ \`Command${config.PREFIX}xnxx
+*│* 🕯️ \`Command${config.PREFIX}xnxx\`
 *│  ☛ Usage : ${config.PREFIX}xnxx [query]*
 *│* ✨ _Desc : Download porn videos_
 *│* 
-*│* 🕯️ \`Command${config.PREFIX}fb
+*│* 🕯️ \`Command${config.PREFIX}fb\`
 *│  ☛ Usage : ${config.PREFIX}fb [url]*
 *│* ✨ _Desc : Download facebook videos_
 *│*
@@ -2895,16 +2894,22 @@ END:VCARD`
 *│  ☛ Usage : ${config.PREFIX}apksearch [app name]*
 *│* ✨ _Desc : Get apk id
 *│*
- │ ${config.PREFIX}mediafire [url]
- │ ${config.PREFIX}gdrive [url]
+*│* 🕯️ \`Command${config.PREFIX}mediafire\`
+*│  ☛ Usage : ${config.PREFIX}mediafire [url]*
+*│* ✨ _Desc : Download mediafire files
+*│*
+*│* 🕯️ \`Command${config.PREFIX}gdrive\`
+*│  ☛ Usage : ${config.PREFIX}gdrive [url]*
+*│* ✨ _Desc : Download google drive files_
+*│*
 *╰──────────────⦁✦⦁*
 
-㋚ 𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 𝐌𝙸𝙽𝙸
+> ㋚ 𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 𝐌𝙸𝙽𝙸
 `.trim();
 
     const buttons = [
-      { buttonId: `${config.PREFIiX}menu`, buttonText: { displayText: "📄 𝐌𝙰𝙸𝙽 𝐌𝙴𝙽𝚄" }, type: 1 },
-      { buttonId: `${config.PREFIX}creative`, buttonText: { displayText: "🎨 𝐂𝚁𝙴𝙰𝚃𝙸𝚅𝙴 𝐌𝙴𝙽𝚄" }, type: 1 }
+      { buttonId: `${config.PREFIiX}menu`, buttonText: { displayText: "㋚ 𝐌𝐄𝐍𝐔" }, type: 1 },
+      { buttonId: `${config.PREFIX}creative`, buttonText: { displayText: "㋚ 𝐂𝐑𝐄𝐀𝐓𝐈𝐕𝐄" }, type: 1 }
     ];
 
     await socket.sendMessage(sender, {
@@ -2954,27 +2959,46 @@ END:VCARD`
 *「 ᴄʀᴇᴀᴛɪᴠᴇ ᴍᴇɴᴜ 」*  
 
 *╭──────────⦁✦⦁*
- │ 🤖 *𝐀I 𝐅eatures*
- │ ${config.PREFIX}ai [message]
- │ ${config.PREFIX}aiimg [prompt]
- │ ${config.PREFIX}aiimg2 [prompt]
- │
- │ ✍️ *𝐓ext 𝐓ools*
- │ ${config.PREFIX}font [text]
- │
- │ 🖼️ *𝐈mage 𝐓ools*
- │ ${config.PREFIX}getdp [number]
- │
- │ 💾 *𝐌edia 𝐒aver*
- │ ${config.PREFIX}save (reply to status) 
+*│*
+*│┤ 🤖 AI Commands*
+*│*
+*│* 🕯️ \`Command${config.PREFIX}ai\`
+*│  ☛ Usage : ${config.PREFIX}ai [message]*
+*│* ✨ _Desc : Chat with ai_
+*│*
+*│* 🕯️ \`Command${config.PREFIX}aiimg\`
+*│  ☛ Usage : ${config.PREFIX}aiimg [prompt]*
+*│* ✨ _Desc : Genarate ai photo_
+*│*
+*│* 🕯️ \`Command${config.PREFIX}aiimg2\`
+*│  ☛ Usage : ${config.PREFIX}aiimg2 [prompt]*
+*│* ✨ _Desc : Genarate ai photo_
+*│*
+*│┤ ✍️ Text Commands*
+*│*
+*│* 🕯️ \`Command${config.PREFIX}font\`
+*│  ☛ Usage : ${config.PREFIX}font [text]*
+*│* ✨ _Desc : genarate text with style fonts_
+*│*
+*│┤ 🖼️ *Image Command*
+*│*
+*│* 🕯️ \`Command${config.PREFIX}getdp\`
+*│  ☛ Usage : ${config.PREFIX}getdp [number]*
+*│* ✨ _Desc : Get user progile pic_
+*│*
+*│┤ 💾 Media saver*
+*│*
+*│* 🕯️ \`Command${config.PREFIX}save\`
+*│  ☛ Usage : ${config.PREFIX}save (reply to status or once view)*
+*│*
 *╰──────────⦁✦⦁*
 
-㋚ 𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 𝐌𝙸𝙽𝙸
+> ㋚ 𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 𝐌𝙸𝙽𝙸
 `.trim();
 
     const buttons = [
-      { buttonId: `${config.PREFIX}menu`, buttonText: { displayText: "📄 𝐌𝙰𝙸𝙽 𝐌𝙴𝙽𝚄" }, type: 1 },
-      { buttonId: `${config.PREFIX}download`, buttonText: { displayText: "📥 𝐃𝙾𝚆𝙽𝙻𝙾𝙰𝙳 𝐌𝙴𝙽𝚄" }, type: 1 }
+      { buttonId: `${config.PREFIX}menu`, buttonText: { displayText: "㋚ 𝐌𝐄𝐍𝐔" }, type: 1 },
+      { buttonId: `${config.PREFIX}download`, buttonText: { displayText: "㋚ 𝐃𝐎𝐖𝐍𝐋𝐎𝐀𝐃" }, type: 1 }
     ];
 
     await socket.sendMessage(sender, {
