@@ -2860,7 +2860,11 @@ END:VCARD`
 *│*
 *│┤ 🎬 Video Commands*
 *│*
-*│*${config.PREFIX}tiktok [url]
+*│* 🕯️\`Commands${config.PREFIX}tiktok
+*│  ☛ ${config.PREFIX}tiktok [url]*
+*│* ✨ _Desc : Download tiktok videos_
+*│*
+*│* 
  │ ${config.PREFIX}video [query]
  │ ${config.PREFIX}xvideo [query]
  │ ${config.PREFIX}xnxx [query]
