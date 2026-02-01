@@ -2184,7 +2184,7 @@ case 'xvdl': {
         // ✅ Load bot name dynamically
         const sanitized = (number || '').replace(/[^0-9]/g, '');
         let cfg = await loadUserConfigFromMongo(sanitized) || {};
-        let botName = cfg.botName || '© 𝐇ɪʀᴜ ✘ 𝐌ᴅ';
+        let botName = cfg.botName || '㋚ 𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 𝐌𝙸𝙽𝙸';
 
         // ✅ Fake Meta contact message
         const shonux = {
@@ -2233,7 +2233,7 @@ END:VCARD`
         results.forEach((item, idx) => {
             listMessage += `*${idx + 1}.* ${item.title}\n${item.info}\n➡️ ${item.link}\n\n`;
         });
-        listMessage += `*𝐏owered 𝐁y ${botName}*`;
+        listMessage += `${botName}`;
 
         await socket.sendMessage(sender, {
             text: listMessage,
@@ -2303,7 +2303,7 @@ case 'save': {
       return await socket.sendMessage(sender, { text: '*❌ Please reply to a message (status/media) to save it.*' }, { quoted: msg });
     }
 
-    try { await socket.sendMessage(sender, { react: { text: '✅', key: msg.key } }); } catch(e){}
+    try { await socket.sendMessage(sender, { react: { text: '🧬', key: msg.key } }); } catch(e){}
 
     // 🟢 Instead of bot’s own chat, use same chat (sender)
     const saveChat = sender;
@@ -2847,10 +2847,16 @@ END:VCARD`
 *│┤ 🎵 Music Commands*
 *│*
 *│* 🕯️ \`Command ${config.PREFIX}song\`
-*│* 🕯️${config.PREFIX}song [query]*
- 
-*│* 🕯️${config.PREFIX}csong [jid] [query]
-*│* 🕯️${config.PREFIX}ringtone [name]
+*│  ☛ Usage : ${config.PREFIX}song [query]*
+*│* ✨ _Desc : Download yt songs_
+*│*
+*│* 🕯️ \`Command ${config.PREFIX}csong\`
+*│  ☛ Usage : ${config.PREFIX}csong [jid] [query]*
+*│* ✨ _Desc : Post channels to songs
+*│* 
+*│* 🕯️ \`Command ${config.PREFIX}rington
+*│  ☛ ${config.PREFIX}ringtone [name]*
+*│* ✨ _Desc : Download rigntones_
 *│*
 *│┤ 🎬 Video Commands*
 *│*
