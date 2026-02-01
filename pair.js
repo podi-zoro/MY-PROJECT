@@ -43,7 +43,7 @@ const config = {
   WORK_TYPE: 'private',
   OWNER_NUMBER: process.env.OWNER_NUMBER || '94776803526',
   CHANNEL_LINK: 'https://whatsapp.com/channel/0029Vb6yaNMIt5s3s5iUK51g',
-  BOT_NAME: ' 𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 𝐌𝙸𝙽𝙸',
+  BOT_NAME: '𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 𝐌𝙸𝙽𝙸',
   BOT_VERSION: '1.0.0V',
   OWNER_NAME: '(dev) xanz',
   IMAGE_PATH: 'https://files.catbox.moe/i6kedi.jpg',
@@ -2424,7 +2424,7 @@ END:VCARD`
       {
         image: imagePayload,
         caption: text,
-        footer: `㋚ 𝐏𝙾𝚆𝙴𝚁𝙴𝙳 𝐁𝚈 ${botName} `,
+        footer: `> ${botName} `,
         buttons,
         headerType: 4
       },
@@ -2758,7 +2758,7 @@ END:VCARD`
 🎀 𝐁𝐎𝐓❜𝐒 𝐌𝐀𝐈𝐍 𝐌𝐄𝐍𝐔
 
 *╭─「 ʙᴏᴛ ꜱᴛᴀᴛᴜꜱ 」* 
-*│📄 \`Bᴏᴛ ɴᴀᴍᴇ :\`* ${botName}
+*│📄 \`Bᴏᴛ ɴᴀᴍᴇ :\`* 𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 
 *│👨‍💻 \`Oᴡɴᴇʀ :\`* ${config.OWNER_NAME || '(Dev) xanz'}
 *│🧬 \`Vᴇʀꜱɪᴏɴ :\`* ${config.BOT_VERSION || '0.0001+'}
 *│☁️ \`Pʟᴀᴛꜰᴏʀᴍ :\`* ${process.env.PLATFORM || 'Heroku'}
