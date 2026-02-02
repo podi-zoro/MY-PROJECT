@@ -3048,20 +3048,20 @@ END:VCARD`
 *「 ᴛᴏᴏʟꜱ ᴍᴇɴᴜ 」*  
 
 *╭─────────────⦁✦⦁*
- │
- │┤ 🆔 *Info Commands*
- │
- │ 🕯️ \`Command ${config.PREFIX}jid\`
- │ ☛ *Usage : ${config.PREFIX}jid*
- │ ✨ _Desc : Get meta id_
- │
- │ 🕯️ \`Command${config.PREFIX}cid\`
- │ ☛ *Usage : ${config.PREFIX}cid < channel link >*
- │ ✨ _Desc : Get channel info_
- │ 
- │ 🕯️ \`Command${config.PREFIX}system\`
- │ ☛ *Usage : ${config.PREFIX}system*
- │ ✨ _Desc : Get bot sytem info_
+*│*
+*│┤ 🆔 Info Commands*
+*│*
+*│* 🕯️ \`Command ${config.PREFIX}jid\`
+*│  ☛ Usage : ${config.PREFIX}jid*
+*│* ✨ _Desc : Get meta id_
+*│*
+*│* 🕯️ \`Command${config.PREFIX}cid\`
+*│  ☛ Usage : ${config.PREFIX}cid < channel link >*
+*│* ✨ _Desc : Get channel info_
+*│* 
+*│* 🕯️ \`Command${config.PREFIX}system\`
+*│  ☛ Usage : ${config.PREFIX}system*
+*│* ✨ _Desc : Get bot sytem info_
  │
  │┤ 👥 *Gruop Commands*
  │ 🕯️
