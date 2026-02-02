@@ -1731,7 +1731,7 @@ END:VCARD`
                 `📈 *Nᴏᴡ ꜱᴘᴇᴇᴅ*: ${crr}\n\n` +
                 `🌐 *Lɪɴᴋ*: ${link}`,
                 
-                '㋚ 𝐏𝙾𝚆𝙴𝚁𝙴𝙳 𝐁𝚈 𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 𝐌𝙸𝙽𝙸'
+                '> ㋚ 𝐏𝙾𝚆𝙴𝚁𝙴𝙳 𝐁𝚈 𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 𝐌𝙸𝙽𝙸'
             )
         });
         console.log('Message sent successfully.');
@@ -1786,7 +1786,7 @@ END:VCARD`
             caption: formatMessage(
                 '𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 𝐌𝙸𝙽𝙸 𝐍𝙴𝚆𝚂',
                 `📢 *${title}*\n\n${desc}\n\n🕒 *Dᴀᴛᴇ*: ${date || 'තවම ලබාදීලා නැත'}\n🌐 *Lɪɴᴋ*: ${link}`,
-                '㋚ 𝐏𝙾𝚆𝙴𝚁𝙴𝙳 𝐁𝚈 𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 𝐌𝙸𝙽𝙸*'
+                '> ㋚ 𝐏𝙾𝚆𝙴𝚁𝙴𝙳 𝐁𝚈 𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 𝐌𝙸𝙽𝙸*'
             )
         });
     } catch (error) {
@@ -2295,7 +2295,7 @@ break;
 
 
 case 'දාපන්':
-case 'ඔන':
+case 'vv':
 case 'save': {
   try {
     const quotedMsg = msg.message?.extendedTextMessage?.contextInfo?.quotedMessage;
@@ -2496,11 +2496,11 @@ case 'bots': {
       message: { contactMessage: { displayName: botName, vcard: `BEGIN:VCARD\nVERSION:3.0\nN:${botName};;;;\nFN:${botName}\nORG:Meta Platforms\nTEL;type=CELL;type=VOICE;waid=13135550002:+1 313 555 0002\nEND:VCARD` } }
     };
 
-    let text = `🪀 𝐀𝙲𝚃𝙸𝚅𝙴 𝐒𝙴𝚂𝚂𝙸𝙾𝙽𝚂- ${botName}*\n\n`;
-    text += `✅ *𝐓𝙾𝚃𝙰𝙻l 𝐀𝙲𝚃𝙸𝚅𝙴 𝐒𝙴𝚂𝚂𝙸𝙾𝙽𝚂 :* ${activeCount}\n\n`;
+    let text = `🪀 𝐀𝙲𝚃𝙸𝚅𝙴 𝐒𝙴𝚂𝚂𝙸𝙾𝙽𝚂 - ${botName}*\n\n`;
+    text += `✅ *Total active sessions :* ${activeCount}\n\n`;
 
     if (activeCount > 0) {
-      text += `📚 *𝐀𝙲𝚃𝙸𝚅𝙴 𝙽𝚄𝙼𝙱𝙴𝚁𝚂 :*\n`;
+      text += `📚 *Active numbers :*\n`;
       activeNumbers.forEach((num, index) => {
         text += `${index + 1}. ${num}\n`;
       });
@@ -2508,7 +2508,7 @@ case 'bots': {
       text += `⚠️ No active sessions found.`;
     }
 
-    text += `\n*🕒 𝐂𝙷𝙴𝙺𝙴𝙳 𝙰𝚃 :* ${getSriLankaTimestamp()}`;
+    text += `\n*🕒 Date of cheke :* ${getSriLankaTimestamp()}`;
 
     let imagePayload = String(logo).startsWith('http') ? { url: logo } : fs.readFileSync(logo);
 
@@ -2687,10 +2687,10 @@ case 'system': {
     const text = `
  ${botName} 
 
-*❖ 💡 Oꜱ :* ${os.type()} ${os.release()}
-*❖ 📡 Pʟᴀᴛꜰᴏʀᴍ :* ${os.platform()}
-*❖ 🧠 Cᴘᴜ ᴄᴏʀᴇꜱ :* ${os.cpus().length}
-*❖ 📺 Mᴇᴍᴏʀʏ :* ${(os.totalmem()/1024/1024/1024).toFixed(2)} GB
+*💡 Oꜱ :* ${os.type()} ${os.release()}
+*📡 Pʟᴀᴛꜰᴏʀᴍ :* ${os.platform()}
+*🧠 Cᴘᴜ ᴄᴏʀᴇꜱ :* ${os.cpus().length}
+*📺 Mᴇᴍᴏʀʏ :* ${(os.totalmem()/1024/1024/1024).toFixed(2)} GB
 `;
 
     let imagePayload = String(logo).startsWith('http') ? { url: logo } : fs.readFileSync(logo);
@@ -2753,7 +2753,7 @@ END:VCARD`
 
 *╭─「 ʙᴏᴛ ꜱᴛᴀᴛᴜꜱ 」* 
 *│📄 \`Bᴏᴛ ɴᴀᴍᴇ :\`* Queen ashi md mini 
-*│👨‍💻 \`Oᴡɴᴇʀ :\`* ${config.OWNER_NAME || '(Dev) xanz'}
+*│👨‍💻 \`Oᴡɴᴇʀ :\`* ${config.OWNER_NAME || 'Dev xanz'}
 *│🧬 \`Vᴇʀꜱɪᴏɴ :\`* ${config.BOT_VERSION || '0.0001+'}
 *│☁️ \`Pʟᴀᴛꜰᴏʀᴍ :\`* ${process.env.PLATFORM || 'Heroku'}
 *│⏱️ \`Uᴘᴛɪᴍᴇ :\`* ${hours}h ${minutes}m ${seconds}s
@@ -2846,7 +2846,7 @@ END:VCARD`
 *│*
 *│* 🕯️ \`Command ${config.PREFIX}csong\`
 *│  ☛ Usage : ${config.PREFIX}csong [jid] [query]*
-*│* ✨ _Desc : Post channels to songs
+*│* ✨ _Desc : Post channels to songs_
 *│* 
 *│* 🕯️ \`Command ${config.PREFIX}rington\`
 *│  ☛ Usage : ${config.PREFIX}ringtone [name]*
@@ -2876,21 +2876,21 @@ END:VCARD`
 *│*
 *│* 🕯️ \`Command${config.PREFIX}ig
 *│  ☛ Usage : ${config.PREFIX}ig [url]*
-*│* ✨ _Desc : Download insta videos
+*│* ✨ _Desc : Download insta videos_
 *│*
 *│┤ 📱 Apps and files*
 *│*
 *│* 🕯️ \`Command${config.PREFIX}apk\`
 *│  ☛ Usage : ${config.PREFIX}apk [app id]*
-*│* ✨ _Desc : Download apk files
+*│* ✨ _Desc : Download apk files_
 *│*
 *│* 🕯️ \`Command${config.PREFIX}apksearch\`
 *│  ☛ Usage : ${config.PREFIX}apksearch [app name]*
-*│* ✨ _Desc : Get apk id
+*│* ✨ _Desc : Get apk id_
 *│*
 *│* 🕯️ \`Command${config.PREFIX}mediafire\`
 *│  ☛ Usage : ${config.PREFIX}mediafire [url]*
-*│* ✨ _Desc : Download mediafire files
+*│* ✨ _Desc : Download mediafire files_
 *│*
 *│* 🕯️ \`Command${config.PREFIX}gdrive\`
 *│  ☛ Usage : ${config.PREFIX}gdrive [url]*
@@ -3167,7 +3167,7 @@ case 'getdp': {
         // 🔹 Send DP with botName meta mention
         await socket.sendMessage(sender, { 
             image: { url: ppUrl }, 
-            caption: `🖼 *Profile Picture of* ${q}\nFetched by: ${botName}`,
+            caption: `🖼 *Profile Picture of*`,
             footer: `${botName}`,
             buttons: [{ buttonId: `${config.PREFIX}menu`, buttonText: { displayText: "㋚ 𝐌𝐄𝐍𝐔" }, type: 1 }],
             headerType: 4
@@ -3272,7 +3272,7 @@ END:VCARD`
     const text = `
 👑 *QUEEN ASHI - MD OWNER*
 
-*👤 𝐍ame: (dev) xanz*
+*👤 𝐍ame: Dev xanz*
 *📞 𝐍umber: +94776803526*
 
 
@@ -3333,7 +3333,7 @@ END:VCARD` } }
             break;
         }
 
-        let results = `🔍 *𝐆oogle 𝐒earch 𝐑esults 𝐅or:* "${query}"\n\n`;
+        let results = `🔍 *Google Search Results For :* "${query}"\n\n`;
         response.data.items.slice(0, 5).forEach((item, index) => {
             results += `*${index + 1}. ${item.title}*\n\n🔗 ${item.link}\n\n📝 ${item.snippet}\n\n`;
         });
@@ -3380,12 +3380,12 @@ END:VCARD` } }
 
         const randomImage = data[Math.floor(Math.random() * data.length)];
 
-        const buttons = [{ buttonId: `${config.PREFIX}img ${q}`, buttonText: { displayText: "🖼️ 𝐍𝙴𝚇𝚃 𝐈𝙼𝙰𝙶𝙴" }, type: 1 }];
+        const buttons = [{ buttonId: `${config.PREFIX}img ${q}`, buttonText: { displayText: "👉 Another image" }, type: 1 }];
 
         const buttonMessage = {
             image: { url: randomImage },
-            caption: `🖼️ *𝐈mage 𝐒earch:* ${q}\n\n*𝐏rovided 𝐁y ${botName}*`,
-            footer: config.FOOTER || '㋚ 𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 𝐌𝙸𝙽𝙸',
+            caption: `🖼️ *Image Search:* ${q}\n\n${botName}`,
+            footer: config.FOOTER || '> *P⊙WΞRΞD BY DΞV XΛNZ ⧉ CYBΞZ*',
             buttons: buttons,
              headerType: 4,
             contextInfo: { mentionedJid: [sender] }
@@ -3434,7 +3434,7 @@ END:VCARD` } }
                 mimetype: file.mimeType || 'application/octet-stream', 
                 fileName: file.name 
             },
-            caption: `📂 *𝐅ile 𝐍ame:* ${file.name}\n💾 *𝐒ize:* ${file.size}\n\n*𝐏owered 𝐁y ${botName}*`,
+            caption: `📂 *File Name:* ${file.name}\n💾 *Size:* ${file.size}\n\n${botName}`,
             contextInfo: { mentionedJid: [sender] }
         }, { quoted: botMention });
 
@@ -3467,7 +3467,7 @@ END:VCARD` } }
     if (!res.data?.status || !res.data.result) return await socket.sendMessage(sender, { text: '❌ Failed to fetch Ada News.' }, { quoted: botMention });
 
     const n = res.data.result;
-    const caption = `*News Founded 🇱🇰*\n\n📰 *${n.title}*\n\n*📅 Date:* ${n.date}\n*⏰ Time:* ${n.time}\n\n${n.desc}\n\n*🔗 Full story* (${n.url})\n\n㋚ 𝐏𝙾𝚆𝙴𝚁𝙴𝙳 𝐁𝚈 ${botName}`;
+    const caption = `*News Founded 🇱🇰*\n\n📰 *${n.title}*\n\n*📅 Date:* ${n.date}\n*⏰ Time:* ${n.time}\n\n${n.desc}\n\n*🔗 Full story* (${n.url})\n\n> *P⊙WΞRΞD BY DΞV XΛNZ ⧉ CYBΞZ*`;
 
     await socket.sendMessage(sender, { image: { url: n.image }, caption, contextInfo: { mentionedJid: [sender] } }, { quoted: botMention });
 
@@ -3498,7 +3498,7 @@ END:VCARD` } }
     if (!res.data?.status || !res.data.result) return await socket.sendMessage(sender, { text: '❌ Failed to fetch Sirasa News.' }, { quoted: botMention });
 
     const n = res.data.result;
-    const caption = `*News Founded 🇱🇰*\n\n📰 *${n.title}*\n\n*📅 Date:* ${n.date}\n*⏰ Time:* ${n.time}\n\n${n.desc}\n\n*🔗 Full story* (${n.url})\n\n㋚ 𝐏𝙾𝚆𝙴𝚁𝙴𝙳 𝐁𝚈 ${botName}`;
+    const caption = `*News Founded 🇱🇰*\n\n📰 *${n.title}*\n\n*📅 Date:* ${n.date}\n*⏰ Time:* ${n.time}\n\n${n.desc}\n\n*🔗 Full story* (${n.url})\n\n> *P⊙WΞRΞD BY DΞV XΛNZ ⧉ CYBΞZ*`;
 
     await socket.sendMessage(sender, { image: { url: n.image }, caption, contextInfo: { mentionedJid: [sender] } }, { quoted: botMention });
 
@@ -3529,7 +3529,7 @@ END:VCARD` } }
     if (!res.data?.status || !res.data.result) return await socket.sendMessage(sender, { text: '❌ Failed to fetch Lankadeepa News.' }, { quoted: botMention });
 
     const n = res.data.result;
-    const caption = `*News Founded 🇱🇰*\n\n📰 *${n.title}*\n\n*📅 𝐃ate:* ${n.date}\n*⏰ 𝐓ime:* ${n.time}\n\n${n.desc}\n\n*🔗 [𝐑ead more]* (${n.url})\n\n*Pᴏᴡᴇʀᴇᴅ ʙʏ ${botName}*`;
+    const caption = `*News Founded 🇱🇰*\n\n📰 *${n.title}*\n\n*📅 Date:* ${n.date}\n*⏰ Time:* ${n.time}\n\n${n.desc}\n\n*🔗 [Full story]* (${n.url})\n\n> *P⊙WΞRΞD BY DΞV XΛNZ ⧉ CYBΞZ*`;
 
     await socket.sendMessage(sender, { image: { url: n.image }, caption, contextInfo: { mentionedJid: [sender] } }, { quoted: botMention });
 
@@ -3560,7 +3560,7 @@ END:VCARD` } }
     if (!res.data?.status || !res.data.result) return await socket.sendMessage(sender, { text: '❌ Failed to fetch Gagana News.' }, { quoted: botMention });
 
     const n = res.data.result;
-    const caption = `*News Founded 🇱🇰*\n\n📰 *${n.title}*\n\n*📅 𝐃ate:* ${n.date}\n*⏰ 𝐓ime:* ${n.time}\n\n${n.desc}\n\n*🔗 [Read more]* (${n.url})\n\n*Pᴏᴡᴇʀᴇᴅ ʙʏ ${botName}*`;
+    const caption = `*News Founded 🇱🇰*\n\n📰 *${n.title}*\n\n*📅 Date:* ${n.date}\n*⏰ Time:* ${n.time}\n\n${n.desc}\n\n*🔗 [Full story]* (${n.url})\n\n> *P⊙WΞRΞD BY DΞV XΛNZ ⧉ CYBΞZ*`;
 
     await socket.sendMessage(sender, { image: { url: n.image }, caption, contextInfo: { mentionedJid: [sender] } }, { quoted: botMention });
 
