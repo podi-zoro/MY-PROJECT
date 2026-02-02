@@ -2773,7 +2773,7 @@ END:VCARD`
  🕯️ ❯❯ 𝐒𝐄𝐓𝐓𝐈𝐍𝐆𝐒 𝐌𝐄𝐍𝐔
  🕯️ ❯❯ 𝐎𝐖𝐍𝐄𝐑 𝐌𝐄𝐍𝐔
 
-㋚ 𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 𝐌𝙸𝙽𝙸
+
 `.trim();
 
     const buttons = [
@@ -2797,7 +2797,7 @@ END:VCARD`
     await socket.sendMessage(sender, {
       image: imagePayload,
       caption: text,
-      footer: "",
+      footer: "㋚ 𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 𝐌𝙸𝙽𝙸",
       buttons,
       headerType: 4
     }, { quoted: shonux });
@@ -2904,7 +2904,7 @@ END:VCARD`
 *│*
 *╰──────────────⦁✦⦁*
 
-> ㋚ 𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 𝐌𝙸𝙽𝙸
+
 `.trim();
 
     const buttons = [
@@ -2914,7 +2914,7 @@ END:VCARD`
 
     await socket.sendMessage(sender, {
       text,
-      footer: "",
+      footer: "㋚ 𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 𝐌𝙸𝙽𝙸",
       buttons
     }, { quoted: shonux });
 
@@ -2993,7 +2993,7 @@ END:VCARD`
 *│*
 *╰──────────⦁✦⦁*
 
-> ㋚ 𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 𝐌𝙸𝙽𝙸
+
 `.trim();
 
     const buttons = [
@@ -3003,7 +3003,7 @@ END:VCARD`
 
     await socket.sendMessage(sender, {
       text,
-      footer: "",
+      footer: "㋚ 𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 𝐌𝙸𝙽𝙸",
       buttons
     }, { quoted: shonux });
 
@@ -3045,68 +3045,88 @@ END:VCARD`
     };
 
     const text = `
-*「 ᴛᴏᴏʟꜱ ᴍᴇɴᴜ 」*  
+*「 ᴛᴏᴏʟꜱ ᴍᴇɴᴜ 」*
 
-*╭─────────────⦁✦⦁*
+*╭─────────────────⦁✦⦁*
 *│*
 *│┤ 🆔 Info Commands*
 *│*
-*│* 🕯️ \`Command ${config.PREFIX}jid\`
+*│* 🕯️ `Command ${config.PREFIX}jid`
 *│  ☛ Usage : ${config.PREFIX}jid*
 *│* ✨ _Desc : Get meta id_
 *│*
-*│* 🕯️ \`Command${config.PREFIX}cid\`
-*│  ☛ Usage : ${config.PREFIX}cid < channel link >*
+*│* 🕯️ `Command ${config.PREFIX}cid`
+*│  ☛ Usage : ${config.PREFIX}cid [channel link]*
 *│* ✨ _Desc : Get channel info_
-*│* 
-*│* 🕯️ \`Command${config.PREFIX}system\`
+*│*
+*│* 🕯️ `Command ${config.PREFIX}system`
 *│  ☛ Usage : ${config.PREFIX}system*
-*│* ✨ _Desc : Get bot sytem info_
- │
- │┤ 👥 *Gruop Commands*
- │ 🕯️
- │ ${config.PREFIX}tagall [message]
- │ ${config.PREFIX}online
- │
- │ 📰 *𝐍ews 𝐓ools*
- │ ${config.PREFIX}adanews
- │ ${config.PREFIX}sirasanews 
- │ ${config.PREFIX}lankadeepanews
- │ ${config.PREFIX}gagananews
- │
- │ *𝐔ser 𝐌anagement*
- │ ${config.PREFIX}block [number]
- │ ${config.PREFIX}unblock [number]
- │ ${config.PREFIX}prefix
- │ ${config.PREFIX}autorecording
- │ ${config.PREFIX}mread
- │ ${config.PREFIX}creject
- │ ${config.PREFIX}wtyp
- │ ${config.PREFIX}arm
- │ ${config.PREFIX}rstatus
- │ ${config.PREFIX}botpresence
- │
- │
- │ 👥 *𝐆oogle 𝐒earch 𝐓ools*
- │ ${config.PREFIX}img [query]
- │ ${config.PREFIX}google [query]
- │
- │ 📊 *𝐁ot 𝐒tatus*
- │ ${config.PREFIX}ping
- │ ${config.PREFIX}alive
-*╰─────────────⦁✦⦁*
+*│* ✨ _Desc : Get bot system info_
+*│*
+*│┤ 👥 Group Commands*
+*│*
+*│* 🕯️ `Command ${config.PREFIX}tagall`
+*│  ☛ Usage : ${config.PREFIX}tagall [message]*
+*│* ✨ _Desc : Tag all members_
+*│*
+*│* 🕯️ `Command ${config.PREFIX}online`
+*│  ☛ Usage : ${config.PREFIX}online*
+*│* ✨ _Desc : Show online members_
+*│*
+*│┤ 📰 News Tools*
+*│*
+*│* 🕯️ `Command ${config.PREFIX}adanews`
+*│* 🕯️ `Command ${config.PREFIX}sirasanews`
+*│* 🕯️ `Command ${config.PREFIX}lankadeepanews`
+*│* 🕯️ `Command ${config.PREFIX}gagananews`
+*│* ✨ _Desc : Latest Sri Lankan news_
+*│*
+*│┤ 👤 User Management*
+*│*
+*│* 🕯️ `Command ${config.PREFIX}block`
+*│  ☛ Usage : ${config.PREFIX}block [number]*
+*│*
+*│* 🕯️ `Command ${config.PREFIX}unblock`
+*│  ☛ Usage : ${config.PREFIX}unblock [number]*
+*│*
+*│* 🕯️ `Command ${config.PREFIX}prefix`
+*│* 🕯️ `Command ${config.PREFIX}autorecording`
+*│* 🕯️ `Command ${config.PREFIX}mread`
+*│* 🕯️ `Command ${config.PREFIX}creject`
+*│* 🕯️ `Command ${config.PREFIX}wtyp`
+*│* 🕯️ `Command ${config.PREFIX}arm`
+*│* 🕯️ `Command ${config.PREFIX}rstatus`
+*│* 🕯️ `Command ${config.PREFIX}botpresence`
+*│* ✨ _Desc : Bot control settings_
+*│*
+*│┤ 🌐 Google Search Tools*
+*│*
+*│* 🕯️ `Command ${config.PREFIX}img`
+*│  ☛ Usage : ${config.PREFIX}img [query]*
+*│*
+*│* 🕯️ `Command ${config.PREFIX}google`
+*│  ☛ Usage : ${config.PREFIX}google [query]*
+*│* ✨ _Desc : Search from Google_
+*│*
+*│┤ 📊 Bot Status*
+*│*
+*│* 🕯️ `Command ${config.PREFIX}ping`
+*│* 🕯️ `Command ${config.PREFIX}alive`
+*│* ✨ _Desc : Check bot status_
+*│*
+*╰─────────────────⦁✦⦁*
 
-㋚ 𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 𝐌𝙸𝙽𝙸
+
 `.trim();
 
     const buttons = [
-      { buttonId: `${config.PREFIX}menu`, buttonText: { displayText: "📄 𝐌𝙰𝙸𝙽 𝐌𝙴𝙽𝚄" }, type: 1 },
-      { buttonId: `${config.PREFIX}settings`, buttonText: { displayText: "⚙️ 𝐒𝙴𝚃𝚃𝙸𝙽𝙶𝚂 𝐌𝙴𝙽𝚄" }, type: 1 }
+      { buttonId: `${config.PREFIX}menu`, buttonText: { displayText: "㋚ 𝐌𝐄𝐍𝐔" }, type: 1 },
+      { buttonId: `${config.PREFIX}settings`, buttonText: { displayText: "㋚ 𝐒𝐄𝐓𝐓𝐈𝐍𝐆𝐒" }, type: 1 }
     ];
 
     await socket.sendMessage(sender, {
       text,
-      footer: "",
+      footer: "㋚ 𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 𝐌𝙸𝙽𝙸",
       buttons
     }, { quoted: shonux });
 
