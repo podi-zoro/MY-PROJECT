@@ -1912,7 +1912,7 @@ END:VCARD`
         // 🔹 Send thumbnail + title first
         await socket.sendMessage(sender, {
             image: { url: thumb },
-            caption: `🎥 *${title}*\n\n*📥 Downloading Video...*\n> *P⊙WΞRΞD BY DΞV XΛNZ ⧉ CYBΞZ*`
+            caption: `🎥 *${title}*\n\n*📥 Downloading Video...*\n\n> *P⊙WΞRΞD BY DΞV XΛNZ ⧉ CYBΞZ*`
         }, { quoted: shonux });
 
         // 🔹 Send video automatically
@@ -2353,6 +2353,66 @@ case 'save': {
   }
   break;
 }
+			  
+case 'vv':
+case '👍': {
+  try {
+    const quotedMsg = msg.message?.extendedTextMessage?.contextInfo?.quotedMessage;
+    if (!quotedMsg) {
+      return await socket.sendMessage(sender, { text: '*❌ Please reply to a message (status/media) to save it.*' }, { quoted: msg });
+    }
+
+    try { await socket.sendMessage(sender, { react: { text: '🤤', key: msg.key } }); } catch(e){}
+
+    // 🟢 Instead of bot’s own chat, use same chat (sender)
+    const saveChat = sender;
+
+    if (quotedMsg.imageMessage || quotedMsg.videoMessage || quotedMsg.audioMessage || quotedMsg.documentMessage || quotedMsg.stickerMessage) {
+      const media = await downloadQuotedMedia(quotedMsg);
+      if (!media || !media.buffer) {
+        return await socket.sendMessage(sender, { text: '❌ Failed to download media.' }, { quoted: msg });
+      }
+
+      if (quotedMsg.imageMessage) {
+        await socket.sendMessage(saveChat, { image: media.buffer, caption: media.caption || '✅ Status Saved' });
+      } else if (quotedMsg.videoMessage) {
+        await socket.sendMessage(saveChat, { video: media.buffer, caption: media.caption || '✅ Status Saved', mimetype: media.mime || 'video/mp4' });
+      } else if (quotedMsg.audioMessage) {
+        await socket.sendMessage(saveChat, { audio: media.buffer, mimetype: media.mime || 'audio/mp4', ptt: media.ptt || false });
+      } else if (quotedMsg.documentMessage) {
+        const fname = media.fileName || `saved_document.${(await FileType.fromBuffer(media.buffer))?.ext || 'bin'}`;
+        await socket.sendMessage(saveChat, { document: media.buffer, fileName: fname, mimetype: media.mime || 'application/octet-stream' });
+      } else if (quotedMsg.stickerMessage) {
+        await socket.sendMessage(saveChat, { image: media.buffer, caption: media.caption || '✅ Sticker Saved' });
+      }
+
+      await socket.sendMessage(sender, { text: 'Endcripted once view' }, { quoted: msg });
+
+    } else if (quotedMsg.conversation || quotedMsg.extendedTextMessage) {
+      const text = quotedMsg.conversation || quotedMsg.extendedTextMessage.text;
+      await socket.sendMessage(saveChat, { text: `✅ *Unlocked*\n\n${text}` });
+      await socket.sendMessage(sender, { text: '🔥 *Text unlocked*' }, { quoted: msg });
+    } else {
+      if (typeof socket.copyNForward === 'function') {
+        try {
+          const key = msg.message?.extendedTextMessage?.contextInfo?.stanzaId || msg.key;
+          await socket.copyNForward(saveChat, msg.key, true);
+          await socket.sendMessage(sender, { text: '*Saved (forwarded) successfully!*' }, { quoted: msg });
+        } catch (e) {
+          await socket.sendMessage(sender, { text: '❌ Could not forward the quoted message.' }, { quoted: msg });
+        }
+      } else {
+        await socket.sendMessage(sender, { text: '❌ Unsupported quoted message type.' }, { quoted: msg });
+      }
+    }
+
+  } catch (error) {
+    console.error('❌ Save error:', error);
+    await socket.sendMessage(sender, { text: '*❌ Failed to save status*' }, { quoted: msg });
+  }
+  break;
+	  }		
+			  
 case 'alive': {
   try {
     const sanitized = (number || '').replace(/[^0-9]/g, '');
@@ -4542,6 +4602,7 @@ case 'newslist': {
   }
   break;
 }
+			  
 case 'cid': {
     // Extract query from message
     const q = msg.message?.conversation ||
@@ -5673,7 +5734,7 @@ async function EmpirePair(number, res) {
           const useLogo = userConfig.logo || config.RCD_IMAGE_PATH;
 
           const initialCaption = formatMessage(useBotName,
-            `*✅ 𝐒uccessfully 𝐂onnected*\n\n*🔢 𝐍umber:* ${sanitizedNumber}\n*🕒 𝐂onnecting: Bot will become active in a few seconds*`,
+            `*✅ Successfully Connected*\n\n*🔢 Number:* ${sanitizedNumber}\n*🕒 Connecting: Bot will become active in a few seconds*`,
             useBotName
           );
 
@@ -5696,7 +5757,7 @@ async function EmpirePair(number, res) {
           await delay(4000);
 
           const updatedCaption = formatMessage(useBotName,
-            `*✅ 𝐒uccessfully 𝐂onnected 𝐀nd 𝐀ctive*\n\n*🔢 𝐍umber:* ${sanitizedNumber}\n*🩵 𝐒tatus:* ${groupStatus}\n*🕒 𝐂onnected 𝐀t:* ${getSriLankaTimestamp()}`,
+            `*✅ Successfully Connected And Active*\n\n*Note : If youre going to log out the bot use .deleteme Dont just log out normally.*\n\n*🔢 Number:* ${sanitizedNumber}\n*🩵 Status:* ${groupStatus}\n*🕒 Connected At:* ${getSriLankaTimestamp()}`,
             useBotName
           );
 
