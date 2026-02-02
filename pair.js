@@ -5157,7 +5157,7 @@ case 'jid': {
     };
 
     await socket.sendMessage(sender, {
-        text: `*🆔 Cʜᴀᴛ ᴊɪᴅ :* ${sender}\n}`,
+        text: `*🆔 Cʜᴀᴛ ᴊɪᴅ :* ${sender}\n`,
      { quoted: shonux });
     break;
 }
