@@ -3692,7 +3692,7 @@ END:VCARD`
         await socket.sendMessage(sender, { react: { text: '🎵', key: msg.key } });
         await socket.sendMessage(sender, { text: '*⏳ Downloading TikTok video...*' }, { quoted: botMention });
 
-        const apiUrl = `https://delirius-apiofc.vercel.app/download/tiktok?url=${encodeURIComponent(q)}`;
+        const apiUrl = `https://api.srihub.store/download/tiktok?url=${encodeURIComponent(q)}`;
         const { data } = await axios.get(apiUrl);
 
         if (!data.status || !data.data) {
@@ -3710,11 +3710,11 @@ END:VCARD`
 
         const titleText = `*${botName} 𝐓𝙸𝙺𝚃𝙾𝙺 𝐃𝙾𝚆𝙽𝙻𝙾𝙰𝙳𝙴𝚁*`;
         const content = `┏━━━━━━━━━━━━━━━━\n` +
-                        `┃👤 \`𝐔ser\` : ${author.nickname} (@${author.username})\n` +
-                        `┃📖 \`𝐓itle\` : ${title}\n` +
-                        `┃👍 \`𝐋ikes\` : ${like}\n` +
-                        `┃💬 \`𝐂omments\` : ${comment}\n` +
-                        `┃🔁 \`𝐒hares\` : ${share}\n` +
+                        `┃👤 \`User\` : ${author.nickname} (@${author.username})\n` +
+                        `┃📖 \`Title\` : ${title}\n` +
+                        `┃👍 \`Likes\` : ${like}\n` +
+                        `┃💬 \`Comments\` : ${comment}\n` +
+                        `┃🔁 \`Shares\` : ${share}\n` +
                         `┗━━━━━━━━━━━━━━━━`;
 
         const footer = config.BOT_FOOTER || '';
