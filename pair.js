@@ -3051,67 +3051,67 @@ END:VCARD`
 *│*
 *│┤ 🆔 Info Commands*
 *│*
-*│* 🕯️ `Command ${config.PREFIX}jid`
+*│* 🕯️ \`Command ${config.PREFIX}jid\`
 *│  ☛ Usage : ${config.PREFIX}jid*
 *│* ✨ _Desc : Get meta id_
 *│*
-*│* 🕯️ `Command ${config.PREFIX}cid`
+*│* 🕯️ \`Command ${config.PREFIX}cid\`
 *│  ☛ Usage : ${config.PREFIX}cid [channel link]*
 *│* ✨ _Desc : Get channel info_
 *│*
-*│* 🕯️ `Command ${config.PREFIX}system`
+*│* 🕯️ \`Command ${config.PREFIX}system\`
 *│  ☛ Usage : ${config.PREFIX}system*
 *│* ✨ _Desc : Get bot system info_
 *│*
 *│┤ 👥 Group Commands*
 *│*
-*│* 🕯️ `Command ${config.PREFIX}tagall`
+*│* 🕯️ \`Command ${config.PREFIX}tagall\`
 *│  ☛ Usage : ${config.PREFIX}tagall [message]*
 *│* ✨ _Desc : Tag all members_
 *│*
-*│* 🕯️ `Command ${config.PREFIX}online`
+*│* 🕯️ \`Command ${config.PREFIX}online\`
 *│  ☛ Usage : ${config.PREFIX}online*
 *│* ✨ _Desc : Show online members_
 *│*
 *│┤ 📰 News Tools*
 *│*
-*│* 🕯️ `Command ${config.PREFIX}adanews`
-*│* 🕯️ `Command ${config.PREFIX}sirasanews`
-*│* 🕯️ `Command ${config.PREFIX}lankadeepanews`
-*│* 🕯️ `Command ${config.PREFIX}gagananews`
+*│* 🕯️ \`Command ${config.PREFIX}adanews\`
+*│* 🕯️ \`Command ${config.PREFIX}sirasanews\`
+*│* 🕯️ \`Command ${config.PREFIX}lankadeepanews\`
+*│* 🕯️ \`Command ${config.PREFIX}gagananews\`
 *│* ✨ _Desc : Latest Sri Lankan news_
 *│*
 *│┤ 👤 User Management*
 *│*
-*│* 🕯️ `Command ${config.PREFIX}block`
+*│* 🕯️ \`Command ${config.PREFIX}block\`
 *│  ☛ Usage : ${config.PREFIX}block [number]*
 *│*
-*│* 🕯️ `Command ${config.PREFIX}unblock`
+*│* 🕯️ \`Command ${config.PREFIX}unblock\`
 *│  ☛ Usage : ${config.PREFIX}unblock [number]*
 *│*
-*│* 🕯️ `Command ${config.PREFIX}prefix`
-*│* 🕯️ `Command ${config.PREFIX}autorecording`
-*│* 🕯️ `Command ${config.PREFIX}mread`
-*│* 🕯️ `Command ${config.PREFIX}creject`
-*│* 🕯️ `Command ${config.PREFIX}wtyp`
-*│* 🕯️ `Command ${config.PREFIX}arm`
-*│* 🕯️ `Command ${config.PREFIX}rstatus`
-*│* 🕯️ `Command ${config.PREFIX}botpresence`
+*│* 🕯️ \`Command ${config.PREFIX}prefix\`
+*│* 🕯️ \`Command ${config.PREFIX}autorecording\`
+*│* 🕯️ \`Command ${config.PREFIX}mread\`
+*│* 🕯️ \`Command ${config.PREFIX}creject\`
+*│* 🕯️ \`Command ${config.PREFIX}wtyp\`
+*│* 🕯️ \`Command ${config.PREFIX}arm\`
+*│* 🕯️ \`Command ${config.PREFIX}rstatus\`
+*│* 🕯️ \`Command ${config.PREFIX}botpresence\`
 *│* ✨ _Desc : Bot control settings_
 *│*
 *│┤ 🌐 Google Search Tools*
 *│*
-*│* 🕯️ `Command ${config.PREFIX}img`
+*│* 🕯️ \`Command ${config.PREFIX}img\`
 *│  ☛ Usage : ${config.PREFIX}img [query]*
 *│*
-*│* 🕯️ `Command ${config.PREFIX}google`
+*│* 🕯️ \`Command ${config.PREFIX}google\`
 *│  ☛ Usage : ${config.PREFIX}google [query]*
 *│* ✨ _Desc : Search from Google_
 *│*
 *│┤ 📊 Bot Status*
 *│*
-*│* 🕯️ `Command ${config.PREFIX}ping`
-*│* 🕯️ `Command ${config.PREFIX}alive`
+*│* 🕯️ \`Command ${config.PREFIX}ping\`
+*│* 🕯️ \`Command ${config.PREFIX}alive\`
 *│* ✨ _Desc : Check bot status_
 *│*
 *╰─────────────────⦁✦⦁*
