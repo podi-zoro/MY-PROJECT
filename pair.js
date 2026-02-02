@@ -33,7 +33,7 @@ const config = {
   AUTO_VIEW_STATUS: 'true',
   AUTO_LIKE_STATUS: 'true',
   AUTO_RECORDING: 'false',
-  AUTO_LIKE_EMOJI:  ['☘️','💗','🫂','🙈','🍁','🙃','🧸','😘','🏴‍☠️','👀','❤️‍🔥'],
+  AUTO_LIKE_EMOJI:  ['🎀','💗','🪼','🦄','🍒','🍫','🧸','☁️','🌟','👀','💎'],
   PREFIX: '.',
   MAX_RETRIES: 3,
   GROUP_INVITE_LINK: 'https://chat.whatsapp.com/I3ba6t5v1po8YIgKkgd1mG',
@@ -2774,8 +2774,7 @@ END:VCARD`
       { buttonId: `${config.PREFIX}download`, buttonText: { displayText: "㋚ 𝐃𝐎𝐖𝐍𝐋𝐎𝐀𝐃" }, type: 1 },
       { buttonId: `${config.PREFIX}creative`, buttonText: { displayText: "㋚ 𝐂𝐑𝐄𝐀𝐓𝐈𝐕𝐄" }, type: 1 },
       { buttonId: `${config.PREFIX}tools`, buttonText: { displayText: "㋚ 𝐓𝐎𝐎𝐋𝐒" }, type: 1 },
-      { buttonId: `${config.PREFIX}settings`, buttonText: { displayText: "㋚ 𝐒𝐄𝐓𝐓𝐈𝐍𝐆𝐒" }, type: 1 },
-      { buttonId: `${config.PREFIX}owner`, buttonText: { displayText: "㋚ 𝐎𝐖𝐍𝐄𝐑" }, type: 1 }
+      { buttonId: `${config.PREFIX}settings`, buttonText: { displayText: "㋚ 𝐒𝐄𝐓𝐓𝐈𝐍𝐆𝐒" }, type: 1 }
     ];
 
     const defaultImg = 'https://files.catbox.moe/i6kedi.jpg';
@@ -2906,8 +2905,10 @@ END:VCARD`
       { buttonId: `${config.PREFIX}creative`, buttonText: { displayText: "㋚ 𝐂𝐑𝐄𝐀𝐓𝐈𝐕𝐄" }, type: 1 }
     ];
 
+     // 🔹 ONLY ADDITION: image + caption
     await socket.sendMessage(sender, {
-      text,
+      image: { url: 'https://files.catbox.moe/i6kedi.jpg' },
+      caption: text,
       footer: "㋚ 𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 𝐌𝙸𝙽𝙸",
       buttons
     }, { quoted: shonux });
@@ -4619,7 +4620,7 @@ END:VCARD`
 👥 *Fᴏʟʟᴏᴡᴇʀꜱ :* ${metadata.subscribers?.toLocaleString() || 'N/A'}
 📅 *Cʀᴇᴀᴛᴇᴅ ᴏɴ :* ${metadata.creation_time ? new Date(metadata.creation_time * 1000).toLocaleString("si-LK") : 'Unknown'}
 
-㋚ 𝐏𝙾𝚆𝙴𝚁𝙴𝙳 𝐁𝚈 ${botName}
+> *QUEΞN ΑSHI MD ⧉ OFC*
 `;
 
         // Send preview if available
@@ -4766,9 +4767,9 @@ case 'tagall': {
       message: { contactMessage: { displayName: botName, vcard: `BEGIN:VCARD\nVERSION:3.0\nN:${botName};;;;\nFN:${botName}\nORG:Meta Platforms\nTEL;type=CELL;type=VOICE;waid=13135550002:+1 313 555 0002\nEND:VCARD` } }
     };
 
-    let caption = `📎 Tag all \n\n`;
+    let caption = `*📎 Tag all*\n\n`;
     caption += `📌 *Gruop :* ${groupName}\n`;
-    caption += `👥 Members :* ${totalMembers}\n`;
+    caption += `👥 *Members :* ${totalMembers}\n`;
     caption += `💬 *Message :* ${text}\n\n`;
     caption += `*\`✨ Mentioning all members below\`*\n\n`;
     for (const m of participants) {
@@ -4776,7 +4777,7 @@ case 'tagall': {
       if (!id) continue;
       caption += `${randomEmoji} @${id.split('@')[0]}\n`;
     }
-    caption += `\n✦⦁✦━━━━━━❖ ${botName} ❖━━━━━━✦⦁✦`;
+    caption += `\n✦⦁✦━━━━❖ ${botName} ❖━━━━✦⦁✦`;
 
     await socket.sendMessage(from, {
       image: { url: groupPP },
@@ -4969,7 +4970,7 @@ case 'online': {
       message: { contactMessage: { displayName: botName, vcard: `BEGIN:VCARD\nVERSION:3.0\nN:${botName};;;;\nFN:${botName}\nORG:Meta Platforms\nTEL;type=CELL;type=VOICE;waid=13135550002:+1 313 555 0002\nEND:VCARD` } }
     };
 
-    let txt = `🟢 *Oɴʟɪɴᴇ ᴍᴇᴍʙᴇʀꜱ :*${onlineArray.length}/${participants.length}\n\n`;
+    let txt = `🟢 *Oɴʟɪɴᴇ ᴍᴇᴍʙᴇʀꜱ :* ${onlineArray.length}/${participants.length}\n\n`;
     onlineArray.forEach((jid, i) => {
       txt += `${i+1}. @${jid.split('@')[0]}\n`;
     });
@@ -4992,7 +4993,7 @@ case 'deladmin': {
   if (!args || args.length === 0) {
     let userCfg = {};
     try { if (number && typeof loadUserConfigFromMongo === 'function') userCfg = await loadUserConfigFromMongo((number || '').replace(/[^0-9]/g, '')) || {}; } catch(e){ userCfg = {}; }
-    const title = userCfg.botName || '© 𝐇ɪʀᴜ ✘ 𝐌ᴅ';
+    const title = userCfg.botName || '㋚ 𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 𝐌𝙸𝙽𝙸';
 
     const shonux = {
       key: { remoteJid: "status@broadcast", participant: "0@s.whatsapp.net", fromMe: false, id: "META_AI_FAKE_ID_DELADMIN1" },
@@ -5157,7 +5158,7 @@ case 'jid': {
 
     await socket.sendMessage(sender, {
         text: `*🆔 Cʜᴀᴛ ᴊɪᴅ :* ${sender}\n}`,
-    }, { quoted: shonux });
+     { quoted: shonux });
     break;
 }
 
