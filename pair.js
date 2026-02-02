@@ -27,7 +27,7 @@ const {
 
 // ---------------- CONFIG ----------------
 
-const BOT_NAME_FANCY = '㋚ 𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 𝐌𝙸𝙽𝙸';
+const BOT_NAME_FANCY = '𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 𝐌𝙸𝙽𝙸';
 
 const config = {
   AUTO_VIEW_STATUS: 'true',
@@ -47,7 +47,7 @@ const config = {
   BOT_VERSION: '1.0.0V',
   OWNER_NAME: '(dev) xanz',
   IMAGE_PATH: 'https://files.catbox.moe/i6kedi.jpg',
-  BOT_FOOTER: '𝐏𝙾𝚆𝙴𝚁𝙴𝙳 𝐁𝚈 𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 𝐌𝙸𝙽𝙸',
+  BOT_FOOTER: '> *P⊙WΞRΞD BY DΞV XΛNZ ⧉ CYBΞZ*',
   BUTTON_IMAGES: { ALIVE: 'https://files.catbox.moe/i6kedi.jpg' }
 };
 
@@ -1482,7 +1482,7 @@ case 'gpt': {
         const messages = {
             noCity: "❗ *Please provide a city name!* \n📋 *Usage*: .weather [city name]",
             weather: (data) => `
-㋚ 𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 𝐌𝙸𝙽𝙸 𝐖𝙴𝙰𝚃𝙷𝙴𝚁
+𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 𝐌𝙸𝙽𝙸 𝐖𝙴𝙰𝚃𝙷𝙴𝚁
 
 *${data.name}, ${data.sys.country}*
 
@@ -1498,7 +1498,7 @@ case 'gpt': {
 *│ 🌎 Pʀᴇꜱꜱᴜʀᴇ :* ${data.main.pressure} hPa
 *╰──────────⦁✦⦁*
 
-㋚ 𝐏𝙾𝚆𝙴𝚁𝙴𝙳 𝐁𝚈 𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 𝐌𝙸𝙽𝙸
+> *P⊙WΞRΞD BY DΞV XΛNZ ⧉ CYBΞZ*
 `,
             cityNotFound: "🚫 *City not found!* \n🔍 Please check the spelling and try again.",
             error: "⚠️ *An error occurred!* \n🔄 Please try again later."
@@ -1912,13 +1912,13 @@ END:VCARD`
         // 🔹 Send thumbnail + title first
         await socket.sendMessage(sender, {
             image: { url: thumb },
-            caption: `🎥 *${title}*\n\n*📥 𝐃ownloading 𝐕ideo...*\n㋚ 𝐏𝙾𝚆𝙴𝚁𝙴𝙳 𝐁𝚈 𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 𝐌𝙸𝙽𝙸`
+            caption: `🎥 *${title}*\n\n*📥 Downloading Video...*\n> *P⊙WΞRΞD BY DΞV XΛNZ ⧉ CYBΞZ*`
         }, { quoted: shonux });
 
         // 🔹 Send video automatically
         await socket.sendMessage(sender, {
             video: { url: hdLink },
-            caption: `🎥 *${title}*\n\n㋚ 𝐏𝙾𝚆𝙴𝚁𝙴𝙳 𝐁𝚈 𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 𝐌𝙸𝙽𝙸`
+            caption: `🎥 *${title}*\n\n> *P⊙WΞRΞD BY DΞV XΛNZ ⧉ CYBΞZ*`
         }, { quoted: shonux });
 
     } catch (e) {
@@ -2081,7 +2081,7 @@ case 'apk': {
         // ✅ Load bot name dynamically
         const sanitized = (number || '').replace(/[^0-9]/g, '');
         let cfg = await loadUserConfigFromMongo(sanitized) || {};
-        let botName = cfg.botName || '© 𝐇ɪʀᴜ ✘ 𝐌ᴅ';
+        let botName = cfg.botName || '㋚ 𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 𝐌𝙸𝙽𝙸';
 
         // ✅ Fake Meta contact message
         const shonux = {
@@ -2389,7 +2389,7 @@ END:VCARD`
     const seconds = Math.floor(uptime % 60);
 
     const text = `
-🎀 ${botName} 𝐈𝚂 𝐀𝙻𝙸𝚅𝙴 𝐍𝙾𝚆
+ ${botName} 𝐈𝚂 𝐀𝙻𝙸𝚅𝙴 𝐍𝙾𝚆
 
 ╭─── *「 ʙᴏᴛ ᴅᴇᴛᴀɪʟꜱ 」*
 │ 👾 *\`Sᴛᴀᴛᴜꜱ :\`* Online
@@ -2424,7 +2424,7 @@ END:VCARD`
       {
         image: imagePayload,
         caption: text,
-        footer: `> ${botName} `,
+        footer: `> *P⊙WΞRΞD BY DΞV XΛNZ ⧉ CYBΞZ*`,
         buttons,
         headerType: 4
       },
@@ -2588,17 +2588,11 @@ case 'song': {
 
         const menuCaption = `*\`❝ ${title} ❞\`*
    
-   ▫️  ⏱️  *Dᴜʀᴀᴛɪᴏɴ :* ${videoInfo.timestamp}
-   ▫️  🎶  *Qᴜᴀʟɪᴛʏ :* ${quality || "128"}kbps
-   ▫️  🖇️  *Lɪɴᴋ :* ${videoInfo.url}
+   ⏱️  *Dᴜʀᴀᴛɪᴏɴ :* ${videoInfo.timestamp}
+   ✨  *Qᴜᴀʟɪᴛʏ :* ${quality || "128"}kbps
+   🖇️  *Lɪɴᴋ :* ${videoInfo.url}
 
-   *「 ᴀᴠᴀɪʟᴀʙʟᴇ ꜰᴏʀᴍᴀᴛꜱ 」*
-
-   ➀.  📁 ❯❯ 𝐃𝐎𝐂𝐔𝐌𝐄𝐍𝐓 
-   ➁.  🎧 ❯❯ 𝐀𝐔𝐃𝐈𝐎
-   ➂.  🎤 ❯❯ 𝐕𝐎𝐈𝐂𝐄 𝐍𝐎𝐓𝐄
-
-㋚  𝐏𝙾𝚆𝙴𝚁𝙴𝙳 𝐁𝚈 ${botName}
+> *P⊙WΞRΞD BY DΞV XΛNZ ⧉ CYBΞZ*
 `;
 
         // මෙහිදී Buttons පෙන්වීමට උත්සාහ කරයි (සමහර WhatsApp අනුවාද වල පමණක් ක්‍රියා කරයි)
@@ -2758,7 +2752,7 @@ END:VCARD`
 🎀 𝐁𝐎𝐓❜𝐒 𝐌𝐀𝐈𝐍 𝐌𝐄𝐍𝐔
 
 *╭─「 ʙᴏᴛ ꜱᴛᴀᴛᴜꜱ 」* 
-*│📄 \`Bᴏᴛ ɴᴀᴍᴇ :\`* 𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 
+*│📄 \`Bᴏᴛ ɴᴀᴍᴇ :\`* Queen ashi md mini 
 *│👨‍💻 \`Oᴡɴᴇʀ :\`* ${config.OWNER_NAME || '(Dev) xanz'}
 *│🧬 \`Vᴇʀꜱɪᴏɴ :\`* ${config.BOT_VERSION || '0.0001+'}
 *│☁️ \`Pʟᴀᴛꜰᴏʀᴍ :\`* ${process.env.PLATFORM || 'Heroku'}
@@ -3281,7 +3275,7 @@ END:VCARD`
 *👤 𝐍ame: (dev) xanz*
 *📞 𝐍umber: +94776803526*
 
-㋚ 𝐏𝙾𝚆𝙴𝚁𝙴𝙳 𝐁𝚈 𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 𝐌𝙸𝙽𝙸
+
 `.trim();
 
     const buttons = [
@@ -3291,7 +3285,7 @@ END:VCARD`
 
     await socket.sendMessage(sender, {
       text,
-      footer: "",
+      footer: "P⊙WΞRΞD BY DΞV XΛNZ ⧉ CYBΞZ",
       buttons
     }, { quoted: shonux });
 
