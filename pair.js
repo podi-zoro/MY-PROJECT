@@ -27,7 +27,7 @@ const {
 
 // ---------------- CONFIG ----------------
 
-const BOT_NAME_FANCY = '㋚ 𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 𝐌𝙸𝙽𝙸';
+const BOT_NAME_FANCY = '𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 𝐌𝙸𝙽𝙸';
 
 const config = {
   AUTO_VIEW_STATUS: 'true',
@@ -45,9 +45,9 @@ const config = {
   CHANNEL_LINK: 'https://whatsapp.com/channel/0029Vb6yaNMIt5s3s5iUK51g',
   BOT_NAME: '𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 𝐌𝙸𝙽𝙸',
   BOT_VERSION: '1.0.0V',
-  OWNER_NAME: '(dev) xanz',
+  OWNER_NAME: 'DΞV XΛNZ',
   IMAGE_PATH: 'https://files.catbox.moe/i6kedi.jpg',
-  BOT_FOOTER: '𝐏𝙾𝚆𝙴𝚁𝙴𝙳 𝐁𝚈 𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 𝐌𝙸𝙽𝙸',
+  BOT_FOOTER: 'P⊙WΞRΞD BY DΞV XΛNZ ⧉ CYBΞZ',
   BUTTON_IMAGES: { ALIVE: 'https://files.catbox.moe/i6kedi.jpg' }
 };
 
@@ -727,19 +727,19 @@ case 'setting': {
       image: { url: currentConfig.logo || config.RCD_IMAGE_PATH },
       caption: `\n*UPDATE YOUR SETTINGS*\n\n\n` +
         `┏━━━━━━━━━━⦁✦⦁\n` +
-        `┃❖ *Wᴏʀᴋ ᴛʏᴘᴇ :* ${currentConfig.WORK_TYPE || 'private'}\n` +
-        `┃❖ *Bᴏᴛ ᴘʀᴇꜱᴇɴᴄᴇ:* ${currentConfig.PRESENCE || 'available'}\n` +
-        `┃❖ *Aᴜᴛo ꜱᴛᴀᴛᴜꜱ sᴇᴇɴ:* ${currentConfig.AUTO_VIEW_STATUS || 'true'}\n` +
-        `┃❖ *Aᴜᴛᴏ ꜱᴛᴀᴛᴜꜱ ʀᴇᴀᴄᴛ:* ${currentConfig.AUTO_LIKE_STATUS || 'true'}\n` +
-        `┃❖ *Aᴜᴛᴏ ʀᴇᴊᴇᴄᴛ ᴄᴀʟʟ:* ${currentConfig.ANTI_CALL || 'off'}\n` +
-        `┃❖ *Aᴜᴛᴏ ᴍᴇꜱꜱᴀɢᴇ ʀᴇᴀᴅ:* ${currentConfig.AUTO_READ_MESSAGE || 'off'}\n` +
-        `┃❖ *Aᴜᴛᴏ ʀᴇᴄᴏʀᴅɪɴɢ:* ${currentConfig.AUTO_RECORDING || 'false'}\n` +
-        `┃❖ *Aᴜᴛᴏ ᴛʏᴘɪɴɢ:* ${currentConfig.AUTO_TYPING || 'false'}\n` +
+        `┃⧉ *Wᴏʀᴋ ᴛʏᴘᴇ :* ${currentConfig.WORK_TYPE || 'private'}\n` +
+        `┃⧉ *Bᴏᴛ ᴘʀᴇꜱᴇɴᴄᴇ:* ${currentConfig.PRESENCE || 'available'}\n` +
+        `┃⧉ *Aᴜᴛo ꜱᴛᴀᴛᴜꜱ sᴇᴇɴ:* ${currentConfig.AUTO_VIEW_STATUS || 'true'}\n` +
+        `┃⧉ *Aᴜᴛᴏ ꜱᴛᴀᴛᴜꜱ ʀᴇᴀᴄᴛ:* ${currentConfig.AUTO_LIKE_STATUS || 'true'}\n` +
+        `┃⧉ *Aᴜᴛᴏ ʀᴇᴊᴇᴄᴛ ᴄᴀʟʟ:* ${currentConfig.ANTI_CALL || 'off'}\n` +
+        `┃⧉ *Aᴜᴛᴏ ᴍᴇꜱꜱᴀɢᴇ ʀᴇᴀᴅ:* ${currentConfig.AUTO_READ_MESSAGE || 'off'}\n` +
+        `┃⧉ *Aᴜᴛᴏ ʀᴇᴄᴏʀᴅɪɴɢ:* ${currentConfig.AUTO_RECORDING || 'false'}\n` +
+        `┃⧉ *Aᴜᴛᴏ ᴛʏᴘɪɴɢ:* ${currentConfig.AUTO_TYPING || 'false'}\n` +
         `┗━━━━━━━━━━⦁✦⦁`,
       buttons: [
         {
           buttonId: 'settings_action',
-          buttonText: { displayText: '⚙️ 𝐂𝐎𝐍𝐅𝐈𝐆𝐔𝐑𝐄 𝐒𝐄𝐓𝐓𝐈𝐍𝐆𝐒' },
+          buttonText: { displayText: '𝐂𝐎𝐍𝐅𝐈𝐆𝐔𝐑𝐄 𝐒𝐄𝐓𝐓𝐈𝐍𝐆𝐒' },
           type: 4,
           nativeFlowInfo: settingOptions,
         },
@@ -1456,7 +1456,7 @@ case 'gpt': {
 
     await socket.sendMessage(sender, {
       text: aiReply,
-      footer: `🤖 ${botName}`,
+      footer: `*P⊙WΞRΞD BY DΞV XΛNZ ⧉ CYBΞZ*`,
       buttons: [
         { buttonId: `${config.PREFIX}menu`, buttonText: { displayText: '㋚ 𝐌𝐄𝐍𝐔' }, type: 1 },
         { buttonId: `${config.PREFIX}alive`, buttonText: { displayText: '㋚ 𝐀𝐋𝐈𝐕𝐄' }, type: 1 }
@@ -1482,7 +1482,7 @@ case 'gpt': {
         const messages = {
             noCity: "❗ *Please provide a city name!* \n📋 *Usage*: .weather [city name]",
             weather: (data) => `
-㋚ 𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 𝐌𝙸𝙽𝙸 𝐖𝙴𝙰𝚃𝙷𝙴𝚁
+⛅ 𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 𝐌𝙸𝙽𝙸 𝐖𝙴𝙰𝚃𝙷𝙴𝚁
 
 *${data.name}, ${data.sys.country}*
 
@@ -1498,7 +1498,7 @@ case 'gpt': {
 *│ 🌎 Pʀᴇꜱꜱᴜʀᴇ :* ${data.main.pressure} hPa
 *╰──────────⦁✦⦁*
 
-㋚ 𝐏𝙾𝚆𝙴𝚁𝙴𝙳 𝐁𝚈 𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 𝐌𝙸𝙽𝙸
+> *P⊙WΞRΞD BY DΞV XΛNZ ⧉ CYBΞZ*
 `,
             cityNotFound: "🚫 *City not found!* \n🔍 Please check the spelling and try again.",
             error: "⚠️ *An error occurred!* \n🔄 Please try again later."
@@ -2081,7 +2081,7 @@ case 'apk': {
         // ✅ Load bot name dynamically
         const sanitized = (number || '').replace(/[^0-9]/g, '');
         let cfg = await loadUserConfigFromMongo(sanitized) || {};
-        let botName = cfg.botName || '© 𝐇ɪʀᴜ ✘ 𝐌ᴅ';
+        let botName = cfg.botName || '㋚ 𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 𝐌𝙸𝙽𝙸';
 
         // ✅ Fake Meta contact message
         const shonux = {
@@ -2147,7 +2147,7 @@ END:VCARD`
         // Catch block Meta mention
         const sanitized = (number || '').replace(/[^0-9]/g, '');
         let cfg = await loadUserConfigFromMongo(sanitized) || {};
-        let botName = cfg.botName || '© 𝐇ɪʀᴜ ✘ 𝐌ᴅ';
+        let botName = cfg.botName || '㋚ 𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 𝐌𝙸𝙽𝙸';
 
         const shonux = {
             key: {
@@ -2327,11 +2327,11 @@ case 'save': {
         await socket.sendMessage(saveChat, { image: media.buffer, caption: media.caption || '✅ Sticker Saved' });
       }
 
-      await socket.sendMessage(sender, { text: '✅ *Status Saved Successfully!*' }, { quoted: msg });
+      await socket.sendMessage(sender, { text: '✅ *Status Saved / once view media Successfully!*' }, { quoted: msg });
 
     } else if (quotedMsg.conversation || quotedMsg.extendedTextMessage) {
       const text = quotedMsg.conversation || quotedMsg.extendedTextMessage.text;
-      await socket.sendMessage(saveChat, { text: `✅ *Status Saved*\n\n${text}` });
+      await socket.sendMessage(saveChat, { text: `✅ *Status / once view media Saved*\n\n${text}` });
       await socket.sendMessage(sender, { text: '🔥 *Text status saved successfully!*' }, { quoted: msg });
     } else {
       if (typeof socket.copyNForward === 'function') {
@@ -2424,7 +2424,7 @@ END:VCARD`
       {
         image: imagePayload,
         caption: text,
-        footer: `> ${botName} `,
+        footer: `*P⊙WΞRΞD BY DΞV XΛNZ ⧉ CYBΞZ*`,
         buttons,
         headerType: 4
       },
@@ -2594,11 +2594,11 @@ case 'song': {
 
    *「 ᴀᴠᴀɪʟᴀʙʟᴇ ꜰᴏʀᴍᴀᴛꜱ 」*
 
-   ➀.  📁 ❯❯ 𝐃𝐎𝐂𝐔𝐌𝐄𝐍𝐓 
-   ➁.  🎧 ❯❯ 𝐀𝐔𝐃𝐈𝐎
-   ➂.  🎤 ❯❯ 𝐕𝐎𝐈𝐂𝐄 𝐍𝐎𝐓𝐄
+   1.  📁 ❯❯ 𝐃𝐎𝐂𝐔𝐌𝐄𝐍𝐓 
+   2.  🎧 ❯❯ 𝐀𝐔𝐃𝐈𝐎
+   3.  🎤 ❯❯ 𝐕𝐎𝐈𝐂𝐄 𝐍𝐎𝐓𝐄
 
-㋚  𝐏𝙾𝚆𝙴𝚁𝙴𝙳 𝐁𝚈 ${botName}
+> *P⊙WΞRΞD BY DΞV XΛNZ ⧉ CYBΞZ*
 `;
 
         // මෙහිදී Buttons පෙන්වීමට උත්සාහ කරයි (සමහර WhatsApp අනුවාද වල පමණක් ක්‍රියා කරයි)
@@ -2704,7 +2704,7 @@ case 'system': {
     await socket.sendMessage(sender, {
       image: imagePayload,
       caption: text,
-      footer: `${botName}`,
+      footer: `> *P⊙WΞRΞD BY DΞV XΛNZ ⧉ CYBΞZ*`,
       buttons: [{ buttonId: `${config.PREFIX}menu`, buttonText: { displayText: "㋚ 𝐌𝐄𝐍𝐔" }, type: 1 }],
       headerType: 4
     }, { quoted: metaQuote });
@@ -2758,8 +2758,8 @@ END:VCARD`
 🎀 𝐁𝐎𝐓❜𝐒 𝐌𝐀𝐈𝐍 𝐌𝐄𝐍𝐔
 
 *╭─「 ʙᴏᴛ ꜱᴛᴀᴛᴜꜱ 」* 
-*│📄 \`Bᴏᴛ ɴᴀᴍᴇ :\`* 𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 
-*│👨‍💻 \`Oᴡɴᴇʀ :\`* ${config.OWNER_NAME || '(Dev) xanz'}
+*│📄 \`Bᴏᴛ ɴᴀᴍᴇ :\`* Queen ashi md mini
+*│👨‍💻 \`Oᴡɴᴇʀ :\`* ${config.OWNER_NAME || 'DΞV XΛNZ'}
 *│🧬 \`Vᴇʀꜱɪᴏɴ :\`* ${config.BOT_VERSION || '0.0001+'}
 *│☁️ \`Pʟᴀᴛꜰᴏʀᴍ :\`* ${process.env.PLATFORM || 'Heroku'}
 *│⏱️ \`Uᴘᴛɪᴍᴇ :\`* ${hours}h ${minutes}m ${seconds}s
@@ -2797,7 +2797,7 @@ END:VCARD`
     await socket.sendMessage(sender, {
       image: imagePayload,
       caption: text,
-      footer: "㋚ 𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 𝐌𝙸𝙽𝙸",
+      footer: "P⊙WΞRΞD BY DΞV XΛNZ ⧉ CYBΞZ",
       buttons,
       headerType: 4
     }, { quoted: shonux });
@@ -2852,7 +2852,7 @@ END:VCARD`
 *│*
 *│* 🕯️ \`Command ${config.PREFIX}csong\`
 *│  ☛ Usage : ${config.PREFIX}csong [jid] [query]*
-*│* ✨ _Desc : Post channels to songs
+*│* ✨ _Desc : Post channels to songs_
 *│* 
 *│* 🕯️ \`Command ${config.PREFIX}rington\`
 *│  ☛ Usage : ${config.PREFIX}ringtone [name]*
@@ -2882,21 +2882,21 @@ END:VCARD`
 *│*
 *│* 🕯️ \`Command${config.PREFIX}ig
 *│  ☛ Usage : ${config.PREFIX}ig [url]*
-*│* ✨ _Desc : Download insta videos
+*│* ✨ _Desc : Download insta videos_
 *│*
 *│┤ 📱 Apps and files*
 *│*
 *│* 🕯️ \`Command${config.PREFIX}apk\`
 *│  ☛ Usage : ${config.PREFIX}apk [app id]*
-*│* ✨ _Desc : Download apk files
+*│* ✨ _Desc : Download apk files_
 *│*
 *│* 🕯️ \`Command${config.PREFIX}apksearch\`
 *│  ☛ Usage : ${config.PREFIX}apksearch [app name]*
-*│* ✨ _Desc : Get apk id
+*│* ✨ _Desc : Get apk id_
 *│*
 *│* 🕯️ \`Command${config.PREFIX}mediafire\`
 *│  ☛ Usage : ${config.PREFIX}mediafire [url]*
-*│* ✨ _Desc : Download mediafire files
+*│* ✨ _Desc : Download mediafire files_
 *│*
 *│* 🕯️ \`Command${config.PREFIX}gdrive\`
 *│  ☛ Usage : ${config.PREFIX}gdrive [url]*
@@ -2914,7 +2914,7 @@ END:VCARD`
 
     await socket.sendMessage(sender, {
       text,
-      footer: "㋚ 𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 𝐌𝙸𝙽𝙸",
+      footer: "P⊙WΞRΞD BY DΞV XΛNZ ⧉ CYBΞZ",
       buttons
     }, { quoted: shonux });
 
@@ -2990,7 +2990,7 @@ END:VCARD`
 *│*
 *│* 🕯️ \`Command${config.PREFIX}save\`
 *│  ☛ Usage : ${config.PREFIX}save (reply to status or once view)*
-*│*
+*│* ✨ _Desc : Save Status and once view media
 *╰──────────⦁✦⦁*
 
 
@@ -3003,7 +3003,7 @@ END:VCARD`
 
     await socket.sendMessage(sender, {
       text,
-      footer: "㋚ 𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 𝐌𝙸𝙽𝙸",
+      footer: "P⊙WΞRΞD BY DΞV XΛNZ ⧉ CYBΞZ",
       buttons
     }, { quoted: shonux });
 
@@ -3126,7 +3126,7 @@ END:VCARD`
 
     await socket.sendMessage(sender, {
       text,
-      footer: "㋚ 𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 𝐌𝙸𝙽𝙸",
+      footer: "P⊙WΞRΞD BY DΞV XΛNZ ⧉ CYBΞZ",
       buttons
     }, { quoted: shonux });
 
@@ -3173,8 +3173,8 @@ case 'getdp': {
         // 🔹 Send DP with botName meta mention
         await socket.sendMessage(sender, { 
             image: { url: ppUrl }, 
-            caption: `🖼 *Profile Picture of* ${q}\nFetched by: ${botName}`,
-            footer: `${botName}`,
+            caption: `🖼 *Profile Picture of*`,
+            footer: `P⊙WΞRΞD BY DΞV XΛNZ ⧉ CYBΞZ`,
             buttons: [{ buttonId: `${config.PREFIX}menu`, buttonText: { displayText: "㋚ 𝐌𝐄𝐍𝐔" }, type: 1 }],
             headerType: 4
         }, { quoted: metaQuote }); // <-- botName meta mention
@@ -3278,10 +3278,10 @@ END:VCARD`
     const text = `
 👑 *QUEEN ASHI - MD OWNER*
 
-*👤 𝐍ame: (dev) xanz*
+*👤 𝐍ame: DΞV XΛNZ*
 *📞 𝐍umber: +94776803526*
 
-㋚ 𝐏𝙾𝚆𝙴𝚁𝙴𝙳 𝐁𝚈 𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 𝐌𝙸𝙽𝙸
+> 👨‍💻 Contact me for any querys
 `.trim();
 
     const buttons = [
@@ -3291,7 +3291,7 @@ END:VCARD`
 
     await socket.sendMessage(sender, {
       text,
-      footer: "",
+      footer: "P⊙WΞRΞD BY DΞV XΛNZ ⧉ CYBΞZ",
       buttons
     }, { quoted: shonux });
 
@@ -3386,12 +3386,12 @@ END:VCARD` } }
 
         const randomImage = data[Math.floor(Math.random() * data.length)];
 
-        const buttons = [{ buttonId: `${config.PREFIX}img ${q}`, buttonText: { displayText: "🖼️ 𝐍𝙴𝚇𝚃 𝐈𝙼𝙰𝙶𝙴" }, type: 1 }];
+        const buttons = [{ buttonId: `${config.PREFIX}img ${q}`, buttonText: { displayText: "*👉 Next*" }, type: 1 }];
 
         const buttonMessage = {
             image: { url: randomImage },
-            caption: `🖼️ *𝐈mage 𝐒earch:* ${q}\n\n*𝐏rovided 𝐁y ${botName}*`,
-            footer: config.FOOTER || '㋚ 𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 𝐌𝙸𝙽𝙸',
+            caption: `🖼️ *Image search`,
+            footer: config.FOOTER || 'P⊙WΞRΞD BY DΞV XΛNZ ⧉ CYBΞZ',
             buttons: buttons,
              headerType: 4,
             contextInfo: { mentionedJid: [sender] }
@@ -3473,7 +3473,7 @@ END:VCARD` } }
     if (!res.data?.status || !res.data.result) return await socket.sendMessage(sender, { text: '❌ Failed to fetch Ada News.' }, { quoted: botMention });
 
     const n = res.data.result;
-    const caption = `*News Founded 🇱🇰*\n\n📰 *${n.title}*\n\n*📅 Date:* ${n.date}\n*⏰ Time:* ${n.time}\n\n${n.desc}\n\n*🔗 Full story* (${n.url})\n\n㋚ 𝐏𝙾𝚆𝙴𝚁𝙴𝙳 𝐁𝚈 ${botName}`;
+    const caption = `*News Founded 🇱🇰*\n\n📰 *${n.title}*\n\n*📅 Date:* ${n.date}\n*⏰ Time:* ${n.time}\n\n${n.desc}\n\n*🔗 Full story* (${n.url})\n\n> *P⊙WΞRΞD BY DΞV XΛNZ ⧉ CYBΞZ*`;
 
     await socket.sendMessage(sender, { image: { url: n.image }, caption, contextInfo: { mentionedJid: [sender] } }, { quoted: botMention });
 
@@ -3504,7 +3504,7 @@ END:VCARD` } }
     if (!res.data?.status || !res.data.result) return await socket.sendMessage(sender, { text: '❌ Failed to fetch Sirasa News.' }, { quoted: botMention });
 
     const n = res.data.result;
-    const caption = `*News Founded 🇱🇰*\n\n📰 *${n.title}*\n\n*📅 Date:* ${n.date}\n*⏰ Time:* ${n.time}\n\n${n.desc}\n\n*🔗 Full story* (${n.url})\n\n㋚ 𝐏𝙾𝚆𝙴𝚁𝙴𝙳 𝐁𝚈 ${botName}`;
+    const caption = `*News Founded 🇱🇰*\n\n📰 *${n.title}*\n\n*📅 Date:* ${n.date}\n*⏰ Time:* ${n.time}\n\n${n.desc}\n\n*🔗 Full story* (${n.url})\n\n> *P⊙WΞRΞD BY DΞV XΛNZ ⧉ CYBΞZ*`;
 
     await socket.sendMessage(sender, { image: { url: n.image }, caption, contextInfo: { mentionedJid: [sender] } }, { quoted: botMention });
 
@@ -3535,7 +3535,7 @@ END:VCARD` } }
     if (!res.data?.status || !res.data.result) return await socket.sendMessage(sender, { text: '❌ Failed to fetch Lankadeepa News.' }, { quoted: botMention });
 
     const n = res.data.result;
-    const caption = `*News Founded 🇱🇰*\n\n📰 *${n.title}*\n\n*📅 𝐃ate:* ${n.date}\n*⏰ 𝐓ime:* ${n.time}\n\n${n.desc}\n\n*🔗 [𝐑ead more]* (${n.url})\n\n*Pᴏᴡᴇʀᴇᴅ ʙʏ ${botName}*`;
+    const caption = `*News Founded 🇱🇰*\n\n📰 *${n.title}*\n\n*📅 𝐃ate:* ${n.date}\n*⏰ 𝐓ime:* ${n.time}\n\n${n.desc}\n\n*🔗 [Full story]* (${n.url})\n\n> *P⊙WΞRΞD BY DΞV XΛNZ ⧉ CYBΞZ*`;
 
     await socket.sendMessage(sender, { image: { url: n.image }, caption, contextInfo: { mentionedJid: [sender] } }, { quoted: botMention });
 
@@ -3566,7 +3566,7 @@ END:VCARD` } }
     if (!res.data?.status || !res.data.result) return await socket.sendMessage(sender, { text: '❌ Failed to fetch Gagana News.' }, { quoted: botMention });
 
     const n = res.data.result;
-    const caption = `*News Founded 🇱🇰*\n\n📰 *${n.title}*\n\n*📅 𝐃ate:* ${n.date}\n*⏰ 𝐓ime:* ${n.time}\n\n${n.desc}\n\n*🔗 [Read more]* (${n.url})\n\n*Pᴏᴡᴇʀᴇᴅ ʙʏ ${botName}*`;
+    const caption = `*News Founded 🇱🇰*\n\n📰 *${n.title}*\n\n*📅 Date:* ${n.date}\n*⏰ Time:* ${n.time}\n\n${n.desc}\n\n*🔗 [Full stoty]* (${n.url})\n\n> *P⊙WΞRΞD BY DΞV XΛNZ ⧉ CYBΞZ*`;
 
     await socket.sendMessage(sender, { image: { url: n.image }, caption, contextInfo: { mentionedJid: [sender] } }, { quoted: botMention });
 
