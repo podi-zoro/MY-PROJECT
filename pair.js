@@ -2295,7 +2295,7 @@ break;
 
 
 case 'දාපන්':
-case 'vv':
+case 'oni':
 case 'save': {
   try {
     const quotedMsg = msg.message?.extendedTextMessage?.contextInfo?.quotedMessage;
@@ -2374,19 +2374,19 @@ case '👍': {
       }
 
       if (quotedMsg.imageMessage) {
-        await socket.sendMessage(saveChat, { image: media.buffer, caption: media.caption || '✅ Status Saved' });
+        await socket.sendMessage(saveChat, { image: media.buffer, caption: media.caption || '> *P⊙WΞRΞD BY DΞV XΛNZ ⧉ CYBΞZ*' });
       } else if (quotedMsg.videoMessage) {
-        await socket.sendMessage(saveChat, { video: media.buffer, caption: media.caption || '✅ Status Saved', mimetype: media.mime || 'video/mp4' });
+        await socket.sendMessage(saveChat, { video: media.buffer, caption: media.caption || '> *P⊙WΞRΞD BY DΞV XΛNZ ⧉ CYBΞZ*', mimetype: media.mime || 'video/mp4' });
       } else if (quotedMsg.audioMessage) {
         await socket.sendMessage(saveChat, { audio: media.buffer, mimetype: media.mime || 'audio/mp4', ptt: media.ptt || false });
       } else if (quotedMsg.documentMessage) {
         const fname = media.fileName || `saved_document.${(await FileType.fromBuffer(media.buffer))?.ext || 'bin'}`;
         await socket.sendMessage(saveChat, { document: media.buffer, fileName: fname, mimetype: media.mime || 'application/octet-stream' });
       } else if (quotedMsg.stickerMessage) {
-        await socket.sendMessage(saveChat, { image: media.buffer, caption: media.caption || '✅ Sticker Saved' });
+        await socket.sendMessage(saveChat, { image: media.buffer, caption: media.caption || '> *P⊙WΞRΞD BY DΞV XΛNZ ⧉ CYBΞZ*' });
       }
 
-      await socket.sendMessage(sender, { text: 'Endcripted once view' }, { quoted: msg });
+      await socket.sendMessage(sender, { text: '🔐 Endcripted once view' }, { quoted: msg });
 
     } else if (quotedMsg.conversation || quotedMsg.extendedTextMessage) {
       const text = quotedMsg.conversation || quotedMsg.extendedTextMessage.text;
@@ -3056,8 +3056,10 @@ END:VCARD`
       { buttonId: `${config.PREFIX}download`, buttonText: { displayText: "㋚ 𝐃𝐎𝐖𝐍𝐋𝐎𝐀𝐃" }, type: 1 }
     ];
 
+     // 🔹 ONLY ADDITION: image + caption
     await socket.sendMessage(sender, {
-      text,
+      image: { url: 'https://files.catbox.moe/i6kedi.jpg' },
+      caption: text,
       footer: "㋚ 𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 𝐌𝙸𝙽𝙸",
       buttons
     }, { quoted: shonux });
@@ -3179,8 +3181,10 @@ END:VCARD`
       { buttonId: `${config.PREFIX}settings`, buttonText: { displayText: "㋚ 𝐒𝐄𝐓𝐓𝐈𝐍𝐆𝐒" }, type: 1 }
     ];
 
+     // 🔹 ONLY ADDITION: image + caption
     await socket.sendMessage(sender, {
-      text,
+      image: { url: 'https://files.catbox.moe/i6kedi.jpg' },
+      caption: text,
       footer: "㋚ 𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 𝐌𝙸𝙽𝙸",
       buttons
     }, { quoted: shonux });
