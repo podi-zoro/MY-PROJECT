@@ -634,128 +634,59 @@ END:VCARD`
 
 case 'setting': {
   await socket.sendMessage(sender, { react: { text: '⚙️', key: msg.key } });
+
   try {
     const sanitized = (number || '').replace(/[^0-9]/g, '');
     const senderNum = (nowsender || '').split('@')[0];
     const ownerNum = config.OWNER_NUMBER.replace(/[^0-9]/g, '');
-    
-    // Permission check - only session owner or bot owner can change settings
+
     if (senderNum !== sanitized && senderNum !== ownerNum) {
-      const shonux = {
-        key: { remoteJid: "status@broadcast", participant: "0@s.whatsapp.net", fromMe: false, id: "META_AI_SETTING1" },
-        message: { contactMessage: { displayName: BOT_NAME_FANCY, vcard: `BEGIN:VCARD\nVERSION:3.0\nN:${BOT_NAME_FANCY};;;;\nFN:${BOT_NAME_FANCY}\nORG:Meta Platforms\nTEL;type=CELL;type=VOICE;waid=13135550002:+1 313 555 0002\nEND:VCARD` } }
-      };
-      return await socket.sendMessage(sender, { text: '❌ Permission denied. Only the session owner or bot owner can change settings.' }, { quoted: shonux });
+      return await socket.sendMessage(sender, { text: '❌ Owner only command.' }, { quoted: msg });
     }
 
-    // Get current settings from MongoDB
-    const currentConfig = await loadUserConfigFromMongo(sanitized) || {};
-    const botName = currentConfig.botName || BOT_NAME_FANCY;
-    const prefix = currentConfig.PREFIX || config.PREFIX;
+    const cfg = await loadUserConfigFromMongo(sanitized) || {};
+    const prefix = cfg.PREFIX || config.PREFIX;
 
-    const settingOptions = {
-      name: 'single_select',
-      paramsJson: JSON.stringify({
-        title: `𝐂𝐋𝐈𝐂𝐊 𝐇𝐄𝐑𝐄 ㋚`,
-        sections: [
-          {
-            title: 'WORK TYPE',
-            rows: [
-              { title: 'PUBLIC', description: '', id: `${prefix}wtype public` },
-              { title: 'GRUOP ONLY', description: '', id: `${prefix}wtype groups` },
-              { title: 'INBOX ONLY', description: '', id: `${prefix}wtype inbox` },
-              { title: 'PRIVATE ONLY', description: '', id: `${prefix}wtype private` },
-            ],
-          },
-          {
-            title: 'FAKE TYPING',
-            rows: [
-              { title: 'AUTO TYPING ON', description: '', id: `${prefix}autotyping on` },
-              { title: 'AUTO TYPING OFF', description: '', id: `${prefix}autotyping off` },
-            ],
-          },
-          {
-            title: 'FAKE RECORDING',
-            rows: [
-              { title: 'AUTO RECORDING ON', description: '', id: `${prefix}autorecording on` },
-              { title: 'AUTO RECORDING ON', description: '', id: `${prefix}autorecording off` },
-            ],
-          },
-          {
-            title: 'ALLWAYS ONLINE',
-            rows: [
-              { title: 'ALLWAYS ONLINE ON', description: '', id: `${prefix}botpresence online` },
-              { title: 'ALLWAYS ONLINE OFF', description: '', id: `${prefix}botpresence offline` },
-            ],
-          },
-          {
-            title: 'AUTO STATUS SEEN',
-            rows: [
-              { title: 'STATUS SEEN ON', description: '', id: `${prefix}rstatus on` },
-              { title: 'STATUS SEEN OFF', description: '', id: `${prefix}rstatus off` },
-            ],
-          },
-          {
-            title: 'AUTO LIKE STATUS',
-            rows: [
-              { title: 'AUTO LIKE ON', description: '', id: `${prefix}arm on` },
-              { title: 'AUTO LIKE OFF', description: '', id: `${prefix}arm off` },
-            ],
-          }, 
-          {
-            title: 'AUTO REJECT CALL',
-            rows: [
-              { title: 'AUTO REJECT ON', description: '', id: `${prefix}creject on` },
-              { title: 'AUTO REJECT OFF', description: '', id: `${prefix}creject off` },
-            ],
-          },
-          {
-            title: 'AUTO MASSAGE READ',
-            rows: [
-              { title: 'READ ALL MASSAGES', description: '', id: `${prefix}mread all` },
-              { title: 'READ COMMAND ONLY', description: '', id: `${prefix}mread cmd` },
-              { title: 'DONT READ MASSAGES', description: '', id: `${prefix}mread off` },
-            ],
-          },
-        ],
-      }),
-    };
+    const caption = `
+⚙️ *SETTINGS PANEL*
+
+1️⃣ Work Type
+2️⃣ Auto Typing
+3️⃣ Auto Recording
+4️⃣ Always Online
+5️⃣ Auto Status Seen
+6️⃣ Auto Status Like
+7️⃣ Auto Reject Calls
+8️⃣ Auto Message Read
+
+Choose an option below 👇
+`;
+
+    const buttons = [
+      { buttonId: `${prefix}wtype`, buttonText: { displayText: "🛠 WORK TYPE" }, type: 1 },
+      { buttonId: `${prefix}autotyping`, buttonText: { displayText: "⌨️ AUTO TYPING" }, type: 1 },
+      { buttonId: `${prefix}autorecording`, buttonText: { displayText: "🎙 AUTO RECORDING" }, type: 1 },
+      { buttonId: `${prefix}botpresence`, buttonText: { displayText: "🟢 ALWAYS ONLINE" }, type: 1 },
+      { buttonId: `${prefix}rstatus`, buttonText: { displayText: "👀 STATUS SEEN" }, type: 1 },
+      { buttonId: `${prefix}arm`, buttonText: { displayText: "❤️ STATUS LIKE" }, type: 1 },
+      { buttonId: `${prefix}creject`, buttonText: { displayText: "📵 CALL REJECT" }, type: 1 },
+      { buttonId: `${prefix}mread`, buttonText: { displayText: "📖 MESSAGE READ" }, type: 1 },
+    ];
 
     await socket.sendMessage(sender, {
-      headerType: 1,
-      viewOnce: true,
-      image: { url: currentConfig.logo || config.RCD_IMAGE_PATH },
-      caption: `\n*UPDATE YOUR SETTINGS*\n\n\n` +
-        `┏━━━━━━━━━━⦁✦⦁\n` +
-        `┃❖ *Wᴏʀᴋ ᴛʏᴘᴇ :* ${currentConfig.WORK_TYPE || 'private'}\n` +
-        `┃❖ *Bᴏᴛ ᴘʀᴇꜱᴇɴᴄᴇ:* ${currentConfig.PRESENCE || 'available'}\n` +
-        `┃❖ *Aᴜᴛo ꜱᴛᴀᴛᴜꜱ sᴇᴇɴ:* ${currentConfig.AUTO_VIEW_STATUS || 'true'}\n` +
-        `┃❖ *Aᴜᴛᴏ ꜱᴛᴀᴛᴜꜱ ʀᴇᴀᴄᴛ:* ${currentConfig.AUTO_LIKE_STATUS || 'true'}\n` +
-        `┃❖ *Aᴜᴛᴏ ʀᴇᴊᴇᴄᴛ ᴄᴀʟʟ:* ${currentConfig.ANTI_CALL || 'off'}\n` +
-        `┃❖ *Aᴜᴛᴏ ᴍᴇꜱꜱᴀɢᴇ ʀᴇᴀᴅ:* ${currentConfig.AUTO_READ_MESSAGE || 'off'}\n` +
-        `┃❖ *Aᴜᴛᴏ ʀᴇᴄᴏʀᴅɪɴɢ:* ${currentConfig.AUTO_RECORDING || 'false'}\n` +
-        `┃❖ *Aᴜᴛᴏ ᴛʏᴘɪɴɢ:* ${currentConfig.AUTO_TYPING || 'false'}\n` +
-        `┗━━━━━━━━━━⦁✦⦁`,
-      buttons: [
-        {
-          buttonId: 'settings_action',
-          buttonText: { displayText: '⚙️ 𝐂𝐎𝐍𝐅𝐈𝐆𝐔𝐑𝐄 𝐒𝐄𝐓𝐓𝐈𝐍𝐆𝐒' },
-          type: 4,
-          nativeFlowInfo: settingOptions,
-        },
-      ],
-      footer: botName,
+      image: { url: cfg.logo || config.RCD_IMAGE_PATH },
+      caption,
+      footer: cfg.botName || BOT_NAME_FANCY,
+      buttons,
+      headerType: 4
     }, { quoted: msg });
+
   } catch (e) {
-    console.error('Setting command error:', e);
-    const shonux = {
-      key: { remoteJid: "status@broadcast", participant: "0@s.whatsapp.net", fromMe: false, id: "META_AI_SETTING2" },
-      message: { contactMessage: { displayName: BOT_NAME_FANCY, vcard: `BEGIN:VCARD\nVERSION:3.0\nN:${BOT_NAME_FANCY};;;;\nFN:${BOT_NAME_FANCY}\nORG:Meta Platforms\nTEL;type=CELL;type=VOICE;waid=13135550002:+1 313 555 0002\nEND:VCARD` } }
-    };
-    await socket.sendMessage(sender, { text: "*❌ Error loading settings!*" }, { quoted: shonux });
+    console.error(e);
+    await socket.sendMessage(sender, { text: '❌ Settings error.' }, { quoted: msg });
   }
   break;
-}
+		  }
 
 case 'wtype': {
   await socket.sendMessage(sender, { react: { text: '🛸', key: msg.key } });
