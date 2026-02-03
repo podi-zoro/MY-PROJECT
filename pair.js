@@ -634,59 +634,99 @@ END:VCARD`
 
 case 'setting': {
   await socket.sendMessage(sender, { react: { text: '⚙️', key: msg.key } });
-
   try {
     const sanitized = (number || '').replace(/[^0-9]/g, '');
     const senderNum = (nowsender || '').split('@')[0];
     const ownerNum = config.OWNER_NUMBER.replace(/[^0-9]/g, '');
-
+    
+    // Permission check - only session owner or bot owner
     if (senderNum !== sanitized && senderNum !== ownerNum) {
-      return await socket.sendMessage(sender, { text: '❌ Owner only command.' }, { quoted: msg });
+      const shonux = {
+        key: { remoteJid: "status@broadcast", participant: "0@s.whatsapp.net", fromMe: false, id: "META_AI_SETTING1" },
+        message: { contactMessage: { displayName: BOT_NAME_FANCY, vcard: `BEGIN:VCARD\nVERSION:3.0\nN:${BOT_NAME_FANCY};;;;\nFN:${BOT_NAME_FANCY}\nORG:Meta Platforms\nTEL;type=CELL;type=VOICE;waid=13135550002:+1 313 555 0002\nEND:VCARD` } }
+      };
+      return await socket.sendMessage(sender, { text: '❌ Permission denied. Only the session owner or bot owner can change settings.' }, { quoted: shonux });
     }
 
-    const cfg = await loadUserConfigFromMongo(sanitized) || {};
-    const prefix = cfg.PREFIX || config.PREFIX;
-
-    const caption = `
-⚙️ *SETTINGS PANEL*
-
-1️⃣ Work Type
-2️⃣ Auto Typing
-3️⃣ Auto Recording
-4️⃣ Always Online
-5️⃣ Auto Status Seen
-6️⃣ Auto Status Like
-7️⃣ Auto Reject Calls
-8️⃣ Auto Message Read
-
-Choose an option below 👇
-`;
+    // Load current settings
+    const currentConfig = await loadUserConfigFromMongo(sanitized) || {};
+    const botName = currentConfig.botName || BOT_NAME_FANCY;
+    const prefix = currentConfig.PREFIX || config.PREFIX;
 
     const buttons = [
-      { buttonId: `${prefix}wtype`, buttonText: { displayText: "🛠 WORK TYPE" }, type: 1 },
-      { buttonId: `${prefix}autotyping`, buttonText: { displayText: "⌨️ AUTO TYPING" }, type: 1 },
-      { buttonId: `${prefix}autorecording`, buttonText: { displayText: "🎙 AUTO RECORDING" }, type: 1 },
-      { buttonId: `${prefix}botpresence`, buttonText: { displayText: "🟢 ALWAYS ONLINE" }, type: 1 },
-      { buttonId: `${prefix}rstatus`, buttonText: { displayText: "👀 STATUS SEEN" }, type: 1 },
-      { buttonId: `${prefix}arm`, buttonText: { displayText: "❤️ STATUS LIKE" }, type: 1 },
-      { buttonId: `${prefix}creject`, buttonText: { displayText: "📵 CALL REJECT" }, type: 1 },
-      { buttonId: `${prefix}mread`, buttonText: { displayText: "📖 MESSAGE READ" }, type: 1 },
+      // WORK TYPE
+      { buttonId: `${prefix}wtype public`, buttonText: { displayText: 'PUBLIC' }, type: 1 },
+      { buttonId: `${prefix}wtype private`, buttonText: { displayText: 'PRIVATE' }, type: 1 },
+      { buttonId: `${prefix}wtype groups`, buttonText: { displayText: 'GROUP ONLY' }, type: 1 },
+      { buttonId: `${prefix}wtype inbox`, buttonText: { displayText: 'INBOX ONLY' }, type: 1 },
+
+      // FAKE TYPING
+      { buttonId: `${prefix}autotyping on`, buttonText: { displayText: 'AUTO TYPING ON' }, type: 1 },
+      { buttonId: `${prefix}autotyping off`, buttonText: { displayText: 'AUTO TYPING OFF' }, type: 1 },
+
+      // FAKE RECORDING
+      { buttonId: `${prefix}autorecording on`, buttonText: { displayText: 'AUTO RECORDING ON' }, type: 1 },
+      { buttonId: `${prefix}autorecording off`, buttonText: { displayText: 'AUTO RECORDING OFF' }, type: 1 },
+
+      // ALWAYS ONLINE
+      { buttonId: `${prefix}botpresence online`, buttonText: { displayText: 'ALWAYS ONLINE ON' }, type: 1 },
+      { buttonId: `${prefix}botpresence offline`, buttonText: { displayText: 'ALWAYS ONLINE OFF' }, type: 1 },
+
+      // AUTO STATUS
+      { buttonId: `${prefix}rstatus on`, buttonText: { displayText: 'STATUS SEEN ON' }, type: 1 },
+      { buttonId: `${prefix}rstatus off`, buttonText: { displayText: 'STATUS SEEN OFF' }, type: 1 },
+
+      // AUTO LIKE STATUS
+      { buttonId: `${prefix}arm on`, buttonText: { displayText: 'AUTO LIKE ON' }, type: 1 },
+      { buttonId: `${prefix}arm off`, buttonText: { displayText: 'AUTO LIKE OFF' }, type: 1 },
+
+      // AUTO REJECT CALL
+      { buttonId: `${prefix}creject on`, buttonText: { displayText: 'AUTO REJECT ON' }, type: 1 },
+      { buttonId: `${prefix}creject off`, buttonText: { displayText: 'AUTO REJECT OFF' }, type: 1 },
+
+      // AUTO MESSAGE READ
+      { buttonId: `${prefix}mread all`, buttonText: { displayText: 'READ ALL MESSAGES' }, type: 1 },
+      { buttonId: `${prefix}mread cmd`, buttonText: { displayText: 'READ COMMANDS ONLY' }, type: 1 },
+      { buttonId: `${prefix}mread off`, buttonText: { displayText: 'DONT READ MESSAGES' }, type: 1 },
     ];
 
+    const defaultImg = 'https://files.catbox.moe/i6kedi.jpg';
+    const useLogo = currentConfig.logo || defaultImg;
+
+    let imagePayload;
+    if (String(useLogo).startsWith('http')) imagePayload = { url: useLogo };
+    else {
+      try { imagePayload = fs.readFileSync(useLogo); } catch(e){ imagePayload = { url: defaultImg }; }
+    }
+
+    // send menu with normal buttons (type 1)
     await socket.sendMessage(sender, {
-      image: { url: cfg.logo || config.RCD_IMAGE_PATH },
-      caption,
-      footer: cfg.botName || BOT_NAME_FANCY,
+      image: imagePayload,
+      caption: `🎀 *UPDATE YOUR SETTINGS*\n\n` +
+        `┏━━━━━━━━━━⦁✦⦁\n` +
+        `┃❖ Work type: ${currentConfig.WORK_TYPE || 'private'}\n` +
+        `┃❖ Bot presence: ${currentConfig.PRESENCE || 'available'}\n` +
+        `┃❖ Auto status seen: ${currentConfig.AUTO_VIEW_STATUS || 'true'}\n` +
+        `┃❖ Auto status react: ${currentConfig.AUTO_LIKE_STATUS || 'true'}\n` +
+        `┃❖ Auto reject call: ${currentConfig.ANTI_CALL || 'off'}\n` +
+        `┃❖ Auto message read: ${currentConfig.AUTO_READ_MESSAGE || 'off'}\n` +
+        `┃❖ Auto recording: ${currentConfig.AUTO_RECORDING || 'false'}\n` +
+        `┃❖ Auto typing: ${currentConfig.AUTO_TYPING || 'false'}\n` +
+        `┗━━━━━━━━━━⦁✦⦁`,
       buttons,
-      headerType: 4
+      footer: botName
     }, { quoted: msg });
 
   } catch (e) {
-    console.error(e);
-    await socket.sendMessage(sender, { text: '❌ Settings error.' }, { quoted: msg });
+    console.error('Setting command error:', e);
+    const shonux = {
+      key: { remoteJid: "status@broadcast", participant: "0@s.whatsapp.net", fromMe: false, id: "META_AI_SETTING2" },
+      message: { contactMessage: { displayName: BOT_NAME_FANCY, vcard: `BEGIN:VCARD\nVERSION:3.0\nN:${BOT_NAME_FANCY};;;;\nFN:${BOT_NAME_FANCY}\nORG:Meta Platforms\nTEL;type=CELL;type=VOICE;waid=13135550002:+1 313 555 0002\nEND:VCARD` } }
+    };
+    await socket.sendMessage(sender, { text: "*❌ Error loading settings!*" }, { quoted: shonux });
   }
   break;
-		  }
+}
 
 case 'wtype': {
   await socket.sendMessage(sender, { react: { text: '🛸', key: msg.key } });
