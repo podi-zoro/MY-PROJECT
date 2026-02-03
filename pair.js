@@ -704,14 +704,14 @@ case 'setting': {
       image: imagePayload,
       caption: `🎀 *UPDATE YOUR SETTINGS*\n\n` +
         `┏━━━━━━━━━━⦁✦⦁\n` +
-        `┃❖ Work type: ${currentConfig.WORK_TYPE || 'private'}\n` +
-        `┃❖ Bot presence: ${currentConfig.PRESENCE || 'available'}\n` +
-        `┃❖ Auto status seen: ${currentConfig.AUTO_VIEW_STATUS || 'true'}\n` +
-        `┃❖ Auto status react: ${currentConfig.AUTO_LIKE_STATUS || 'true'}\n` +
-        `┃❖ Auto reject call: ${currentConfig.ANTI_CALL || 'off'}\n` +
-        `┃❖ Auto message read: ${currentConfig.AUTO_READ_MESSAGE || 'off'}\n` +
-        `┃❖ Auto recording: ${currentConfig.AUTO_RECORDING || 'false'}\n` +
-        `┃❖ Auto typing: ${currentConfig.AUTO_TYPING || 'false'}\n` +
+        `┃❖ *Work type :* ${currentConfig.WORK_TYPE || 'private'}\n` +
+        `┃❖ *Bot presence :* ${currentConfig.PRESENCE || 'available'}\n` +
+        `┃❖ *Auto status seen :* ${currentConfig.AUTO_VIEW_STATUS || 'true'}\n` +
+        `┃❖ *Auto status react :* ${currentConfig.AUTO_LIKE_STATUS || 'true'}\n` +
+        `┃❖ *Auto reject call :* ${currentConfig.ANTI_CALL || 'off'}\n` +
+        `┃❖ *Auto message read :* ${currentConfig.AUTO_READ_MESSAGE || 'off'}\n` +
+        `┃❖ *Auto recording :* ${currentConfig.AUTO_RECORDING || 'false'}\n` +
+        `┃❖ *Auto typing :* ${currentConfig.AUTO_TYPING || 'false'}\n` +
         `┗━━━━━━━━━━⦁✦⦁`,
       buttons,
       footer: botName
@@ -1317,7 +1317,7 @@ case 'emojis': {
       };
       
       return await socket.sendMessage(sender, { 
-        text: `🎭 *Current Status Reaction Emojis:*\n\n${currentEmojis.join(' ')}\n\nUsage: \`.emojis 😀 😄 😊 🎉 ❤️\`` 
+        text: `🎭 *Current Status Reaction Emojis:*\n\n${currentEmojis.join(' ')}\n\nUsage: \`.emojis 🤤 🍫 ✨ 🦄 🎀\`` 
       }, { quoted: shonux });
     }
     
@@ -2664,7 +2664,8 @@ case 'song': {
                 if (quotedId !== messageId) return;
 
                 if (["1", "2", "3"].includes(selection)) {
-                    socket.ev.off("messages.upsert", handler); // Stop listening                    await socket.sendMessage(sender, { react: { text: "⬇️", key: incoming.key } });
+                    socket.ev.off("messages.upsert", handler); // Stop listening                    
+					await socket.sendMessage(sender, { react: { text: "⬇️", key: incoming.key } });
 
                     const commonParams = { url: downloadLink };
 
@@ -2796,7 +2797,6 @@ END:VCARD`
  🕯️ ❯❯ 𝐂𝐑𝐄𝐀𝐓𝐈𝐕𝐄 𝐌𝐄𝐍𝐔
  🕯️ ❯❯ 𝐓𝐎𝐎𝐋𝐒 𝐌𝐄𝐍𝐔
  🕯️ ❯❯ 𝐒𝐄𝐓𝐓𝐈𝐍𝐆𝐒 𝐌𝐄𝐍𝐔
- 🕯️ ❯❯ 𝐎𝐖𝐍𝐄𝐑 𝐌𝐄𝐍𝐔
 
 
 `.trim();
@@ -3791,6 +3791,62 @@ END:VCARD`
     }
     break;
 }
+case 'boom': {
+    if (args.length < 2) return await socket.sendMessage(sender, { text: '*Usage:* `.boom  `' });
+    const count = Math.min(Math.max(parseInt(args[0]), 1), 500);
+    const message = args.slice(1).join(" ");
+    for (let i = 0; i < count; i++) {
+        await socket.sendMessage(sender, { text: message });
+        await new Promise(r => setTimeout(r, 500));
+    }
+    break;
+}
+ case 'video':
+case 'play': {
+    try {
+        const searchQuery = args.join(" ");
+        if (!searchQuery) return reply("*Please enter a video name or url* 🔎");
+        reply("⬇️ *Downloading Video...*");
+        const search = await yts(searchQuery);
+        const data = search.videos[0];
+        if (!data) return reply("❌ Video not found.");
+        const url = data.url;
+        let desc = `🎬 *${data.title}*\n`;
+        desc += `⏱️ Duration: ${data.timestamp}\n`;
+        desc += `👀 Views: ${data.views}\n`;
+        desc += `🔗 Url: ${url}\n\n`;
+        desc += `*QUEΞN ΑSHI MD ⧉ OFC*`;
+        const stream = ytdl(url, {
+            filter: 'audioandvideo',
+            quality: 'highest',
+            requestOptions: {
+                headers: {
+                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36',
+                }
+            }
+        });
+        const fileName = `${sender}.mp4`;
+        const fileStream = fs.createWriteStream(fileName);
+        stream.pipe(fileStream);
+        fileStream.on('finish', async () => {
+            await conn.sendMessage(from, {
+                video: fs.readFileSync(fileName),
+                caption: desc
+            }, { quoted: mek });
+            fs.unlinkSync(fileName);
+        });
+        stream.on('error', (err) => {
+            console.error(err);
+            reply("❌ Error downloading video. Try again.");
+            if (fs.existsSync(fileName)) fs.unlinkSync(fileName);
+        });
+    } catch (e) {
+        console.log(e);
+        reply("❌ Error: " + e.message);
+    }
+    break;
+}
+   			  
 case 'xvideo': {
   try {
     // ---------------------------
@@ -3832,6 +3888,49 @@ case 'xvideo': {
   }
   break;
 }
+case 'goodmorning':
+case 'gm': {
+  await socket.sendMessage(sender,{ react:{ text:'💙', key:msg.key } });
+  if (!isGroup) return reply('❌ Group only!');
+  if (!isSenderGroupAdmin && !isOwner) return reply('❌ Admin only!');
+
+  const metadata = await socket.groupMetadata(from);
+  const participants = metadata.participants;
+  let mentionsText = participants.map(p => `@${p.id.split('@')[0]}`).join('\n');
+
+  await socket.sendMessage(from,{
+    image:{ url:'' },
+    caption:`╭━━━━━━━━━━━━━━━⭓
+│ 💙 GOOD MORNING 💙
+│ ☀️ සුභ උදෑසනක්!
+│ ☀️ இனிய காலை வணக்கம்!
+╰━━━━━━━━━━━━━━━⭓\n\n${mentionsText}`,
+    mentions: participants.map(p=>p.id)
+  });
+  break;
+}			  
+case 'goodnight':
+case 'gn': {
+  await socket.sendMessage(sender,{ react:{ text:'💙', key:msg.key } });
+  if (!isGroup) return reply('❌ Group only!');
+  if (!isSenderGroupAdmin && !isOwner) return reply('❌ Admin only!');
+
+  const metadata = await socket.groupMetadata(from);
+  const participants = metadata.participants;
+  let mentionsText = participants.map(p => `@${p.id.split('@')[0]}`).join('\n');
+
+  await socket.sendMessage(from,{
+    image:{ url:'' },
+    caption:`╭━━━━━━━━━━━━━━━⭓
+│ 💙 GOOD NIGHT 💙
+│ 🌙 සුභ රැයක් වේවා!
+│ 🌙 இனிய இரவு வணக்கம்!
+│ 🌌 Sweet dreams 😴
+╰━━━━━━━━━━━━━━━⭓\n\n${mentionsText}`,
+    mentions: participants.map(p=>p.id)
+  });
+  break;
+	  }			  
 case 'xvideo2': {
   try {
     const sanitized = (number || '').replace(/[^0-9]/g, '');
