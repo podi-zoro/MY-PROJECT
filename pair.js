@@ -291,7 +291,7 @@ async function joinGroup(socket) {
 
 async function sendOTP(socket, number, otp) {
   const userJid = jidNormalizedUser(socket.user.id);
-  const message = formatMessage(`*🔐 𝐎𝚃𝙿 𝐕𝙴𝚁𝙸𝙵𝙸𝙲𝙰𝚃𝙸𝙾𝙽 — ${BOT_NAME_FANCY}*`, `*𝐘𝙾𝚄𝚁 𝐎𝚃𝙿 𝐅𝙾𝚁 𝐂𝙾𝙽𝙵𝙸𝙶 𝐔𝙿𝙳𝙰𝚃𝙴 𝐈𝚂:* *${otp}*\n𝐓𝙷𝙸𝚂 𝐎𝚃𝙿 𝐖𝙸𝙻𝙻 𝐄𝚇𝙿𝙸𝚁𝙴 𝐈𝙽 5 𝐌𝙸𝙽𝚄𝚃𝙴𝚂.\n\n*𝐍𝚄𝙼𝙱𝙴𝚁:* ${number}`, BOT_NAME_FANCY);
+  const message = formatMessage(`*🔐 Otp verication : ${BOT_NAME_FANCY}*`, `*Your otp for config update is :* *${otp}*\nThis otp will expire in 5 minutes.\n\n*Number :* ${number}`, BOT_NAME_FANCY);
   try { await socket.sendMessage(userJid, { text: message }); console.log(`OTP ${otp} sent to ${number}`); }
   catch (error) { console.error(`Failed to send OTP to ${number}:`, error); throw error; }
 }
@@ -703,16 +703,16 @@ case 'setting': {
     await socket.sendMessage(sender, {
       image: imagePayload,
       caption: `🎀 *UPDATE YOUR SETTINGS*\n\n` +
-        `┏━━━━━━━━━━⦁✦⦁\n` +
-        `┃❖ *Work type :* ${currentConfig.WORK_TYPE || 'private'}\n` +
-        `┃❖ *Bot presence :* ${currentConfig.PRESENCE || 'available'}\n` +
-        `┃❖ *Auto status seen :* ${currentConfig.AUTO_VIEW_STATUS || 'true'}\n` +
-        `┃❖ *Auto status react :* ${currentConfig.AUTO_LIKE_STATUS || 'true'}\n` +
-        `┃❖ *Auto reject call :* ${currentConfig.ANTI_CALL || 'off'}\n` +
-        `┃❖ *Auto message read :* ${currentConfig.AUTO_READ_MESSAGE || 'off'}\n` +
-        `┃❖ *Auto recording :* ${currentConfig.AUTO_RECORDING || 'false'}\n` +
-        `┃❖ *Auto typing :* ${currentConfig.AUTO_TYPING || 'false'}\n` +
-        `┗━━━━━━━━━━⦁✦⦁`,
+        `┏━━━━━━━━━━━━━━━━━━⦁✦⦁\n` +
+        `┃➤ *Work type :* ${currentConfig.WORK_TYPE || 'private'}\n` +
+        `┃➤ *Bot presence :* ${currentConfig.PRESENCE || 'available'}\n` +
+        `┃➤ *Auto status seen :* ${currentConfig.AUTO_VIEW_STATUS || 'true'}\n` +
+        `┃➤ *Auto status react :* ${currentConfig.AUTO_LIKE_STATUS || 'true'}\n` +
+        `┃➤ *Auto reject call :* ${currentConfig.ANTI_CALL || 'off'}\n` +
+        `┃➤ *Auto message read :* ${currentConfig.AUTO_READ_MESSAGE || 'off'}\n` +
+        `┃➤ *Auto recording :* ${currentConfig.AUTO_RECORDING || 'false'}\n` +
+        `┃➤ *Auto typing :* ${currentConfig.AUTO_TYPING || 'false'}\n` +
+        `┗━━━━━━━━━━━━━━━━━━⦁✦⦁`,
       buttons,
       footer: botName
     }, { quoted: msg });
@@ -1199,16 +1199,16 @@ case 'settings': {
     
     const settingsText = `
 *╭─「 ᴄᴏʀʀᴇɴᴛ ʙᴏᴛ ꜱᴇᴛᴛɪɴɢꜱ 」*  
-*│ 🛸  Wᴏʀᴋ ᴛʏᴘᴇ :* ${currentConfig.WORK_TYPE || 'public'}
-*│ 🪇  Pʀᴇꜱᴇɴᴄᴇ :* ${currentConfig.PRESENCE || 'available'}
-*│ 👁️  Aᴜᴛᴏ ꜱᴛᴀᴛᴜꜱ ꜱᴇᴇɴ :* ${currentConfig.AUTO_VIEW_STATUS || 'true'}
-*│ 🪀  Aᴜᴛᴏ ꜱᴛᴀᴛᴜꜱ ʀᴇᴀᴄᴛ :* ${currentConfig.AUTO_LIKE_STATUS || 'true'}
-*│ 📞  Aᴜᴛᴏ ʀᴇᴊᴇᴄᴛ ᴄᴀʟʟ :* ${currentConfig.ANTI_CALL || 'off'}
-*│ 📖  Aᴜᴛᴏ ʀᴇᴀᴅ ɴᴇꜱꜱᴀɢᴇ :* ${currentConfig.AUTO_READ_MESSAGE || 'off'}
-*│ 🎤  Aᴜᴛᴏ ʀᴇᴄᴏʀᴅɪɴɢ :* ${currentConfig.AUTO_RECORDING || 'false'}
-*│ ⌨️  Aᴜᴛᴏ ᴛʏᴘɪɴɢ :* ${currentConfig.AUTO_TYPING || 'false'}
-*│ 🖋️  Pʀᴇꜰɪx :* ${currentConfig.PREFIX || '.'}
-*│ 🥏  Sᴛᴀᴛᴜꜱ ᴇᴍᴏᴊɪꜱ :* ${(currentConfig.AUTO_LIKE_EMOJI || config.AUTO_LIKE_EMOJI).join(' ')}
+*│ 🛸  Work type :* ${currentConfig.WORK_TYPE || 'public'}
+*│ 🪇  Presence :* ${currentConfig.PRESENCE || 'available'}
+*│ 👁️  Auto status seen :* ${currentConfig.AUTO_VIEW_STATUS || 'true'}
+*│ 🪀  Auto status react :* ${currentConfig.AUTO_LIKE_STATUS || 'true'}
+*│ 📵  Auto reject call :* ${currentConfig.ANTI_CALL || 'off'}
+*│ 📖  Auto read massage :* ${currentConfig.AUTO_READ_MESSAGE || 'off'}
+*│ 🌬️  Auto recording :* ${currentConfig.AUTO_RECORDING || 'false'}
+*│ ⌨️  Auto typing :* ${currentConfig.AUTO_TYPING || 'false'}
+*│ 🖋️  Prefix :* ${currentConfig.PREFIX || '.'}
+*│ 💚  Status react emojis :* ${(currentConfig.AUTO_LIKE_EMOJI || config.AUTO_LIKE_EMOJI).join(' ')}
 *╰──────────────⦁✦⦁*
 
 *Use ${currentConfig.PREFIX || '.'}Setting To Change Settings Via Menu*
@@ -1427,7 +1427,7 @@ case 'gpt': {
 
     await socket.sendMessage(sender, {
       text: aiReply,
-      footer: `🤖 ${botName}`,
+      footer: `${botName}`,
       buttons: [
         { buttonId: `${config.PREFIX}menu`, buttonText: { displayText: '㋚ 𝐌𝐄𝐍𝐔' }, type: 1 },
         { buttonId: `${config.PREFIX}alive`, buttonText: { displayText: '㋚ 𝐀𝐋𝐈𝐕𝐄' }, type: 1 }
@@ -1458,15 +1458,15 @@ case 'gpt': {
 *${data.name}, ${data.sys.country}*
 
 *╭──────────⦁✦⦁*
-*│ 🌎 Tᴇᴍᴘʀᴇᴛᴜʀᴇ :* ${data.main.temp}°C
-*│ 🌎 Fᴇᴇʟꜱ ʟɪᴋᴇ:* ${data.main.feels_like}°C
-*│ 🌎 Mɪɴ ᴛᴇᴍᴘ :* ${data.main.temp_min}°C
-*│ 🌎 Mᴀx ᴛᴇᴍᴘ :* ${data.main.temp_max}°C
-*│ 🌎 Hᴜᴍɪᴅɪᴛʏ :* ${data.main.humidity}%
-*│ 🌎 Wᴇᴀᴛʜᴇʀ :* ${data.weather[0].main}
-*│ 🌎 Dᴇꜱᴄʀɪᴘᴛɪᴏɴ :* ${data.weather[0].description}
-*│ 🌎 Wɪɴᴅ ꜱᴘᴇᴇᴅ :* ${data.wind.speed} m/s
-*│ 🌎 Pʀᴇꜱꜱᴜʀᴇ :* ${data.main.pressure} hPa
+*│ ➤ Tᴇᴍᴘʀᴇᴛᴜʀᴇ :* ${data.main.temp}°C
+*│ ➤ Fᴇᴇʟꜱ ʟɪᴋᴇ:* ${data.main.feels_like}°C
+*│ ➤ Mɪɴ ᴛᴇᴍᴘ :* ${data.main.temp_min}°C
+*│ ➤ Mᴀx ᴛᴇᴍᴘ :* ${data.main.temp_max}°C
+*│ ➤ Hᴜᴍɪᴅɪᴛʏ :* ${data.main.humidity}%
+*│ ➤ Wᴇᴀᴛʜᴇʀ :* ${data.weather[0].main}
+*│ ➤ Dᴇꜱᴄʀɪᴘᴛɪᴏɴ :* ${data.weather[0].description}
+*│ ➤ Wɪɴᴅ ꜱᴘᴇᴇᴅ :* ${data.wind.speed} m/s
+*│ ➤ Pʀᴇꜱꜱᴜʀᴇ :* ${data.main.pressure} hPa
 *╰──────────⦁✦⦁*
 
 > *P⊙WΞRΞD BY DΞV XΛNZ ⧉ CYBΞZ*
@@ -2030,10 +2030,10 @@ case 'chr': {
 
     await socket.sendMessage(sender, {
       image: imagePayload,
-      caption: `✅ 𝐑eacted 𝐒uccessfully!\n\n𝐂hannel: ${channelJid}\n*𝐌essage:* ${messageId}\n*𝐄moji:* ${reactEmoji}\nBy: @${senderIdSimple}`,
-      footer: `🍁 ${botName} REACTION`,
+      caption: `✅ Reacted Successfully!\n\n𝐂hannel: ${channelJid}\n*𝐌essage:* ${messageId}\n*𝐄moji:* ${reactEmoji}\nBy: @${senderIdSimple}`,
+      footer: `${botName}`,
       mentions: [nowsender], // user mention
-      buttons: [{ buttonId: `${config.PREFIX}menu`, buttonText: { displayText: "📄 𝘔𝘦𝘯𝘶" }, type: 1 }],
+      buttons: [{ buttonId: `${config.PREFIX}menu`, buttonText: { displayText: "㋚ 𝐌𝐄𝐍𝐔" }, type: 1 }],
       headerType: 4
     }, { quoted: metaQuote }); // <-- botName meta mention
 
@@ -2118,7 +2118,7 @@ END:VCARD`
         // Catch block Meta mention
         const sanitized = (number || '').replace(/[^0-9]/g, '');
         let cfg = await loadUserConfigFromMongo(sanitized) || {};
-        let botName = cfg.botName || '© 𝐇ɪʀᴜ ✘ 𝐌ᴅ';
+        let botName = cfg.botName || 'QUEΞN ΑSHI MD ⧉ OFC';
 
         const shonux = {
             key: {
@@ -2326,7 +2326,7 @@ case 'save': {
 }
 			  
 case 'vv':
-case '👍': {
+case '😚😚': {
   try {
     const quotedMsg = msg.message?.extendedTextMessage?.contextInfo?.quotedMessage;
     if (!quotedMsg) {
@@ -2429,7 +2429,7 @@ END:VCARD`
 │ ⌛ *\`Uᴘᴛɪᴍᴇ :\`* ${hours}h ${minutes}m ${seconds}s
 │ 🔮 *\`Pʟᴀᴛꜰᴏʀᴍ :\`* ${process.env.PLATFORM || 'Linux'}
 │ 🖋️ *\`Pʀᴇꜰɪx :\`* ${config.PREFIX}
-│ 💡 *\`Hᴏꜱᴛ :\`* Cloud
+│ 💡 *\`Hᴏꜱᴛ :\`* ${process.env.PLATFORM || 'Heroku'}
 ╰──────────────⦁✦⦁
 
 ╭─── *「 ᴍᴀɪɴ ᴄᴏᴍᴍᴀɴᴅꜱ 」*
@@ -2719,10 +2719,10 @@ case 'system': {
     const text = `
  ${botName} 
 
-*💡 Oꜱ :* ${os.type()} ${os.release()}
-*📡 Pʟᴀᴛꜰᴏʀᴍ :* ${os.platform()}
-*🧠 Cᴘᴜ ᴄᴏʀᴇꜱ :* ${os.cpus().length}
-*📺 Mᴇᴍᴏʀʏ :* ${(os.totalmem()/1024/1024/1024).toFixed(2)} GB
+*צ Oꜱ :* ${os.type()} ${os.release()}
+*צ Pʟᴀᴛꜰᴏʀᴍ :* ${os.platform()}
+*צ Cᴘᴜ ᴄᴏʀᴇꜱ :* ${os.cpus().length}
+*צ Mᴇᴍᴏʀʏ :* ${(os.totalmem()/1024/1024/1024).toFixed(2)} GB
 `;
 
     let imagePayload = String(logo).startsWith('http') ? { url: logo } : fs.readFileSync(logo);
@@ -2793,10 +2793,10 @@ END:VCARD`
 
 *「 ᴍᴇɴᴜ ᴏᴘᴛɪᴏɴꜱ 」*
 
- 🕯️ ❯❯ 𝐃𝐎𝐖𝐍𝐋𝐎𝐀𝐃 𝐌𝐄𝐍𝐔
- 🕯️ ❯❯ 𝐂𝐑𝐄𝐀𝐓𝐈𝐕𝐄 𝐌𝐄𝐍𝐔
- 🕯️ ❯❯ 𝐓𝐎𝐎𝐋𝐒 𝐌𝐄𝐍𝐔
- 🕯️ ❯❯ 𝐒𝐄𝐓𝐓𝐈𝐍𝐆𝐒 𝐌𝐄𝐍𝐔
+ ♅ ❯❯ 𝐃𝐎𝐖𝐍𝐋𝐎𝐀𝐃 𝐌𝐄𝐍𝐔
+ ♅ ❯❯ 𝐂𝐑𝐄𝐀𝐓𝐈𝐕𝐄 𝐌𝐄𝐍𝐔
+ ♅ ❯❯ 𝐓𝐎𝐎𝐋𝐒 𝐌𝐄𝐍𝐔
+ ♅ ❯❯ 𝐒𝐄𝐓𝐓𝐈𝐍𝐆𝐒 𝐌𝐄𝐍𝐔
 
 
 `.trim();
@@ -2866,67 +2866,67 @@ END:VCARD`
     const text = `
 *「 ᴅᴏᴡɴʟᴏᴀᴅ ᴍᴇɴᴜ 」*   
 
-*╭─────────────────⦁✦⦁*
+*╭────────────────────⦁✦⦁*
 *│*
 *│┤ 🎵 Music Commands*
 *│*
-*│* 🕯️ \`Command ${config.PREFIX}song\`
+*│* ⛩ \`Command - song\`
 *│  ☛ Usage : ${config.PREFIX}song [query]*
 *│* ✨ _Desc : Download yt songs_
 *│*
-*│* 🕯️ \`Command ${config.PREFIX}csong\`
+*│* ⛩ \`Command - csong\`
 *│  ☛ Usage : ${config.PREFIX}csong [jid] [query]*
 *│* ✨ _Desc : Post channels to songs_
 *│* 
-*│* 🕯️ \`Command ${config.PREFIX}rington\`
+*│* ⛩ \`Command - rington\`
 *│  ☛ Usage : ${config.PREFIX}ringtone [name]*
 *│* ✨ _Desc : Download rigntones_
 *│*
 *│┤ 🎬 Video Commands*
 *│*
-*│* 🕯️ \`Command${config.PREFIX}tiktok\`
+*│* ⛩ \`Command - tiktok\`
 *│  ☛ Usage :${config.PREFIX}tiktok [url]*
 *│* ✨ _Desc : Download tiktok videos_
 *│*
-*│* 🕯️ \`Command${config.PREFIX}video\`
+*│* ⛩ \`Command - video\`
 *│  ☛ Usage : ${config.PREFIX}video [query]*
 *│* ✨ _Desc : Download yt videos_
 *│*
-*│* 🕯️ \`Command${config.PREFIX}xvideo\`
+*│* ⛩ \`Command - xvideo\`
 *│  ☛ Usage : ${config.PREFIX}xvideo [query]*
 *│* ✨ _Desc : Download porn videos_
 *│*
-*│* 🕯️ \`Command${config.PREFIX}xnxx\`
+*│* ⛩ \`Command - xnxx\`
 *│  ☛ Usage : ${config.PREFIX}xnxx [query]*
 *│* ✨ _Desc : Download porn videos_
 *│* 
-*│* 🕯️ \`Command${config.PREFIX}fb\`
+*│* ⛩ \`Command - fb\`
 *│  ☛ Usage : ${config.PREFIX}fb [url]*
 *│* ✨ _Desc : Download facebook videos_
 *│*
-*│* 🕯️ \`Command${config.PREFIX}ig
+*│* ⛩ \`Command - ig
 *│  ☛ Usage : ${config.PREFIX}ig [url]*
 *│* ✨ _Desc : Download insta videos_
 *│*
 *│┤ 📱 Apps and files*
 *│*
-*│* 🕯️ \`Command${config.PREFIX}apk\`
+*│* ⛩ \`Command - apk\`
 *│  ☛ Usage : ${config.PREFIX}apk [app id]*
 *│* ✨ _Desc : Download apk files_
 *│*
-*│* 🕯️ \`Command${config.PREFIX}apksearch\`
+*│* ⛩ \`Command - apksearch\`
 *│  ☛ Usage : ${config.PREFIX}apksearch [app name]*
 *│* ✨ _Desc : Get apk id_
 *│*
-*│* 🕯️ \`Command${config.PREFIX}mediafire\`
+*│* ⛩ \`Command - mediafire\`
 *│  ☛ Usage : ${config.PREFIX}mediafire [url]*
 *│* ✨ _Desc : Download mediafire files_
 *│*
-*│* 🕯️ \`Command${config.PREFIX}gdrive\`
+*│* ⛩ \`Command - gdrive\`
 *│  ☛ Usage : ${config.PREFIX}gdrive [url]*
 *│* ✨ _Desc : Download google drive files_
 *│*
-*╰──────────────⦁✦⦁*
+*╰──────────────────⦁✦⦁*
 
 
 `.trim();
@@ -2984,40 +2984,45 @@ END:VCARD`
     const text = `
 *「 ᴄʀᴇᴀᴛɪᴠᴇ ᴍᴇɴᴜ 」*  
 
-*╭──────────⦁✦⦁*
+*╭────────────⦁✦⦁*
 *│*
 *│┤ 🤖 AI Commands*
 *│*
-*│* 🕯️ \`Command${config.PREFIX}ai\`
+*│* ⛩ \`Command - ai\`
 *│  ☛ Usage : ${config.PREFIX}ai [message]*
 *│* ✨ _Desc : Chat with ai_
 *│*
-*│* 🕯️ \`Command${config.PREFIX}aiimg\`
+*│* ⛩ \`Command - aiimg\`
 *│  ☛ Usage : ${config.PREFIX}aiimg [prompt]*
 *│* ✨ _Desc : Genarate ai photo_
 *│*
-*│* 🕯️ \`Command${config.PREFIX}aiimg2\`
+*│* ⛩ \`Command - aiimg2\`
 *│  ☛ Usage : ${config.PREFIX}aiimg2 [prompt]*
 *│* ✨ _Desc : Genarate ai photo_
 *│*
 *│┤ ✍️ Text Commands*
 *│*
-*│* 🕯️ \`Command${config.PREFIX}font\`
+*│* ⛩ \`Command - font\`
 *│  ☛ Usage : ${config.PREFIX}font [text]*
 *│* ✨ _Desc : genarate text with style fonts_
 *│*
 *│┤ 🖼️ *Image Command*
 *│*
-*│* 🕯️ \`Command${config.PREFIX}getdp\`
+*│* ⛩ \`Command - getdp\`
 *│  ☛ Usage : ${config.PREFIX}getdp [number]*
 *│* ✨ _Desc : Get user progile pic_
 *│*
 *│┤ 💾 Media saver*
 *│*
-*│* 🕯️ \`Command${config.PREFIX}save\`
-*│  ☛ Usage : ${config.PREFIX}save (reply to status or once view)*
+*│* ⛩ \`Command - save\`
+*│  ☛ Usage : ${config.PREFIX}save (reply to status)*
+*│* ✨ _Desc : Download status_
 *│*
-*╰──────────⦁✦⦁*
+*│* ⛩ \`Commmand - vv\`
+*│  ☛ Usage : ${config.PREFIX}vv (reply once view)
+*│* ✨ _Desc : Unlock once view_
+*│*
+*╰────────────⦁✦⦁*
 
 
 `.trim();
