@@ -631,58 +631,6 @@ END:VCARD`
 
     break;
 }
-// ---------------------- CYBER SIM ----------------------
-case 'cyber': {
-try {
-
-await socket.sendMessage(sender, {
-    react: { text: "💻", key: msg.key }
-});
-
-let target = text || "NETWORK NODE";
-
-let msg1 = await socket.sendMessage(sender, {
-    text: `\`\`\`⚡ Initiating cyber sequence on ${target}...\`\`\``
-}, { quoted: msg });
-
-const steps = [
-"Scanning network ports...",
-"Analyzing security layers...",
-"Testing firewall strength...",
-"Running encryption probe...",
-"Mapping system structure...",
-"Simulating breach attempt...",
-"Generating vulnerability report..."
-];
-
-for (let step of steps) {
-    await new Promise(r => setTimeout(r, 700));
-    await socket.sendMessage(sender, {
-        text: "```" + step + "```",
-        edit: msg1.key
-    });
-}
-
-await new Promise(r => setTimeout(r, 800));
-
-return await socket.sendMessage(sender, {
-text:
-`╭━━〔 ⚡ CYBER REPORT 〕━━⬣
-┃ 🎯 Target: ${target}
-┃ 🛡 Security Level: MEDIUM
-┃ ⚠ Vulnerabilities: 3 found
-┃ 🔐 Encryption: Active
-┃ 📡 Signal Trace: Stable
-╰━━━━━━━━━━━━━━━━⬣`,
-edit: msg1.key
-});
-
-} catch (e) {
-console.log(e)
-socket.sendMessage(sender,{text:"Cyber sim error!"},{quoted:msg})
-}
-}
-break;
 case 'setting': {
   await socket.sendMessage(sender, { react: { text: '⚙️', key: msg.key } });
   try {
@@ -2116,6 +2064,43 @@ case 'boom': {
 
                     break;
 }
+case 'aicore':
+try {
+
+await socket.sendMessage(sender, {
+    react: { text: "🧠", key: msg.key }
+});
+
+let target = text ? text : "GLOBAL NODE";
+
+const steps = [
+"[BOOT] Initializing AI Cyber Core...",
+"[OK] Loading neural modules...",
+"[OK] Establishing secure uplink...",
+"[SCAN] Inspecting data streams...",
+"[AI] Running diagnostics..."
+];
+
+for (let s of steps) {
+    await socket.sendMessage(sender, { text: "```" + s + "```" }, { quoted: msg });
+    await new Promise(r => setTimeout(r, 600));
+}
+
+await socket.sendMessage(sender, {
+text:
+`╔══════════════════╗
+🤖 AI SYSTEM REPORT
+🎯 Target : ${target}
+🧠 Status : ONLINE
+🛡 Protection : ACTIVE
+╚══════════════════╝`
+}, { quoted: msg });
+
+} catch (err) {
+console.log(err)
+socket.sendMessage(sender,{text:"AI core failure."},{quoted:msg})
+}
+break;			  
 case 'apkdownload':
 case 'apk': {
     try {
