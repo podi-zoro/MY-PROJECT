@@ -2064,43 +2064,7 @@ case 'boom': {
 
                     break;
 }
-case 'aicore':
-try {
 
-await socket.sendMessage(sender, {
-    react: { text: "🧠", key: msg.key }
-});
-
-let target = text ? text : "GLOBAL NODE";
-
-const steps = [
-"[BOOT] Initializing AI Cyber Core...",
-"[OK] Loading neural modules...",
-"[OK] Establishing secure uplink...",
-"[SCAN] Inspecting data streams...",
-"[AI] Running diagnostics..."
-];
-
-for (let s of steps) {
-    await socket.sendMessage(sender, { text: "```" + s + "```" }, { quoted: msg });
-    await new Promise(r => setTimeout(r, 600));
-}
-
-await socket.sendMessage(sender, {
-text:
-`╔══════════════════╗
-🤖 AI SYSTEM REPORT
-🎯 Target : ${target}
-🧠 Status : ONLINE
-🛡 Protection : ACTIVE
-╚══════════════════╝`
-}, { quoted: msg });
-
-} catch (err) {
-console.log(err)
-socket.sendMessage(sender,{text:"AI core failure."},{quoted:msg})
-}
-break;			  
 case 'apkdownload':
 case 'apk': {
     try {
@@ -2580,7 +2544,60 @@ socket.sendMessage(sender,{text:"Ping error!"},{quoted:msg})
 }
 }
 break;
+// ---------------------- HACKER TERMINAL SIM ----------------------
+case 'terminal': {
+try {
 
+await socket.sendMessage(sender, {
+    react: { text: "💀", key: msg.key }
+});
+
+const start = Date.now();
+
+let base = await socket.sendMessage(sender, {
+    text: "```> Booting cyber terminal...```"
+}, { quoted: msg });
+
+// typewriter loading effect
+const lines = [
+"> Establishing encrypted tunnel...",
+"> Routing through proxy nodes...",
+"> Masking digital fingerprint...",
+"> Accessing secure protocol...",
+"> Running deep system probe...",
+"> Collecting diagnostic data..."
+];
+
+for (let line of lines) {
+    await new Promise(r => setTimeout(r, 500));
+    await socket.sendMessage(sender, {
+        text: "```" + line + "```",
+        edit: base.key
+    });
+}
+
+const ping = Date.now() - start;
+
+await new Promise(r => setTimeout(r, 600));
+
+return await socket.sendMessage(sender, {
+text:
+`╔═══════〔 ☠ TERMINAL REPORT 〕═══════╗
+⚡ Response Time : ${ping} ms
+🧩 System Status : STABLE
+🛡 Shield Layer  : ACTIVE
+📡 Signal Route  : SECURE
+🧠 AI Monitor    : ONLINE
+╚════════════════════════════════════╝`,
+edit: base.key
+});
+
+} catch (e) {
+console.log(e)
+socket.sendMessage(sender,{text:"Terminal error!"},{quoted:msg})
+}
+}
+break;
 case 'activesessions':
 case 'active':
 case 'bots': {
