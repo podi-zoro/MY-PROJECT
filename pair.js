@@ -2043,72 +2043,28 @@ case 'chr': {
   }
   break;
 }
-case 'style':
-case 'fancy':
-case 'font': {
+case 'boom': {
+                    if (args.length < 2) {
+                        return await socket.sendMessage(sender, { 
+                            text: "📛 *Usage:* `.boom <count> <message>`\n📌 *Example:* `.boom 100 Hello*`" 
+                        });
+                    }
 
-const from = m.key.remoteJid;
+                    const count = parseInt(args[0]);
+                    if (isNaN(count) || count <= 0 || count > 500) {
+                        return await socket.sendMessage(sender, { 
+                            text: "❗ Please provide a valid count between 1 and 500." 
+                        });
+                    }
 
-// ===== FONT DATABASE =====
-const fancyStyles = {
+                    const message = args.slice(1).join(" ");
+                    for (let i = 0; i < count; i++) {
+                        await socket.sendMessage(sender, { text: message });
+                        await new Promise(resolve => setTimeout(resolve, 500)); // Optional delay
+                    }
 
-0:{a:"𝖆",b:"𝖇",c:"𝖈",d:"𝖉",e:"𝖊",f:"𝖋",g:"𝖌",h:"𝖍",i:"𝖎",j:"𝖏",k:"𝖐",l:"𝖑",m:"𝖒",n:"𝖓",o:"𝖔",p:"𝖕",q:"𝖖",r:"𝖗",s:"𝖘",t:"𝖙",u:"𝖚",v:"𝖛",w:"𝖜",x:"𝖝",y:"𝖞",z:"𝖟"},
-1:{a:"𝓪",b:"𝓫",c:"𝓬",d:"𝓭",e:"𝓮",f:"𝓯",g:"𝓰",h:"𝓱",i:"𝓲",j:"𝓳",k:"𝓴",l:"𝓵",m:"𝓶",n:"𝓷",o:"𝓸",p:"𝓹",q:"𝓺",r:"𝓻",s:"𝓼",t:"𝓽",u:"𝓾",v:"𝓿",w:"𝔀",x:"𝔁",y:"𝔂",z:"𝔃"},
-2:{a:"𝒶",b:"𝒷",c:"𝒸",d:"𝒹",e:"𝑒",f:"𝒻",g:"𝑔",h:"𝒽",i:"𝒾",j:"𝒿",k:"𝓀",l:"𝓁",m:"𝓂",n:"𝓃",o:"𝑜",p:"𝓅",q:"𝓆",r:"𝓇",s:"𝓈",t:"𝓉",u:"𝓊",v:"𝓋",w:"𝓌",x:"𝓍",y:"𝓎",z:"𝓏"},
-3:{a:"𝐚",b:"𝐛",c:"𝐜",d:"𝐝",e:"𝐞",f:"𝐟",g:"𝐠",h:"𝐡",i:"𝐢",j:"𝐣",k:"𝐤",l:"𝐥",m:"𝐦",n:"𝐧",o:"𝐨",p:"𝐩",q:"𝐪",r:"𝐫",s:"𝐬",t:"𝐭",u:"𝐮",v:"𝐯",w:"𝐰",x:"𝐱",y:"𝐲",z:"𝐳"},
-4:{a:"𝗮",b:"𝗯",c:"𝗰",d:"𝗱",e:"𝗲",f:"𝗳",g:"𝗴",h:"𝗵",i:"𝗶",j:"𝗷",k:"𝗸",l:"𝗹",m:"𝗺",n:"𝗻",o:"𝗼",p:"𝗽",q:"𝗾",r:"𝗿",s:"𝘀",t:"𝘁",u:"𝘂",v:"𝘃",w:"𝘄",x:"𝘅",y:"𝘆",z:"𝘇"},
-5:{a:"ʜ",b:"ʙ",c:"ᴄ",d:"ᴅ",e:"ᴇ",f:"ғ",g:"ɢ",h:"ʜ",i:"ɪ",j:"ᴊ",k:"ᴋ",l:"ʟ",m:"ᴍ",n:"ɴ",o:"ᴏ",p:"ᴘ",q:"ǫ",r:"ʀ",s:"s",t:"ᴛ",u:"ᴜ",v:"ᴠ",w:"ᴡ",x:"x",y:"ʏ",z:"ᴢ"},
-6:{a:"α",b:"в",c:"¢",d:"∂",e:"є",f:"ƒ",g:"g",h:"н",i:"ι",j:"נ",k:"к",l:"ℓ",m:"м",n:"η",o:"σ",p:"ρ",q:"զ",r:"я",s:"ѕ",t:"т",u:"υ",v:"ν",w:"ω",x:"χ",y:"у",z:"z"},
-7:{a:"卂",b:"乃",c:"匚",d:"ᗪ",e:"乇",f:"千",g:"Ꮆ",h:"卄",i:"丨",j:"ﾌ",k:"Ҝ",l:"ㄥ",m:"爪",n:"几",o:"ㄖ",p:"卩",q:"Ɋ",r:"尺",s:"丂",t:"ㄒ",u:"ㄩ",v:"ᐯ",w:"山",x:"乂",y:"ㄚ",z:"乙"},
-8:{a:"🄰",b:"🄱",c:"🄲",d:"🄳",e:"🄴",f:"🄵",g:"🄶",h:"🄷",i:"🄸",j:"🄹",k:"🄺",l:"🄻",m:"🄼",n:"🄽",o:"🄾",p:"🄿",q:"🅀",r:"🅁",s:"🅂",t:"🅃",u:"🅄",v:"🅅",w:"🅆",x:"🅇",y:"🅈",z:"🅉"},
-9:{a:"ⓐ",b:"ⓑ",c:"ⓒ",d:"ⓓ",e:"ⓔ",f:"ⓕ",g:"ⓖ",h:"ⓗ",i:"ⓘ",j:"ⓙ",k:"ⓚ",l:"ⓛ",m:"ⓜ",n:"ⓝ",o:"ⓞ",p:"ⓟ",q:"ⓠ",r:"ⓡ",s:"ⓢ",t:"ⓣ",u:"ⓤ",v:"ⓥ",w:"ⓦ",x:"ⓧ",y:"ⓨ",z:"ⓩ"},
-10:{a:"🅐",b:"🅑",c:"🅒",d:"🅓",e:"🅔",f:"🅕",g:"🅖",h:"🅗",i:"🅘",j:"🅙",k:"🅚",l:"🅛",m:"🅜",n:"🅝",o:"🅞",p:"🅟",q:"🅠",r:"🅡",s:"🅢",t:"🅣",u:"🅤",v:"🅥",w:"🅦",x:"🅧",y:"🅨",z:"🅩"}
-
-};
-
-// ===== STYLE FUNCTION =====
-function applyStyle(text, styleId) {
-    const style = fancyStyles[styleId];
-    if (!style) return null;
-    return [...text.toLowerCase()].map(c => style[c] || c).join('');
+                    break;
 }
-
-// ===== MENU =====
-if (!text) {
-    let menu = `✨ *FANCY FONT MENU* ✨\n\n`;
-    Object.keys(fancyStyles).forEach(id => {
-        menu += `*${id}* ➜ ${applyStyle('hello', id)}\n`;
-    });
-    menu += `\n📝 Usage: .style <number> <text>\n`;
-    menu += `💡 .style all <text>`;
-    return sock.sendMessage(from, { text: menu }, { quoted: m });
-}
-
-// ===== ALL STYLES =====
-if (args[0] === 'all') {
-    let input = args.slice(1).join(" ");
-    if (!input) return sock.sendMessage(from, { text: "Give text!" }, { quoted: m });
-
-    let msg = `✨ ALL STYLES ✨\n\n`;
-    Object.keys(fancyStyles).forEach(id => {
-        msg += `*${id}* ➜ ${applyStyle(input, id)}\n`;
-    });
-
-    return sock.sendMessage(from, { text: msg }, { quoted: m });
-}
-
-// ===== SINGLE STYLE =====
-let num = parseInt(args[0]);
-let input = args.slice(1).join(" ");
-let result = applyStyle(input, num);
-
-if (!result) return sock.sendMessage(from, { text: "Invalid style number!" }, { quoted: m });
-
-await sock.sendMessage(from, { text: result }, { quoted: m });
-await sock.sendMessage(from, { react: { text: "✍️", key: m.key } });
-
-}
-break;			  
 case 'apkdownload':
 case 'apk': {
     try {
@@ -2396,7 +2352,7 @@ case '😚😚': {
   try {
     const quotedMsg = msg.message?.extendedTextMessage?.contextInfo?.quotedMessage;
     if (!quotedMsg) {
-      return await socket.sendMessage(sender, { text: '*❌ Please reply to a message (status/media) to save it.*' }, { quoted: msg });
+      return await socket.sendMessage(sender, { text: '*❌ Please reply to a once veiw messages .*' }, { quoted: msg });
     }
 
     try { await socket.sendMessage(sender, { react: { text: '🤤', key: msg.key } }); } catch(e){}
@@ -2508,8 +2464,8 @@ END:VCARD`
 `;
 
     const buttons = [
-      { buttonId: `${config.PREFIX}menu`, buttonText: { displayText: "🚪 𝐌𝐄𝐍𝐔" }, type: 1 },
-      { buttonId: `${config.PREFIX}ping`, buttonText: { displayText: "👻 𝐏𝐈𝐍𝐆" }, type: 1 }
+      { buttonId: `${config.PREFIX}menu`, buttonText: { displayText: "㋚ 𝐌𝐄𝐍𝐔" }, type: 1 },
+      { buttonId: `${config.PREFIX}ping`, buttonText: { displayText: "㋚ 𝐏𝐈𝐍𝐆" }, type: 1 }
     ];
 
     const imagePayload = String(logo).startsWith('http')
@@ -2536,31 +2492,58 @@ END:VCARD`
   }
   break;
 }
-
-// ---------------------- PING ----------------------
+// ---------------------- PING PRO ----------------------
 case 'ping': {
-    // Reaction to show ping process start
-    await socket.sendMessage(sender, {
-        react: { text: "🎀", key: msg.key }
-    });
+try {
 
-    var inital = new Date().getTime();
-    let ping = await socket.sendMessage(sender, { text: '*_ANALYZING SPEED..._*' });
-    var final = new Date().getTime();
+await socket.sendMessage(sender, {
+    react: { text: "⚡", key: msg.key }
+});
 
-    // Progress bar animation
-    await socket.sendMessage(sender, { text: '《 █▒▒▒▒▒▒▒▒▒▒▒》10%', edit: ping.key });
-    await socket.sendMessage(sender, { text: '《 ████▒▒▒▒▒▒▒▒》30%', edit: ping.key });
-    await socket.sendMessage(sender, { text: '《 ███████▒▒▒▒▒》50%', edit: ping.key });
-    await socket.sendMessage(sender, { text: '《 ██████████▒▒》80%', edit: ping.key });
-    await socket.sendMessage(sender, { text: '《 ████████████》100%', edit: ping.key });
+const start = Date.now();
 
-    // Final output
-    return await socket.sendMessage(sender, {
-        text: `*♻ Speed : ${final - inital} ms*\n`,
-        edit: ping.key
-    });
+let pingMsg = await socket.sendMessage(sender, {
+    text: "```⚡ Initializing Speed Test...```"
+}, { quoted: msg });
+
+// smooth loading animation
+const frames = [
+"▰▱▱▱▱▱▱▱▱▱ 10%",
+"▰▰▰▱▱▱▱▱▱▱ 30%",
+"▰▰▰▰▰▱▱▱▱▱ 50%",
+"▰▰▰▰▰▰▰▱▱▱ 70%",
+"▰▰▰▰▰▰▰▰▰▱ 90%",
+"▰▰▰▰▰▰▰▰▰▰ 100%"
+];
+
+for (let i of frames) {
+    await new Promise(r => setTimeout(r, 350));
+    await socket.sendMessage(sender, { text: "```" + i + "```", edit: pingMsg.key });
 }
+
+const end = Date.now();
+const speed = end - start;
+
+// random system feel data
+const uptime = process.uptime().toFixed(0);
+const ram = (process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2);
+
+return await socket.sendMessage(sender, {
+text:
+`╭━━〔 ⚡ *PONG REPORT* 〕━━⬣
+┃ 🏓 *Ping:* ${speed} ms
+┃ ⏱ *Uptime:* ${uptime}s
+┃ 💾 *RAM Used:* ${ram} MB
+╰━━━━━━━━━━━━━━━━⬣`,
+edit: pingMsg.key
+});
+
+} catch (e) {
+console.log(e)
+socket.sendMessage(sender,{text:"Ping error!"},{quoted:msg})
+}
+}
+break;
 
 case 'activesessions':
 case 'active':
@@ -2785,10 +2768,10 @@ case 'system': {
     const text = `
  ${botName} 
 
-*צ Oꜱ :* ${os.type()} ${os.release()}
-*צ Pʟᴀᴛꜰᴏʀᴍ :* ${os.platform()}
-*צ Cᴘᴜ ᴄᴏʀᴇꜱ :* ${os.cpus().length}
-*צ Mᴇᴍᴏʀʏ :* ${(os.totalmem()/1024/1024/1024).toFixed(2)} GB
+*⚘ Oꜱ :* ${os.type()} ${os.release()}
+*⚘ Pʟᴀᴛꜰᴏʀᴍ :* ${os.platform()}
+*⚘ Cᴘᴜ ᴄᴏʀᴇꜱ :* ${os.cpus().length}
+*⚘ Mᴇᴍᴏʀʏ :* ${(os.totalmem()/1024/1024/1024).toFixed(2)} GB
 `;
 
     let imagePayload = String(logo).startsWith('http') ? { url: logo } : fs.readFileSync(logo);
