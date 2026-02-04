@@ -631,98 +631,93 @@ END:VCARD`
 
     break;
 }
-case 'setting': {
-  await socket.sendMessage(sender, { react: { text: '⚙️', key: msg.key } });
+// ================= COMMAND =================
+
+case 'settings': {
   try {
-    const sanitized = (number || '').replace(/[^0-9]/g, '');
-    const senderNum = (nowsender || '').split('@')[0];
-    const ownerNum = config.OWNER_NUMBER.replace(/[^0-9]/g, '');
-    
-    // Permission check - only session owner or bot owner
-    if (senderNum !== sanitized && senderNum !== ownerNum) {
-      const shonux = {
-        key: { remoteJid: "status@broadcast", participant: "0@s.whatsapp.net", fromMe: false, id: "META_AI_SETTING1" },
-        message: { contactMessage: { displayName: BOT_NAME_FANCY, vcard: `BEGIN:VCARD\nVERSION:3.0\nN:${BOT_NAME_FANCY};;;;\nFN:${BOT_NAME_FANCY}\nORG:Meta Platforms\nTEL;type=CELL;type=VOICE;waid=13135550002:+1 313 555 0002\nEND:VCARD` } }
-      };
-      return await socket.sendMessage(sender, { text: '❌ Permission denied. Only the session owner or bot owner can change settings.' }, { quoted: shonux });
-    }
+    const sendReply = (text) => {
+      if (msg?.reply) msg.reply(text);
+      else socket.sendMessage(sender, { text });
+    };
 
-    // Load current settings
-    const currentConfig = await loadUserConfigFromMongo(sanitized) || {};
-    const botName = currentConfig.botName || BOT_NAME_FANCY;
-    const prefix = currentConfig.PREFIX || config.PREFIX;
+    let desc = `⚙️ 𝐁𝐋𝐎𝐎𝐃 𝐗𝐌𝐃 𝐌𝐈𝐍𝐈  𝐒𝐄𝐓𝐓𝐈𝐍𝐆𝐒
 
-    const buttons = [
-      // WORK TYPE
-      { buttonId: `${prefix}wtype public`, buttonText: { displayText: 'PUBLIC' }, type: 1 },
-      { buttonId: `${prefix}wtype private`, buttonText: { displayText: 'PRIVATE' }, type: 1 },
-      { buttonId: `${prefix}wtype groups`, buttonText: { displayText: 'GROUP ONLY' }, type: 1 },
-      { buttonId: `${prefix}wtype inbox`, buttonText: { displayText: 'INBOX ONLY' }, type: 1 },
+1.1 ✅ AUTO REACT : ON
+1.2 ❌ AUTO REACT : OFF
 
-      // FAKE TYPING
-      { buttonId: `${prefix}autotyping on`, buttonText: { displayText: 'AUTO TYPING ON' }, type: 1 },
-      { buttonId: `${prefix}autotyping off`, buttonText: { displayText: 'AUTO TYPING OFF' }, type: 1 },
+2.1 📵 ANTI CALL : ON
+2.2 ☎️ ANTI CALL : OFF
 
-      // FAKE RECORDING
-      { buttonId: `${prefix}autorecording on`, buttonText: { displayText: 'AUTO RECORDING ON' }, type: 1 },
-      { buttonId: `${prefix}autorecording off`, buttonText: { displayText: 'AUTO RECORDING OFF' }, type: 1 },
+3.1 🛡️ ANTI DELETE : ON
+3.2 🗑️ ANTI DELETE : OFF
 
-      // ALWAYS ONLINE
-      { buttonId: `${prefix}botpresence online`, buttonText: { displayText: 'ALWAYS ONLINE ON' }, type: 1 },
-      { buttonId: `${prefix}botpresence offline`, buttonText: { displayText: 'ALWAYS ONLINE OFF' }, type: 1 },
+4.1 👁️ AUTO VIEW STATUS : ON
+4.2 🚫 AUTO VIEW STATUS : OFF
 
-      // AUTO STATUS
-      { buttonId: `${prefix}rstatus on`, buttonText: { displayText: 'STATUS SEEN ON' }, type: 1 },
-      { buttonId: `${prefix}rstatus off`, buttonText: { displayText: 'STATUS SEEN OFF' }, type: 1 },
+5.1 ❤️ AUTO LIKE STATUS : ON
+5.2 💔 AUTO LIKE STATUS : OFF
 
-      // AUTO LIKE STATUS
-      { buttonId: `${prefix}arm on`, buttonText: { displayText: 'AUTO LIKE ON' }, type: 1 },
-      { buttonId: `${prefix}arm off`, buttonText: { displayText: 'AUTO LIKE OFF' }, type: 1 },
+6.1 🎵
+6.2 🙂
+`;
 
-      // AUTO REJECT CALL
-      { buttonId: `${prefix}creject on`, buttonText: { displayText: 'AUTO REJECT ON' }, type: 1 },
-      { buttonId: `${prefix}creject off`, buttonText: { displayText: 'AUTO REJECT OFF' }, type: 1 },
+    const menuMsg = await socket.sendMessage(sender, {
+      image: { url: "https://files.catbox.moe/lwdp9g.jpg" },
+      caption: desc,
+      contextInfo: fakeForward
+    }, { quoted: adhimini });
 
-      // AUTO MESSAGE READ
-      { buttonId: `${prefix}mread all`, buttonText: { displayText: 'READ ALL MESSAGES' }, type: 1 },
-      { buttonId: `${prefix}mread cmd`, buttonText: { displayText: 'READ COMMANDS ONLY' }, type: 1 },
-      { buttonId: `${prefix}mread off`, buttonText: { displayText: 'DONT READ MESSAGES' }, type: 1 },
-    ];
+    const updateMapping = {
+      "1.1": ["AUTO_REACT", "on", "✅ AUTO REACT : ON"],
+      "1.2": ["AUTO_REACT", "off", "❌ AUTO REACT : OFF"],
+      "2.1": ["ANTI_CALL", "on", "📵 ANTI CALL : ON"],
+      "2.2": ["ANTI_CALL", "off", "☎️ ANTI CALL : OFF"],
+      "3.1": ["ANTI_DELETE", "on", "🛡️ ANTI DELETE : ON"],
+      "3.2": ["ANTI_DELETE", "off", "🗑️ ANTI DELETE : OFF"],
+      "4.1": ["AUTO_VIEW_STATUS", "on", "👁️ AUTO VIEW STATUS : ON"],
+      "4.2": ["AUTO_VIEW_STATUS", "off", "🚫 AUTO VIEW STATUS : OFF"],
+      "5.1": ["AUTO_LIKE_STATUS", "on", "❤️ AUTO LIKE STATUS : ON"],
+      "5.2": ["AUTO_LIKE_STATUS", "off", "💔 AUTO LIKE STATUS : OFF"],
+      "6.1": ["AUTO_REPLY", "on", "🤖 AUTO REPLY : ON"],
+      "6.2": ["AUTO_REPLY", "off", "🚫 AUTO REPLY : OFF"]
+    };
 
-    const defaultImg = 'https://files.catbox.moe/i6kedi.jpg';
-    const useLogo = currentConfig.logo || defaultImg;
+    const handler = async (msgUpdate) => {
+      try {
+        const newMsg = msgUpdate.messages[0];
+        const text = newMsg.message?.extendedTextMessage?.text?.trim();
+        const ctx = newMsg.message?.extendedTextMessage?.contextInfo;
 
-    let imagePayload;
-    if (String(useLogo).startsWith('http')) imagePayload = { url: useLogo };
-    else {
-      try { imagePayload = fs.readFileSync(useLogo); } catch(e){ imagePayload = { url: defaultImg }; }
-    }
+        if (!text || !ctx) return;
 
-    // send menu with normal buttons (type 1)
-    await socket.sendMessage(sender, {
-      image: imagePayload,
-      caption: `🎀 *UPDATE YOUR SETTINGS*\n\n` +
-        `┏━━━━━━━━━━━━━━━━━━⦁✦⦁\n` +
-        `┃➤ *Work type :* ${currentConfig.WORK_TYPE || 'private'}\n` +
-        `┃➤ *Bot presence :* ${currentConfig.PRESENCE || 'available'}\n` +
-        `┃➤ *Auto status seen :* ${currentConfig.AUTO_VIEW_STATUS || 'true'}\n` +
-        `┃➤ *Auto status react :* ${currentConfig.AUTO_LIKE_STATUS || 'true'}\n` +
-        `┃➤ *Auto reject call :* ${currentConfig.ANTI_CALL || 'off'}\n` +
-        `┃➤ *Auto message read :* ${currentConfig.AUTO_READ_MESSAGE || 'off'}\n` +
-        `┃➤ *Auto recording :* ${currentConfig.AUTO_RECORDING || 'false'}\n` +
-        `┃➤ *Auto typing :* ${currentConfig.AUTO_TYPING || 'false'}\n` +
-        `┗━━━━━━━━━━━━━━━━━━⦁✦⦁`,
-      buttons,
-      footer: botName
-    }, { quoted: msg });
+        if (ctx.stanzaId === menuMsg.key.id || ctx.quotedMessage?.stanzaId === menuMsg.key.id) {
+          if (!isOwner) return sendReply("🚫 You are not a Bot Owner");
+
+          if (updateMapping[text]) {
+            const [setting, value, replyText] = updateMapping[text];
+            await handleSettingUpdate(setting, value, sendReply, number);
+
+            await socket.sendMessage(sender, {
+              text: `✅ Setting updated successfully!\n\n*${replyText}*`
+            }, { quoted: menuMsg });
+          } else {
+            sendReply("❌ Invalid option. Please select a valid option 🔴");
+          }
+          socket.ev.off('messages.upsert', handler);
+        }
+      } catch (err) {
+        console.error("Handler error:", err);
+        sendReply("⚠️ Something went wrong while processing your option.");
+        socket.ev.off('messages.upsert', handler);
+      }
+    };
+
+    socket.ev.on('messages.upsert', handler);
 
   } catch (e) {
-    console.error('Setting command error:', e);
-    const shonux = {
-      key: { remoteJid: "status@broadcast", participant: "0@s.whatsapp.net", fromMe: false, id: "META_AI_SETTING2" },
-      message: { contactMessage: { displayName: BOT_NAME_FANCY, vcard: `BEGIN:VCARD\nVERSION:3.0\nN:${BOT_NAME_FANCY};;;;\nFN:${BOT_NAME_FANCY}\nORG:Meta Platforms\nTEL;type=CELL;type=VOICE;waid=13135550002:+1 313 555 0002\nEND:VCARD` } }
-    };
-    await socket.sendMessage(sender, { text: "*❌ Error loading settings!*" }, { quoted: shonux });
+    console.error(e);
+    await socket.sendMessage(sender, { react: { text: '❌', key: msg.key } });
+    if (typeof sendReply === 'function') sendReply('An error occurred while processing your request.');
   }
   break;
 }
