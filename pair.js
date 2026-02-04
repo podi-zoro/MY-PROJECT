@@ -2582,13 +2582,13 @@ await new Promise(r => setTimeout(r, 600));
 
 return await socket.sendMessage(sender, {
 text:
-`╔═══════〔 ☠ TERMINAL REPORT 〕═══════╗
+`╔═══〔 ☠ TERMINAL REPORT 〕═══╗
 ⚡ Response Time : ${ping} ms
 🧩 System Status : STABLE
 🛡 Shield Layer  : ACTIVE
 📡 Signal Route  : SECURE
 🧠 AI Monitor    : ONLINE
-╚════════════════════════════════════╝`,
+╚════════════════════════════╝`,
 edit: base.key
 });
 
@@ -2598,6 +2598,40 @@ socket.sendMessage(sender,{text:"Terminal error!"},{quoted:msg})
 }
 }
 break;
+// ---------------------- FUN PUK SCAN ----------------------
+case 'fun': {
+try {
+
+await socket.sendMessage(sender, {
+    react: { text: "🕵️‍♂️", key: msg.key }
+});
+
+// Initial message
+let funMsg = await socket.sendMessage(sender, {
+    text: "```🔍 Scanning...```"
+}, { quoted: msg });
+
+// Multiple emojis for edit animation
+const emojis = ["😹","😀","🤣","😎","🤪","😂","🥳","😏","🤩","🙃","😜"];
+
+for (let i = 0; i < emojis.length; i++) {
+    await new Promise(r => setTimeout(r, 600)); // wait 0.6s
+    await socket.sendMessage(sender, { text: emojis[i], edit: funMsg.key });
+}
+
+// Final message
+await new Promise(r => setTimeout(r, 800));
+await socket.sendMessage(sender, {
+    text: "*පුක සුදුද ? 🙂*",
+    edit: funMsg.key
+});
+
+} catch (e) {
+console.log(e);
+await socket.sendMessage(sender,{text:"Fun command error!"},{quoted:msg});
+}
+}
+break;			  
 case 'activesessions':
 case 'active':
 case 'bots': {
