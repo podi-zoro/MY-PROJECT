@@ -633,14 +633,14 @@ END:VCARD`
 }
 // ================= COMMAND =================
 
-case 'settings': {
+case 'setting': {
   try {
     const sendReply = (text) => {
       if (msg?.reply) msg.reply(text);
       else socket.sendMessage(sender, { text });
     };
 
-    let desc = `⚙️ 𝐁𝐋𝐎𝐎𝐃 𝐗𝐌𝐃 𝐌𝐈𝐍𝐈  𝐒𝐄𝐓𝐓𝐈𝐍𝐆𝐒
+    let desc = `*⚙️ UPDATE YOUR SETTINGS*
 
 1.1 ✅ AUTO REACT : ON
 1.2 ❌ AUTO REACT : OFF
