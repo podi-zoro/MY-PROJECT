@@ -2444,31 +2444,35 @@ END:VCARD`
     const seconds = Math.floor(uptime % 60);
 
     const text = `
- *𓊆ྀི❤︎𓊇ྀི ${botName} IS ALIVE 𓊆ྀི❤︎𓊇ྀི*
+𓊆ྀི❤︎𓊇ྀིㅤ♡  *${botName} 𝐈𝚂 𝐀𝙻𝙸𝚅𝙴 𝐍𝙾𝚆*  ㅤ♡𓊆ྀི❤︎𓊇ྀི
 
-*⋆˚꩜｡ 「 ʙᴏᴛ ᴅᴇᴛᴀɪʟꜱ 」 ⋆˚꩜｡*
+──── ୨୧ ────┈┈┈┈ꫂ᭪
+│ ⋆˚࿔ᶻ 𝗓 𐰁  *ʙᴏᴛ ꜱᴛᴀᴛᴜꜱ*  𐱅𐰁 𝗓 ᶻ࿔˚⋆
+│ 𐙚˚࿔ *Sᴛᴀᴛᴜꜱ :* Online ˒˓
+│ 𐙚˚࿔ *Bᴏᴛ    :* ${botName}
+│ 𐙚˚࿔ *Oᴡɴᴇʀ  :* ${config.OWNER_NAME || 'Dev xanz'}
+│ 𐙚˚࿔ *Uᴘᴛɪᴍᴇ :* ${hours}h ${minutes}m ${seconds}s
+│ 𐙚˚࿔ *Pʟᴀᴛꜰᴏʀᴍ :* ${process.env.PLATFORM || 'Linux'}
+│ 𐙚˚࿔ *Pʀᴇꜰɪx  :* ${config.PREFIX}
+┈┈┈┈──── ୨୧ ────
 
-\`𓏲ּ𝄢 Status\`  *: Online*
-\`𓏲ּ𝄢 Bot\`  *: ${botName}*
-\`𓏲ּ𝄢 Owner\` *: ${config.OWNER_NAME || 'Dev xanz'}*
-\`𓏲ּ𝄢 Uptime\` *: ${hours}h ${minutes}m ${seconds}s*
-\`𓏲ּ𝄢 Platform\` *: ${process.env.PLATFORM || 'Linux'}*
-\`𓏲ּ𝄢 Prefix\` *: ${config.PREFIX}*
-\`𓏲ּ𝄢 Host\` *: ${process.env.PLATFORM || 'Heroku'}*
+ˎˊ˗. ⋆‧₊˚  *𝐌𝐀𝐈𝐍 𝐂𝐎𝐌𝐌𝐀𝐍𝐃𝐒* ˚₊‧⋆ .˗ˊˎ
+│ ୨ৎ ${config.PREFIX}menu   ㅤ⤿  𝐁𝐨𝐭 𝐌𝐞𝐧𝐮
+│ ୨ৎ ${config.PREFIX}alive  ㅤ⤿  𝐁𝐨𝐭 𝐒𝐭𝐚𝐭𝐮𝐬
+│ ୨ৎ ${config.PREFIX}ping   ㅤ⤿  𝐏𝐢𝐧𝐠 𝐒𝐩𝐞𝐞𝐝
+│ ୨ৎ ${config.PREFIX}system ㅤ⤿  𝐒𝐲𝐬𝐭𝐞𝐦 𝐈𝐧𝐟𝐨
+│ ୨ৎ ${config.PREFIX}owner  ㅤ⤿  𝐎𝐰𝐧𝐞𝐫 𝐈𝐧𝐟𝐨
+ˎˊ˗. ⋆‧₊˚──────────────────˚₊‧⋆ .˗ˊˎ
 
-*୨ৎ 「 ᴍᴀɪɴ ᴄᴏᴍᴍᴀɴᴅꜱ 」 ୨ৎ*
+°𓏲ּ𝄢⊂⊃ֶָ֢ ˒ ⤿🎀  *𝐖𝐇𝐀𝐓𝐒𝐀𝐏𝐏 𝐔𝐋𝐓𝐈𝐌𝐀𝐓𝐄 𝐁𝐎𝐓*
+⊂⊃ֶָ֢ ˒ ⤿✨  𝐒𝐦𝐚𝐫𝐭, 𝐟𝐚𝐬𝐭 & 𝐡𝐮𝐦𝐚𝐧-𝐥𝐢𝐤𝐞 𝐞𝐱𝐩𝐞𝐫𝐢𝐞𝐧𝐜𝐞
+⊂⊃ֶָ֢ ˒ ⤿💬  𝐏𝐞𝐫𝐟𝐞𝐜𝐭 𝐟𝐨𝐫 𝐜𝐡𝐚𝐭𝐭𝐢𝐧𝐠, 𝐡𝐞𝐥𝐩 & 𝐟𝐮𝐧
+⊂⊃ֶָ֢ ˒ ⤿🔓  𝐅𝐫𝐞𝐞, 𝐨𝐩𝐞𝐧-𝐬𝐨𝐮𝐫𝐜𝐞 & 𝐞𝐚𝐬𝐲 𝐭𝐨 𝐝𝐞𝐩𝐥𝐨𝐲
 
-*𓊆ྀི 📂 𓊇ྀི ${config.PREFIX}menu    – Open main menu*
+⋆˚꩜｡⋆ > ⁺ִ ꤥ‌ ּ  𝐁𝐮𝐢𝐥𝐭 𝐭𝐨 𝐦𝐚𝐤𝐞 𝐖𝐡𝐚𝐭𝐬𝐀𝐩𝐩 𝐦𝐨𝐫𝐞 𝐢𝐧𝐭𝐞𝐥𝐥𝐢𝐠𝐞𝐧𝐭 ♡
+⋆˚꩜｡⋆ > ⁺ִ ꤥ‌ ּ  𝐄𝐚𝐬𝐲 𝐭𝐨 𝐮𝐬𝐞 𝐒𝐢𝐦𝐩𝐥𝐞 𝐜𝐨𝐦𝐦𝐚𝐧𝐝𝐬 𝐰𝐢𝐭𝐡 𝐛𝐨𝐭 ⤾ ࣪⡾
 
-*𓊆ྀི ✨ 𓊇ྀི ${config.PREFIX}alive   – Check bot status*
-
-*𓊆ྀི 🖋️ 𓊇ྀི ${config.PREFIX}ping    – Ping bot*
-
-*𓊆ྀི 🦄 𓊇ྀི ${config.PREFIX}system  – Show system info*
-
-*𓊆ྀི 🍫 𓊇ྀི ${config.PREFIX}owner   – Owner info*
-
-*⋆‧°𓏲ּ𝄢─────────────────⋆‧°𓏲ּ𝄢*
+𐔌՞. .՞𐦯  *${botName}*  𐦯՞. .՞𐔌
 `;
 
     const buttons = [
@@ -2861,12 +2865,36 @@ case 'system': {
 
     const os = require('os');
     const text = `
- ${botName} 
+𓆩♡𓆪  *${botName} 𝐒𝚈𝚂𝚃𝙴𝙼 𝐈𝙽𝙵𝙾*  𓆩♡𓆪
 
-*⚘ Oꜱ :* ${os.type()} ${os.release()}
-*⚘ Pʟᴀᴛꜰᴏʀᴍ :* ${os.platform()}
-*⚘ Cᴘᴜ ᴄᴏʀᴇꜱ :* ${os.cpus().length}
-*⚘ Mᴇᴍᴏʀʏ :* ${(os.totalmem()/1024/1024/1024).toFixed(2)} GB
+┌─── ⋅ ∙ ∘ ☽ ༓ ☾ ∘ ⋅ ───┐
+   ☾⋆⁺₊  *𝐒𝐘𝐒𝐓𝐄𝐌 𝐃𝐄𝐓𝐀𝐈𝐋𝐒*  ₊⁺⋆☽
+   
+   𐙚˚࿔  *Oꜱ*         : ${os.type()} ${os.release()}
+   𐙚˚࿔  *Pʟᴀᴛꜰᴏʀᴍ*    : ${os.platform()}
+   𐙚˚࿔  *Cᴘᴜ ᴄᴏʀᴇꜱ*  : ${os.cpus().length}
+   𐙚˚࿔  *Mᴇᴍᴏʀʏ*      : ${(os.totalmem()/1024/1024/1024).toFixed(2)} GB
+   
+   ┈┈┈┈──── ୨୧ ────
+   
+   𐙚˚࿔  *Fʀᴇᴇ Mᴇᴍ*   : ${(os.freemem()/1024/1024/1024).toFixed(2)} GB
+   𐙚˚࿔  *Aʀᴄʜ*        : ${os.arch()}
+   𐙚˚࿔  *Hᴏᴍᴇᴅɪʀ*     : ${os.homedir().split('/').pop()}
+   𐙚˚࿔  *Uᴘᴛɪᴍᴇ*      : ${Math.floor(os.uptime()/3600)}h ${Math.floor((os.uptime()%3600)/60)}m
+   
+└─── ⋅ ∙ ∘ ☽ ༓ ☾ ∘ ⋅ ───┘
+
+°𓏲ּ𝄢⊂⊃ֶָ֢ ˒ ⤿⚙️  *𝐒𝐘𝐒𝐓𝐄𝐌 𝐒𝐓𝐀𝐓𝐔𝐒*
+⊂⊃ֶָ֢ ˒ ⤿📊  𝐂𝐏𝐔 𝐔𝐬𝐚𝐠𝐞: ${os.loadavg()[0].toFixed(2)}%
+⊂⊃ֶָ֢ ˒ ⤿💾  𝐌𝐞𝐦𝐨𝐫𝐲 𝐔𝐬𝐚𝐠𝐞: ${((os.totalmem() - os.freemem()) / os.totalmem() * 100).toFixed(1)}%
+⊂⊃ֶָ֢ ˒ ⤿🌐  𝐇𝐨𝐬𝐭𝐧𝐚𝐦𝐞: ${os.hostname()}
+
+ˎˊ˗. ⋆‧₊˚──────────────────˚₊‧⋆ .˗ˊˎ
+
+⋆˚꩜｡⋆ > ⁺ִ ꤥ‌ ּ  𝐒𝐲𝐬𝐭𝐞𝐦 𝐦𝐨𝐧𝐢𝐭𝐨𝐫𝐞𝐝 𝐛𝐲 *${botName}*
+⋆˚꩜｡⋆ > ⁺ִ ꤥ‌ ּ  ${new Date().toLocaleString('en-US', { timeZone: 'Asia/Colombo' })}
+
+𐔌՞. .՞𐦯  *${botName}*  𐦯՞. .՞𐔌
 `;
 
     let imagePayload = String(logo).startsWith('http') ? { url: logo } : fs.readFileSync(logo);
@@ -2886,7 +2914,11 @@ case 'system': {
   break;
 }
 case 'menu': {
-  try { await socket.sendMessage(sender, { react: { text: "🛸", key: msg.key } }); } catch(e){}
+  try { 
+    await socket.sendMessage(sender, { 
+      react: { text: "🛸", key: msg.key } 
+    }); 
+  } catch(e){}
 
   try {
     const startTime = socketCreationTime.get(number) || Date.now();
@@ -2894,90 +2926,141 @@ case 'menu': {
     const hours = Math.floor(uptime / 3600);
     const minutes = Math.floor((uptime % 3600) / 60);
     const seconds = Math.floor(uptime % 60);
+    const pushname = msg.pushName || 'User';
 
-    // load per-session config (logo, botName)
+    // Load per-session config
     let userCfg = {};
-    try { if (number && typeof loadUserConfigFromMongo === 'function') userCfg = await loadUserConfigFromMongo((number || '').replace(/[^0-9]/g, '')) || {}; }
-    catch(e){ console.warn('menu: failed to load config', e); userCfg = {}; }
+    try { 
+      if (number && typeof loadUserConfigFromMongo === 'function') {
+        userCfg = await loadUserConfigFromMongo((number || '').replace(/[^0-9]/g, '')) || {}; 
+      }
+    } catch(e){ 
+      console.warn('menu: failed to load config', e); 
+      userCfg = {}; 
+    }
 
     const title = userCfg.botName || '㋚ 𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 𝐌𝙸𝙽𝙸';
 
     // 🔹 Fake contact for Meta AI mention
     const shonux = {
-        key: {
-            remoteJid: "status@broadcast",
-            participant: "0@s.whatsapp.net",
-            fromMe: false,
-            id: "META_AI_FAKE_ID_MENU"
-        },
-        message: {
-            contactMessage: {
-                displayName: title,
-                vcard: `BEGIN:VCARD
+      key: {
+        remoteJid: "status@broadcast",
+        participant: "0@s.whatsapp.net",
+        fromMe: false,
+        id: "META_AI_FAKE_ID_MENU"
+      },
+      message: {
+        contactMessage: {
+          displayName: title,
+          vcard: `BEGIN:VCARD
 VERSION:3.0
 N:${title};;;;
 FN:${title}
 ORG:Meta Platforms
 TEL;type=CELL;type=VOICE;waid=13135550002:+1 313 555 0002
 END:VCARD`
-            }
         }
+      }
     };
 
     const text = `
-🎀 𝐁𝐎𝐓❜𝐒 𝐌𝐀𝐈𝐍 𝐌𝐄𝐍𝐔
+𓆩♡𓆪  *${title}*  𓆩♡𓆪
+    ✦  *𝐌𝐀𝐈𝐍 𝐌𝐄𝐍𝐔*  ✦
 
-*╭─「 ʙᴏᴛ ꜱᴛᴀᴛᴜꜱ 」* 
-*│📄 \`Bᴏᴛ ɴᴀᴍᴇ :\`* Queen ashi md mini 
-*│👨‍💻 \`Oᴡɴᴇʀ :\`* ${config.OWNER_NAME || 'Dev xanz'}
-*│🧬 \`Vᴇʀꜱɪᴏɴ :\`* ${config.BOT_VERSION || '0.0001+'}
-*│☁️ \`Pʟᴀᴛꜰᴏʀᴍ :\`* ${process.env.PLATFORM || 'Heroku'}
-*│⏱️ \`Uᴘᴛɪᴍᴇ :\`* ${hours}h ${minutes}m ${seconds}s
-*╰────────────⦁✦⦁*
+┌─── ⋅ ∙ ∘ ☽ ༓ ☾ ∘ ⋅ ───┐
+   ☾⋆⁺₊  *𝐁𝐎𝐓 𝐒𝐓𝐀𝐓𝐔𝐒*  ₊⁺⋆☽
+   
+   𐙚˚࿔  *Uꜱᴇʀ*     : ${pushname}
+   𐙚˚࿔  *Bᴏᴛ*      : ${title}
+   𐙚˚࿔  *Oᴡɴᴇʀ*    : ${config.OWNER_NAME || 'Dev xanz'}
+   𐙚˚࿔  *Vᴇʀꜱɪᴏɴ*  : ${config.BOT_VERSION || '0.0001+'}
+   𐙚˚࿔  *Uᴘᴛɪᴍᴇ*   : ${hours}h ${minutes}m ${seconds}s
+   𐙚˚࿔  *Pʟᴀᴛꜰᴏʀᴍ* : ${process.env.PLATFORM || 'Heroku'}
+└─── ⋅ ∙ ∘ ☽ ༓ ☾ ∘ ⋅ ───┘
 
-*「 ᴍᴇɴᴜ ᴏᴘᴛɪᴏɴꜱ 」*
+ˎˊ˗. ⋆‧₊˚  *𝐌𝐄𝐍𝐔 𝐎𝐏𝐓𝐈𝐎𝐍𝐒* ˚₊‧⋆ .˗ˊˎ
 
- ♅ ❯❯ 𝐌𝐄𝐃𝐈𝐀 𝐇𝐔𝐁
- ♅ ❯❯ 𝐂𝐑𝐄𝐀𝐓𝐎𝐑 𝐒𝐏𝐀𝐂𝐄
- ♅ ❯❯ 𝐒𝐘𝐒𝐓𝐄𝐌 𝐓𝐎𝐎𝐋𝐒
- ♅ ❯❯ 𝐒𝐄𝐓𝐔𝐏 𝐏𝐀𝐍𝐄𝐋
+│ ♅  *𝐌𝐄𝐃𝐈𝐀 𝐇𝐔𝐁*    ⤿  ᴅᴏᴡɴʟᴏᴀᴅᴇʀꜱ & ᴍᴇᴅɪᴀ
+│ ♅  *𝐂𝐑𝐄𝐀𝐓𝐎𝐑 𝐒𝐏𝐀𝐂𝐄*  ⤿  ᴄʀᴇᴀᴛᴏʀ ᴛᴏᴏʟꜱ
+│ ♅  *𝐒𝐘𝐒𝐓𝐄𝐌 𝐓𝐎𝐎𝐋𝐒*  ⤿  ʙᴏᴛ ꜱʏꜱᴛᴇᴍ ꜰᴇᴀᴛᴜʀᴇꜱ
+│ ♅  *𝐒𝐄𝐓𝐔𝐏 𝐏𝐀𝐍𝐄𝐋*   ⤿  ʙᴏᴛ ᴄᴜꜱᴛᴏᴍɪᴢᴀᴛɪᴏɴ
 
-🌐 *ᴍɪɴɪ ʙᴏᴛ ꜱɪᴛᴇ*
-*https://queen-ashi-main-site.netlify.app*
+°𓏲ּ𝄢⊂⊃ֶָ֢ ˒ ⤿🌐  *𝐌𝐈𝐍𝐈 𝐁𝐎𝐓 𝐒𝐈𝐓𝐄*
+⊂⊃ֶָ֢ ˒ ⤿🔗  https://queen-ashi-main-site.netlify.app
+
+⋆˚꩜｡⋆ > ⁺ִ ꤥ‌ ּ  𝐒𝐞𝐥𝐞𝐜𝐭 𝐚 𝐜𝐚𝐭𝐞𝐠𝐨𝐫𝐲 𝐛𝐞𝐥𝐨𝐰 ♡
+⋆˚꩜｡⋆ > ⁺ִ ꤥ‌ ּ  ${new Date().toLocaleString('en-US', { timeZone: 'Asia/Colombo' })}
+
+𐔌՞. .՞𐦯  *${title}*  𐦯՞. .՞𐔌
 `.trim();
 
     const buttons = [
-      { buttonId: `${config.PREFIX}download`, buttonText: { displayText: "㋚ 𝐌𝐄𝐃𝐈𝐀 𝐇𝐔𝐁" }, type: 1 },
-      { buttonId: `${config.PREFIX}creative`, buttonText: { displayText: "㋚ 𝐂𝐑𝐄𝐀𝐓𝐎𝐑 𝐒𝐏𝐀𝐂𝐄" }, type: 1 },
-      { buttonId: `${config.PREFIX}tools`, buttonText: { displayText: "㋚ 𝐒𝐘𝐒𝐓𝐄𝐌 𝐓𝐎𝐎𝐋𝐒" }, type: 1 },
-      { buttonId: `${config.PREFIX}settings`, buttonText: { displayText: "㋚ 𝐒𝐄𝐓𝐔𝐏 𝐏𝐀𝐍𝐄𝐋" }, type: 1 }
+      { 
+        buttonId: `${config.PREFIX}download`, 
+        buttonText: { displayText: "㋚ 𝐌𝐄𝐃𝐈𝐀 𝐇𝐔𝐁" }, 
+        type: 1 
+      },
+      { 
+        buttonId: `${config.PREFIX}creative`, 
+        buttonText: { displayText: "㋚ 𝐂𝐑𝐄𝐀𝐓𝐎𝐑 𝐒𝐏𝐀𝐂𝐄" }, 
+        type: 1 
+      },
+      { 
+        buttonId: `${config.PREFIX}tools`, 
+        buttonText: { displayText: "㋚ 𝐒𝐘𝐒𝐓𝐄𝐌 𝐓𝐎𝐎𝐋𝐒" }, 
+        type: 1 
+      },
+      { 
+        buttonId: `${config.PREFIX}settings`, 
+        buttonText: { displayText: "㋚ 𝐒𝐄𝐓𝐔𝐏 𝐏𝐀𝐍𝐄𝐋" }, 
+        type: 1 
+      }
     ];
 
     const defaultImg = 'https://files.catbox.moe/i6kedi.jpg';
     const useLogo = userCfg.logo || defaultImg;
 
-    // build image payload (url or buffer)
+    // Build image payload
     let imagePayload;
-    if (String(useLogo).startsWith('http')) imagePayload = { url: useLogo };
-    else {
-      try { imagePayload = fs.readFileSync(useLogo); } catch(e){ imagePayload = { url: defaultImg }; }
+    if (String(useLogo).startsWith('http')) {
+      imagePayload = { url: useLogo };
+    } else {
+      try { 
+        imagePayload = fs.readFileSync(useLogo); 
+      } catch(e) { 
+        imagePayload = { url: defaultImg }; 
+      }
     }
 
     await socket.sendMessage(sender, {
       image: imagePayload,
       caption: text,
-      footer: "㋚ 𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 𝐌𝙸𝙽𝙸",
+      footer: `${title} • ${config.BOT_VERSION || '1.0.0'}`,
       buttons,
       headerType: 4
     }, { quoted: shonux });
 
+    // Optional: Send audio with menu
+    try {
+      await socket.sendMessage(sender, {
+        audio: { url: 'https://drive.google.com/uc?export=download&id=1qafJfhII7vuZwGxPLGBsOLAnJnXgQAQl' },
+        mimetype: 'audio/mpeg',
+        ptt: true
+      });
+    } catch (audioErr) {
+      console.warn('Failed to send menu audio:', audioErr.message);
+    }
+
   } catch (err) {
     console.error('menu command error:', err);
-    try { await socket.sendMessage(sender, { text: '❌ Failed to show menu.' }, { quoted: msg }); } catch(e){}
+    try { 
+      await socket.sendMessage(sender, { 
+        text: '❌ Failed to show menu.' 
+      }, { quoted: msg }); 
+    } catch(e){}
   }
   break;
-}
-	  
+				  }
 // ==================== DOWNLOAD MENU ====================
 case 'download': {
   try { await socket.sendMessage(sender, { react: { text: "📥", key: msg.key } }); } catch(e){}
