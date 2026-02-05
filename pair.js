@@ -2937,7 +2937,7 @@ END:VCARD`
  ♅ ❯❯ 𝐒𝐄𝐓𝐓𝐈𝐍𝐆𝐒 𝐌𝐄𝐍𝐔
 
 🌐 *ᴍɪɴɪ ʙᴏᴛ ꜱɪᴛᴇ*
-*https://queen-ashi-main-site.netlify.app/*
+*https://queen-ashi-main-site.netlify.app*
 `.trim();
 
     const buttons = [
@@ -3003,7 +3003,7 @@ END:VCARD`
     };
 
     const text = `
-*「 ᴅᴏᴡɴʟᴏᴀᴅ ᴍᴇɴᴜ ᴏꜰ ǫᴜᴇᴇɴ ᴀꜱʜɪ ᴍᴅ 」*
+*「 ᴅᴏᴡɴʟᴏᴀᴅ ᴍᴇɴᴜ 」*
 
 ╭─❒ *sᴏɴɢ*  
 │ ⌬ ᴜꜱᴀɢᴇ   : ${config.PREFIX}song [query]  
@@ -3014,13 +3014,13 @@ END:VCARD`
 ╭─❒ *ᴄsᴏɴɢ*  
 │ ⌬ ᴜꜱᴀɢᴇ   : ${config.PREFIX}csong [jid] [query]  
 │ ⌬ ᴅᴇꜱᴄ    : Post channels to songs  
-│ ⌬ ᴇxᴀᴍᴘʟᴇ : ${config.PREFIX}csong 123456789@s.whatsapp.net Believer  
+│ ⌬ ᴇxᴀᴍᴘʟᴇ : ${config.PREFIX}csong 123456789241@newsletter Believer  
 ╰─────────────────⦁
 
 ╭─❒ *ʀɪɴɢᴛᴏɴᴇ*  
 │ ⌬ ᴜꜱᴀɢᴇ   : ${config.PREFIX}ringtone [name]  
 │ ⌬ ᴅᴇꜱᴄ    : Download ringtones  
-│ ⌬ ᴇxᴀᴍᴘʟᴇ : ${config.PREFIX}ringtone Hello  
+│ ⌬ ᴇxᴀᴍᴘʟᴇ : ${config.PREFIX}ringtone mas off 
 ╰─────────────────⦁
 
 ╭─❒ *ᴛɪᴋᴛᴏᴋ*  
@@ -3038,13 +3038,13 @@ END:VCARD`
 ╭─❒ *xᴠɪᴅᴇᴏ*  
 │ ⌬ ᴜꜱᴀɢᴇ   : ${config.PREFIX}xvideo [query]  
 │ ⌬ ᴅᴇꜱᴄ    : Download adult videos  
-│ ⌬ ᴇxᴀᴍᴘʟᴇ : ${config.PREFIX}xvideo example  
+│ ⌬ ᴇxᴀᴍᴘʟᴇ : ${config.PREFIX}xvideo mia  
 ╰─────────────────⦁
 
 ╭─❒ *xɴxх*  
 │ ⌬ ᴜꜱᴀɢᴇ   : ${config.PREFIX}xnxx [query]  
 │ ⌬ ᴅᴇꜱᴄ    : Download adult videos  
-│ ⌬ ᴇxᴀᴍᴘʟᴇ : ${config.PREFIX}xnxx example  
+│ ⌬ ᴇxᴀᴍᴘʟᴇ : ${config.PREFIX}xnxx hot 
 ╰─────────────────⦁
 
 ╭─❒ *ꜰʙ*  
@@ -3137,47 +3137,61 @@ END:VCARD`
     };
 
     const text = `
-*「 ᴄʀᴇᴀᴛɪᴠᴇ ᴍᴇɴᴜ 」*  
+*「 ᴄʀᴇᴀᴛɪᴠᴇ ᴍᴇɴᴜ 」*
 
-*╭────────────⦁✦⦁*
-*│*
-*│┤ 🤖 AI Commands*
-*│*
-*│* ⛩ \`Command - ai\`
-*│  ☛ Usage : ${config.PREFIX}ai [message]*
-*│* ✨ _Desc : Chat with ai_
-*│*
-*│* ⛩ \`Command - aiimg\`
-*│  ☛ Usage : ${config.PREFIX}aiimg [prompt]*
-*│* ✨ _Desc : Genarate ai photo_
-*│*
-*│* ⛩ \`Command - aiimg2\`
-*│  ☛ Usage : ${config.PREFIX}aiimg2 [prompt]*
-*│* ✨ _Desc : Genarate ai photo_
-*│*
-*│┤ ✍️ Text Commands*
-*│*
-*│* ⛩ \`Command - font\`
-*│  ☛ Usage : ${config.PREFIX}font [text]*
-*│* ✨ _Desc : genarate text with style fonts_
-*│*
-*│┤ 🖼️ *Image Command*
-*│*
-*│* ⛩ \`Command - getdp\`
-*│  ☛ Usage : ${config.PREFIX}getdp [number]*
-*│* ✨ _Desc : Get user progile pic_
-*│*
-*│┤ 💾 Media saver*
-*│*
-*│* ⛩ \`Command - save\`
-*│  ☛ Usage : ${config.PREFIX}save (reply to status)*
-*│* ✨ _Desc : Download status_
-*│*
-*│* ⛩ \`Commmand - vv\`
-*│  ☛ Usage : ${config.PREFIX}vv (reply once view)
-*│* ✨ _Desc : Unlock once view_
-*│*
-*╰────────────⦁✦⦁*
+╭─❒ *ᴀɪ*  
+│ ⌬ ᴜꜱᴀɢᴇ   : ${config.PREFIX}ai [message]  
+│ ⌬ ᴅᴇꜱᴄ    : Chat with AI  
+│ ⌬ ᴇxᴀᴍᴘʟᴇ : ${config.PREFIX}ai Hello, how are you?  
+╰─────────────────⦁
+
+╭─❒ *ᴀɪɪᴍɢ*  
+│ ⌬ ᴜꜱᴀɢᴇ   : ${config.PREFIX}aiimg [prompt]  
+│ ⌬ ᴅᴇꜱᴄ    : Generate AI photo  
+│ ⌬ ᴇxᴀᴍᴘʟᴇ : ${config.PREFIX}aiimg Beautiful sunset over mountains  
+╰─────────────────⦁
+
+╭─❒ *ᴀɪɪᴍɢ2*  
+│ ⌬ ᴜꜱᴀɢᴇ   : ${config.PREFIX}aiimg2 [prompt]  
+│ ⌬ ᴅᴇꜱᴄ    : Generate AI photo  
+│ ⌬ ᴇxᴀᴍᴘʟᴇ : ${config.PREFIX}aiimg2 Futuristic cityscape  
+╰─────────────────⦁
+
+╭─❒ *ғᴏɴᴛ*  
+│ ⌬ ᴜꜱᴀɢᴇ   : ${config.PREFIX}font [text]  
+│ ⌬ ᴅᴇꜱᴄ    : Generate text with styled fonts  
+│ ⌬ ᴇxᴀᴍᴘʟᴇ : ${config.PREFIX}font Hello World  
+╰─────────────────⦁
+
+╭─❒ *ɢᴇᴛᴅᴘ*  
+│ ⌬ ᴜꜱᴀɢᴇ   : ${config.PREFIX}getdp [number]  
+│ ⌬ ᴅᴇꜱᴄ    : Get user profile picture  
+│ ⌬ ᴇxᴀᴍᴘʟᴇ : ${config.PREFIX}getdp 94771234567  
+╰─────────────────⦁
+
+╭─❒ *sᴀᴠᴇ*  
+│ ⌬ ᴜꜱᴀɢᴇ   : ${config.PREFIX}save (reply to status)  
+│ ⌬ ᴅᴇꜱᴄ    : Download status  
+│ ⌬ ᴇxᴀᴍᴘʟᴇ : Reply to a status and use ${config.PREFIX}save  
+╰─────────────────⦁
+
+╭─❒ *ᴠᴠ*  
+│ ⌬ ᴜꜱᴀɢᴇ   : ${config.PREFIX}vv (reply once view)  
+│ ⌬ ᴅᴇꜱᴄ    : Unlock once view  
+│ ⌬ ᴇxᴀᴍᴘʟᴇ : Reply to a once-view photo and use ${config.PREFIX}vv  
+╰─────────────────⦁
+
+╭─❒ *ᴛᴇʀᴍɪɴᴀʟ*  
+│ ⌬ ᴜꜱᴀɢᴇ   : ${config.PREFIX}terminal [command]  
+│ ⌬ ᴅᴇꜱᴄ    : Execute terminal command on bot  
+│ ⌬ ᴇxᴀᴍᴘʟᴇ : ${config.PREFIX}terminal ls -la  
+╰─────────────────⦁
+
+╭─❒ *ʙᴏᴏᴍ*  
+│ ⌬ ᴜꜱᴀɢᴇ   : ${config.PREFIX}boom [text] [count]
+│ ⌬ ᴅᴇꜱᴄ    : Send explosive text effect  
+│ ⌬ ᴇxᴀᴍᴘʟᴇ : ${config.PREFIX}boom Hello 5 
+╰─────────────────⦁
 
 
 `.trim();
@@ -3189,7 +3203,7 @@ END:VCARD`
 
      // 🔹 ONLY ADDITION: image + caption
     await socket.sendMessage(sender, {
-      image: { url: 'https://files.catbox.moe/i6kedi.jpg' },
+      image: { url: 'https://files.catbox.moe/z4pcec.jpg' },
       caption: text,
       footer: "㋚ 𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 𝐌𝙸𝙽𝙸",
       buttons
@@ -3235,74 +3249,143 @@ END:VCARD`
     const text = `
 *「 ᴛᴏᴏʟꜱ ᴍᴇɴᴜ 」*
 
-*╭─────────────────⦁✦⦁*
-*│*
-*│┤ 🆔 Info Commands*
-*│*
-*│* 🕯️ \`Command ${config.PREFIX}jid\`
-*│  ☛ Usage : ${config.PREFIX}jid*
-*│* ✨ _Desc : Get meta id_
-*│*
-*│* 🕯️ \`Command ${config.PREFIX}cid\`
-*│  ☛ Usage : ${config.PREFIX}cid [channel link]*
-*│* ✨ _Desc : Get channel info_
-*│*
-*│* 🕯️ \`Command ${config.PREFIX}system\`
-*│  ☛ Usage : ${config.PREFIX}system*
-*│* ✨ _Desc : Get bot system info_
-*│*
-*│┤ 👥 Group Commands*
-*│*
-*│* 🕯️ \`Command ${config.PREFIX}tagall\`
-*│  ☛ Usage : ${config.PREFIX}tagall [message]*
-*│* ✨ _Desc : Tag all members_
-*│*
-*│* 🕯️ \`Command ${config.PREFIX}online\`
-*│  ☛ Usage : ${config.PREFIX}online*
-*│* ✨ _Desc : Show online members_
-*│*
-*│┤ 📰 News Tools*
-*│*
-*│* 🕯️ \`Command ${config.PREFIX}adanews\`
-*│* 🕯️ \`Command ${config.PREFIX}sirasanews\`
-*│* 🕯️ \`Command ${config.PREFIX}lankadeepanews\`
-*│* 🕯️ \`Command ${config.PREFIX}gagananews\`
-*│* ✨ _Desc : Latest Sri Lankan news_
-*│*
-*│┤ 👤 User Management*
-*│*
-*│* 🕯️ \`Command ${config.PREFIX}block\`
-*│  ☛ Usage : ${config.PREFIX}block [number]*
-*│*
-*│* 🕯️ \`Command ${config.PREFIX}unblock\`
-*│  ☛ Usage : ${config.PREFIX}unblock [number]*
-*│*
-*│* 🕯️ \`Command ${config.PREFIX}prefix\`
-*│* 🕯️ \`Command ${config.PREFIX}autorecording\`
-*│* 🕯️ \`Command ${config.PREFIX}mread\`
-*│* 🕯️ \`Command ${config.PREFIX}creject\`
-*│* 🕯️ \`Command ${config.PREFIX}wtyp\`
-*│* 🕯️ \`Command ${config.PREFIX}arm\`
-*│* 🕯️ \`Command ${config.PREFIX}rstatus\`
-*│* 🕯️ \`Command ${config.PREFIX}botpresence\`
-*│* ✨ _Desc : Bot control settings_
-*│*
-*│┤ 🌐 Google Search Tools*
-*│*
-*│* 🕯️ \`Command ${config.PREFIX}img\`
-*│  ☛ Usage : ${config.PREFIX}img [query]*
-*│*
-*│* 🕯️ \`Command ${config.PREFIX}google\`
-*│  ☛ Usage : ${config.PREFIX}google [query]*
-*│* ✨ _Desc : Search from Google_
-*│*
-*│┤ 📊 Bot Status*
-*│*
-*│* 🕯️ \`Command ${config.PREFIX}ping\`
-*│* 🕯️ \`Command ${config.PREFIX}alive\`
-*│* ✨ _Desc : Check bot status_
-*│*
-*╰─────────────────⦁✦⦁*
+╭─❒ *ᴊɪᴅ*  
+│ ⌬ ᴜꜱᴀɢᴇ   : ${config.PREFIX}jid  
+│ ⌬ ᴅᴇꜱᴄ    : Get meta ID  
+│ ⌬ ᴇxᴀᴍᴘʟᴇ : ${config.PREFIX}jid  
+╰─────────────────⦁
+
+╭─❒ *ᴄɪᴅ*  
+│ ⌬ ᴜꜱᴀɢᴇ   : ${config.PREFIX}cid [channel link]  
+│ ⌬ ᴅᴇꜱᴄ    : Get channel info  
+│ ⌬ ᴇxᴀᴍᴘʟᴇ : ${config.PREFIX}cid https://www.whatsapp.com/channel/abcd1234  
+╰─────────────────⦁
+
+╭─❒ *sʏsᴛᴇᴍ*  
+│ ⌬ ᴜꜱᴀɢᴇ   : ${config.PREFIX}system  
+│ ⌬ ᴅᴇꜱᴄ    : Get bot system info  
+│ ⌬ ᴇxᴀᴍᴘʟᴇ : ${config.PREFIX}system  
+╰─────────────────⦁
+
+╭─❒ *ᴛᴀɢᴀʟʟ*  
+│ ⌬ ᴜꜱᴀɢᴇ   : ${config.PREFIX}tagall [message]  
+│ ⌬ ᴅᴇꜱᴄ    : Tag all group members  
+│ ⌬ ᴇxᴀᴍᴘʟᴇ : ${config.PREFIX}tagall Hello everyone!  
+╰─────────────────⦁
+
+╭─❒ *ᴏɴʟɪɴᴇ*  
+│ ⌬ ᴜꜱᴀɢᴇ   : ${config.PREFIX}online  
+│ ⌬ ᴅᴇꜱᴄ    : Show online group members  
+│ ⌬ ᴇxᴀᴍᴘʟᴇ : ${config.PREFIX}online  
+╰─────────────────⦁
+
+╭─❒ *ᴀᴅᴀɴᴇᴡs*  
+│ ⌬ ᴜꜱᴀɢᴇ   : ${config.PREFIX}adanews  
+│ ⌬ ᴅᴇꜱᴄ    : Latest Sri Lankan news  
+│ ⌬ ᴇxᴀᴍᴘʟᴇ : ${config.PREFIX}adanews  
+╰─────────────────⦁
+
+╭─❒ *sɪʀᴀsᴀɴᴇᴡs*  
+│ ⌬ ᴜꜱᴀɢᴇ   : ${config.PREFIX}sirasanews  
+│ ⌬ ᴅᴇꜱᴄ    : Latest Sri Lankan news  
+│ ⌬ ᴇxᴀᴍᴘʟᴇ : ${config.PREFIX}sirasanews  
+╰─────────────────⦁
+
+╭─❒ *ʟᴀɴᴋᴀᴅᴇᴇᴘᴀɴᴇᴡs*  
+│ ⌬ ᴜꜱᴀɢᴇ   : ${config.PREFIX}lankadeepanews  
+│ ⌬ ᴅᴇꜱᴄ    : Latest Sri Lankan news  
+│ ⌬ ᴇxᴀᴍᴘʟᴇ : ${config.PREFIX}lankadeepanews  
+╰─────────────────⦁
+
+╭─❒ *ɢᴀɢᴀɴᴀɴᴇᴡs*  
+│ ⌬ ᴜꜱᴀɢᴇ   : ${config.PREFIX}gagananews  
+│ ⌬ ᴅᴇꜱᴄ    : Latest Sri Lankan news  
+│ ⌬ ᴇxᴀᴍᴘʟᴇ : ${config.PREFIX}gagananews  
+╰─────────────────⦁
+
+╭─❒ *ʙʟᴏᴄᴋ*  
+│ ⌬ ᴜꜱᴀɢᴇ   : ${config.PREFIX}block [number]  
+│ ⌬ ᴅᴇꜱᴄ    : Block a user  
+│ ⌬ ᴇxᴀᴍᴘʟᴇ : ${config.PREFIX}block 94771234567  
+╰─────────────────⦁
+
+╭─❒ *ᴜɴʙʟᴏᴄᴋ*  
+│ ⌬ ᴜꜱᴀɢᴇ   : ${config.PREFIX}unblock [number]  
+│ ⌬ ᴅᴇꜱᴄ    : Unblock a user  
+│ ⌬ ᴇxᴀᴍᴘʟᴇ : ${config.PREFIX}unblock 94771234567  
+╰─────────────────⦁
+
+╭─❒ *ᴘʀᴇꜰɪx*  
+│ ⌬ ᴜꜱᴀɢᴇ   : ${config.PREFIX}prefix [new prefix]  
+│ ⌬ ᴅᴇꜱᴄ    : Change bot prefix  
+│ ⌬ ᴇxᴀᴍᴘʟᴇ : ${config.PREFIX}prefix !  
+╰─────────────────⦁
+
+╭─❒ *ᴀᴜᴛᴏʀᴇᴄᴏʀᴅɪɴɢ*  
+│ ⌬ ᴜꜱᴀɢᴇ   : ${config.PREFIX}autorecording [on/off]  
+│ ⌬ ᴅᴇꜱᴄ    : Toggle auto recording  
+│ ⌬ ᴇxᴀᴍᴘʟᴇ : ${config.PREFIX}autorecording on  
+╰─────────────────⦁
+
+╭─❒ *ᴍʀᴇᴀᴅ*  
+│ ⌬ ᴜꜱᴀɢᴇ   : ${config.PREFIX}mread [all/cmd/off]  
+│ ⌬ ᴅᴇꜱᴄ    : Auto read messages  
+│ ⌬ ᴇxᴀᴍᴘʟᴇ : ${config.PREFIX}mread on  
+╰─────────────────⦁
+
+╭─❒ *ᴄʀᴇᴊᴇᴄᴛ*  
+│ ⌬ ᴜꜱᴀɢᴇ   : ${config.PREFIX}creject [on/off]  
+│ ⌬ ᴅᴇꜱᴄ    : Auto reject calls  
+│ ⌬ ᴇxᴀᴍᴘʟᴇ : ${config.PREFIX}creject on  
+╰─────────────────⦁
+
+╭─❒ *ᴡᴛʏᴘ*  
+│ ⌬ ᴜꜱᴀɢᴇ   : ${config.PREFIX}wtyp [private/public/inbox/gruop]  
+│ ⌬ ᴅᴇꜱᴄ    : Auto typing toggle  
+│ ⌬ ᴇxᴀᴍᴘʟᴇ : ${config.PREFIX}wtyp public 
+╰─────────────────⦁
+
+╭─❒ *ᴀʀᴍ*  
+│ ⌬ ᴜꜱᴀɢᴇ   : ${config.PREFIX}arm [on/off]  
+│ ⌬ ᴅᴇꜱᴄ    : Auto status react 
+│ ⌬ ᴇxᴀᴍᴘʟᴇ : ${config.PREFIX}arm on  
+╰─────────────────⦁
+
+╭─❒ *ʀsᴛᴀᴛᴜs*  
+│ ⌬ ᴜꜱᴀɢᴇ   : ${config.PREFIX}rstatus [on/off] 
+│ ⌬ ᴅᴇꜱᴄ    : auto status seen
+│ ⌬ ᴇxᴀᴍᴘʟᴇ : ${config.PREFIX}rstatus on
+╰─────────────────⦁
+
+╭─❒ *ʙᴏᴛᴘʀᴇꜱᴇɴᴄᴇ*  
+│ ⌬ ᴜꜱᴀɢᴇ   : ${config.PREFIX}botpresence [online/offline
+│ ⌬ ᴅᴇꜱᴄ    : Change bot presence / fake online,offline 
+│ ⌬ ᴇxᴀᴍᴘʟᴇ : ${config.PREFIX}botpresence online 
+╰─────────────────⦁
+
+╭─❒ *ɪᴍɢ*  
+│ ⌬ ᴜꜱᴀɢᴇ   : ${config.PREFIX}img [query]  
+│ ⌬ ᴅᴇꜱᴄ    : Search images from Google  
+│ ⌬ ᴇxᴀᴍᴘʟᴇ : ${config.PREFIX}img sunset  
+╰─────────────────⦁
+
+╭─❒ *ɢᴏᴏɢʟᴇ*  
+│ ⌬ ᴜꜱᴀɢᴇ   : ${config.PREFIX}google [query]  
+│ ⌬ ᴅᴇꜱᴄ    : Search from Google  
+│ ⌬ ᴇxᴀᴍᴘʟᴇ : ${config.PREFIX}google ChatGPT  
+╰─────────────────⦁
+
+╭─❒ *ᴘɪɴɢ*  
+│ ⌬ ᴜꜱᴀɢᴇ   : ${config.PREFIX}ping  
+│ ⌬ ᴅᴇꜱᴄ    : Check bot speed  
+│ ⌬ ᴇxᴀᴍᴘʟᴇ : ${config.PREFIX}ping  
+╰─────────────────⦁
+
+╭─❒ *ᴀʟɪᴠᴇ*  
+│ ⌬ ᴜꜱᴀɢᴇ   : ${config.PREFIX}alive  
+│ ⌬ ᴅᴇꜱᴄ    : Check if bot is alive  
+│ ⌬ ᴇxᴀᴍᴘʟᴇ : ${config.PREFIX}alive  
+╰─────────────────⦁
 
 
 `.trim();
@@ -3314,7 +3397,7 @@ END:VCARD`
 
      // 🔹 ONLY ADDITION: image + caption
     await socket.sendMessage(sender, {
-      image: { url: 'https://files.catbox.moe/i6kedi.jpg' },
+      image: { url: 'https://files.catbox.moe/z4pcec.jpg' },
       caption: text,
       footer: "㋚ 𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 𝐌𝙸𝙽𝙸",
       buttons
