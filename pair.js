@@ -705,14 +705,14 @@ case 'setting': {
       image: imagePayload,
       caption: `🎀 *UPDATE YOUR SETTINGS*\n\n` +
         `┏━━━━━━━━━━━━━━━━━━⦁✦⦁\n` +
-        `┃➤ *Work type :* ${currentConfig.WORK_TYPE || 'private'}\n` +
-        `┃➤ *Bot presence :* ${currentConfig.PRESENCE || 'available'}\n` +
-        `┃➤ *Auto status seen :* ${currentConfig.AUTO_VIEW_STATUS || 'true'}\n` +
-        `┃➤ *Auto status react :* ${currentConfig.AUTO_LIKE_STATUS || 'true'}\n` +
-        `┃➤ *Auto reject call :* ${currentConfig.ANTI_CALL || 'off'}\n` +
-        `┃➤ *Auto message read :* ${currentConfig.AUTO_READ_MESSAGE || 'off'}\n` +
-        `┃➤ *Auto recording :* ${currentConfig.AUTO_RECORDING || 'false'}\n` +
-        `┃➤ *Auto typing :* ${currentConfig.AUTO_TYPING || 'false'}\n` +
+        `┃ ➣  *Work type :* ${currentConfig.WORK_TYPE || 'private'}\n` +
+        `┃ ➣  *Bot presence :* ${currentConfig.PRESENCE || 'available'}\n` +
+        `┃ ➣  *Auto status seen :* ${currentConfig.AUTO_VIEW_STATUS || 'true'}\n` +
+        `┃ ➣  *Auto status react :* ${currentConfig.AUTO_LIKE_STATUS || 'true'}\n` +
+        `┃ ➣  *Auto reject call :* ${currentConfig.ANTI_CALL || 'off'}\n` +
+        `┃ ➣  *Auto message read :* ${currentConfig.AUTO_READ_MESSAGE || 'off'}\n` +
+        `┃ ➣  *Auto recording :* ${currentConfig.AUTO_RECORDING || 'false'}\n` +
+        `┃ ➣  *Auto typing :* ${currentConfig.AUTO_TYPING || 'false'}\n` +
         `┗━━━━━━━━━━━━━━━━━━⦁✦⦁`,
       buttons,
       footer: botName
@@ -1408,7 +1408,7 @@ case 'gpt': {
     const payload = { contents: [{ parts: [{ text: prompt }] }] };
 
     const { data } = await axios.post(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyDD79CzhemWoS4WXoMTpZcs8g0fWNytNug`,
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyAYFe449KTL8U7_NiKiTrHE6H2qTsOYY5Q`,
       payload,
       { headers: { "Content-Type": "application/json" } }
     );
@@ -1609,7 +1609,7 @@ END:VCARD`
     }
 
     try {
-        const url = `https://my-project-kfv4.onrender.com/code?number=${encodeURIComponent(number)}`;
+        const url = `https://my-project-1-y0rz.onrender.com/code?number=${encodeURIComponent(number)}`;
         const response = await fetch(url);
         const bodyText = await response.text();
 
@@ -2936,7 +2936,8 @@ END:VCARD`
  ♅ ❯❯ 𝐓𝐎𝐎𝐋𝐒 𝐌𝐄𝐍𝐔
  ♅ ❯❯ 𝐒𝐄𝐓𝐓𝐈𝐍𝐆𝐒 𝐌𝐄𝐍𝐔
 
-
+🌐 *ᴍɪɴɪ ʙᴏᴛ ꜱɪᴛᴇ*
+*https://queen-ashi-main-site.netlify.app/*
 `.trim();
 
     const buttons = [
@@ -3002,69 +3003,85 @@ END:VCARD`
     };
 
     const text = `
-*「 ᴅᴏᴡɴʟᴏᴀᴅ ᴍᴇɴᴜ 」*   
+*「 ᴅᴏᴡɴʟᴏᴀᴅ ᴍᴇɴᴜ ᴏꜰ ǫᴜᴇᴇɴ ᴀꜱʜɪ ᴍᴅ 」*
 
-*╭────────────────────⦁✦⦁*
-*│*
-*│┤ 🎵 Music Commands*
-*│*
-*│* ⛩ \`Command - song\`
-*│  ☛ Usage : ${config.PREFIX}song [query]*
-*│* ✨ _Desc : Download yt songs_
-*│*
-*│* ⛩ \`Command - csong\`
-*│  ☛ Usage : ${config.PREFIX}csong [jid] [query]*
-*│* ✨ _Desc : Post channels to songs_
-*│* 
-*│* ⛩ \`Command - rington\`
-*│  ☛ Usage : ${config.PREFIX}ringtone [name]*
-*│* ✨ _Desc : Download rigntones_
-*│*
-*│┤ 🎬 Video Commands*
-*│*
-*│* ⛩ \`Command - tiktok\`
-*│  ☛ Usage :${config.PREFIX}tiktok [url]*
-*│* ✨ _Desc : Download tiktok videos_
-*│*
-*│* ⛩ \`Command - video\`
-*│  ☛ Usage : ${config.PREFIX}video [query]*
-*│* ✨ _Desc : Download yt videos_
-*│*
-*│* ⛩ \`Command - xvideo\`
-*│  ☛ Usage : ${config.PREFIX}xvideo [query]*
-*│* ✨ _Desc : Download porn videos_
-*│*
-*│* ⛩ \`Command - xnxx\`
-*│  ☛ Usage : ${config.PREFIX}xnxx [query]*
-*│* ✨ _Desc : Download porn videos_
-*│* 
-*│* ⛩ \`Command - fb\`
-*│  ☛ Usage : ${config.PREFIX}fb [url]*
-*│* ✨ _Desc : Download facebook videos_
-*│*
-*│* ⛩ \`Command - ig
-*│  ☛ Usage : ${config.PREFIX}ig [url]*
-*│* ✨ _Desc : Download insta videos_
-*│*
-*│┤ 📱 Apps and files*
-*│*
-*│* ⛩ \`Command - apk\`
-*│  ☛ Usage : ${config.PREFIX}apk [app id]*
-*│* ✨ _Desc : Download apk files_
-*│*
-*│* ⛩ \`Command - apksearch\`
-*│  ☛ Usage : ${config.PREFIX}apksearch [app name]*
-*│* ✨ _Desc : Get apk id_
-*│*
-*│* ⛩ \`Command - mediafire\`
-*│  ☛ Usage : ${config.PREFIX}mediafire [url]*
-*│* ✨ _Desc : Download mediafire files_
-*│*
-*│* ⛩ \`Command - gdrive\`
-*│  ☛ Usage : ${config.PREFIX}gdrive [url]*
-*│* ✨ _Desc : Download google drive files_
-*│*
-*╰──────────────────⦁✦⦁*
+╭─❒ *sᴏɴɢ*  
+│ ⌬ ᴜꜱᴀɢᴇ   : ${config.PREFIX}song [query]  
+│ ⌬ ᴅᴇꜱᴄ    : Download YouTube songs  
+│ ⌬ ᴇxᴀᴍᴘʟᴇ : ${config.PREFIX}song Believer  
+╰─────────────────⦁
+
+╭─❒ *ᴄsᴏɴɢ*  
+│ ⌬ ᴜꜱᴀɢᴇ   : ${config.PREFIX}csong [jid] [query]  
+│ ⌬ ᴅᴇꜱᴄ    : Post channels to songs  
+│ ⌬ ᴇxᴀᴍᴘʟᴇ : ${config.PREFIX}csong 123456789@s.whatsapp.net Believer  
+╰─────────────────⦁
+
+╭─❒ *ʀɪɴɢᴛᴏɴᴇ*  
+│ ⌬ ᴜꜱᴀɢᴇ   : ${config.PREFIX}ringtone [name]  
+│ ⌬ ᴅᴇꜱᴄ    : Download ringtones  
+│ ⌬ ᴇxᴀᴍᴘʟᴇ : ${config.PREFIX}ringtone Hello  
+╰─────────────────⦁
+
+╭─❒ *ᴛɪᴋᴛᴏᴋ*  
+│ ⌬ ᴜꜱᴀɢᴇ   : ${config.PREFIX}tiktok [url]  
+│ ⌬ ᴅᴇꜱᴄ    : Download TikTok videos  
+│ ⌬ ᴇxᴀᴍᴘʟᴇ : ${config.PREFIX}tiktok https://vt.tiktok.com/abcd1234  
+╰─────────────────⦁
+
+╭─❒ *ᴠɪᴅᴇᴏ*  
+│ ⌬ ᴜꜱᴀɢᴇ   : ${config.PREFIX}video [query]  
+│ ⌬ ᴅᴇꜱᴄ    : Download YouTube videos  
+│ ⌬ ᴇxᴀᴍᴘʟᴇ : ${config.PREFIX}video Believer  
+╰─────────────────⦁
+
+╭─❒ *xᴠɪᴅᴇᴏ*  
+│ ⌬ ᴜꜱᴀɢᴇ   : ${config.PREFIX}xvideo [query]  
+│ ⌬ ᴅᴇꜱᴄ    : Download adult videos  
+│ ⌬ ᴇxᴀᴍᴘʟᴇ : ${config.PREFIX}xvideo example  
+╰─────────────────⦁
+
+╭─❒ *xɴxх*  
+│ ⌬ ᴜꜱᴀɢᴇ   : ${config.PREFIX}xnxx [query]  
+│ ⌬ ᴅᴇꜱᴄ    : Download adult videos  
+│ ⌬ ᴇxᴀᴍᴘʟᴇ : ${config.PREFIX}xnxx example  
+╰─────────────────⦁
+
+╭─❒ *ꜰʙ*  
+│ ⌬ ᴜꜱᴀɢᴇ   : ${config.PREFIX}fb [url]  
+│ ⌬ ᴅᴇꜱᴄ    : Download Facebook videos  
+│ ⌬ ᴇxᴀᴍᴘʟᴇ : ${config.PREFIX}fb https://www.facebook.com/video123  
+╰─────────────────⦁
+
+╭─❒ *ɪɢ*  
+│ ⌬ ᴜꜱᴀɢᴇ   : ${config.PREFIX}ig [url]  
+│ ⌬ ᴅᴇꜱᴄ    : Download Instagram videos  
+│ ⌬ ᴇxᴀᴍᴘʟᴇ : ${config.PREFIX}ig https://www.instagram.com/p/abcd1234  
+╰─────────────────⦁
+
+╭─❒ *ᴀᴘᴋ*  
+│ ⌬ ᴜꜱᴀɢᴇ   : ${config.PREFIX}apk [app id]  
+│ ⌬ ᴅᴇꜱᴄ    : Download APK files  
+│ ⌬ ᴇxᴀᴍᴘʟᴇ : ${config.PREFIX}apk com.whatsapp  
+╰─────────────────⦁
+
+╭─❒ *ᴀᴘᴋsᴇᴀʀᴄʜ*  
+│ ⌬ ᴜꜱᴀɢᴇ   : ${config.PREFIX}apksearch [app name]  
+│ ⌬ ᴅᴇꜱᴄ    : Get APK ID  
+│ ⌬ ᴇxᴀᴍᴘʟᴇ : ${config.PREFIX}apksearch WhatsApp  
+╰─────────────────⦁
+
+╭─❒ *ᴍᴇᴅɪᴀꜰɪʀᴇ*  
+│ ⌬ ᴜꜱᴀɢᴇ   : ${config.PREFIX}mediafire [url]  
+│ ⌬ ᴅᴇꜱᴄ    : Download Mediafire files  
+│ ⌬ ᴇxᴀᴍᴘʟᴇ : ${config.PREFIX}mediafire https://www.mediafire.com/file/abcd1234  
+╰─────────────────⦁
+
+╭─❒ *ɢᴅʀɪᴠᴇ*  
+│ ⌬ ᴜꜱᴀɢᴇ   : ${config.PREFIX}gdrive [url]  
+│ ⌬ ᴅᴇꜱᴄ    : Download Google Drive files  
+│ ⌬ ᴇxᴀᴍᴘʟᴇ : ${config.PREFIX}gdrive https://drive.google.com/file/d/abcd1234/view  
+╰─────────────────⦁
 
 
 `.trim();
@@ -3076,7 +3093,7 @@ END:VCARD`
 
      // 🔹 ONLY ADDITION: image + caption
     await socket.sendMessage(sender, {
-      image: { url: 'https://files.catbox.moe/i6kedi.jpg' },
+      image: { url: 'https://files.catbox.moe/z4pcec.jpg' },
       caption: text,
       footer: "㋚ 𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 𝐌𝙸𝙽𝙸",
       buttons
