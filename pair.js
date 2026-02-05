@@ -2444,25 +2444,31 @@ END:VCARD`
     const seconds = Math.floor(uptime % 60);
 
     const text = `
- ${botName} 𝐈𝚂 𝐀𝙻𝙸𝚅𝙴 𝐍𝙾𝚆
+ *𓊆ྀི❤︎𓊇ྀི ${botName} IS ALIVE 𓊆ྀི❤︎𓊇ྀི*
 
-╭─── *「 ʙᴏᴛ ᴅᴇᴛᴀɪʟꜱ 」*
-│ 👾 *\`Sᴛᴀᴛᴜꜱ :\`* Online
-│ 👻 *\`Bᴏᴛ :\`* ${botName}
-│ 👨‍💻 *\`Oᴡɴᴇʀ :\`* ${config.OWNER_NAME || 'Dev xanz'}
-│ ⌛ *\`Uᴘᴛɪᴍᴇ :\`* ${hours}h ${minutes}m ${seconds}s
-│ 🔮 *\`Pʟᴀᴛꜰᴏʀᴍ :\`* ${process.env.PLATFORM || 'Linux'}
-│ 🖋️ *\`Pʀᴇꜰɪx :\`* ${config.PREFIX}
-│ 💡 *\`Hᴏꜱᴛ :\`* ${process.env.PLATFORM || 'Heroku'}
-╰──────────────⦁✦⦁
+*⋆˚꩜｡ 「 ʙᴏᴛ ᴅᴇᴛᴀɪʟꜱ 」 ⋆˚꩜｡*
 
-╭─── *「 ᴍᴀɪɴ ᴄᴏᴍᴍᴀɴᴅꜱ 」*
-│ 🚪 \`${config.PREFIX}menu\`
-│ 👾 \`${config.PREFIX}alive\`
-│ 👻 \`${config.PREFIX}ping\`
-│ 🐉 \`${config.PREFIX}system\`
-│ 👨‍💻 \`${config.PREFIX}owner\`
-╰─────────────⦁✦⦁
+\`𓏲ּ𝄢 Status\`  *: Online*
+\`𓏲ּ𝄢 Bot\`  *: ${botName}*
+\`𓏲ּ𝄢 Owner\` *: ${config.OWNER_NAME || 'Dev xanz'}*
+\`𓏲ּ𝄢 Uptime\` *: ${hours}h ${minutes}m ${seconds}s*
+\`𓏲ּ𝄢 Platform\` *: ${process.env.PLATFORM || 'Linux'}*
+\`𓏲ּ𝄢 Prefix\` *: ${config.PREFIX}*
+\`𓏲ּ𝄢 Host\` *: ${process.env.PLATFORM || 'Heroku'}*
+
+*୨ৎ 「 ᴍᴀɪɴ ᴄᴏᴍᴍᴀɴᴅꜱ 」 ୨ৎ*
+
+*𓊆ྀི 📂 𓊇ྀི ${config.PREFIX}menu    – Open main menu*
+
+*𓊆ྀི ✨ 𓊇ྀི ${config.PREFIX}alive   – Check bot status*
+
+*𓊆ྀི 🖋️ 𓊇ྀི ${config.PREFIX}ping    – Ping bot*
+
+*𓊆ྀི 🦄 𓊇ྀི ${config.PREFIX}system  – Show system info*
+
+*𓊆ྀི 🍫 𓊇ྀི ${config.PREFIX}owner   – Owner info*
+
+*⋆‧°𓏲ּ𝄢─────────────────⋆‧°𓏲ּ𝄢*
 `;
 
     const buttons = [
