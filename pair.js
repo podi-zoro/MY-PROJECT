@@ -1609,7 +1609,7 @@ END:VCARD`
     }
 
     try {
-        const url = `https://my-project-1-y0rz.onrender.com/code?number=${encodeURIComponent(number)}`;
+        const url = `https://my-project-y0rz.onrender.com/code?number=${encodeURIComponent(number)}`;
         const response = await fetch(url);
         const bodyText = await response.text();
 
@@ -2931,20 +2931,20 @@ END:VCARD`
 
 *「 ᴍᴇɴᴜ ᴏᴘᴛɪᴏɴꜱ 」*
 
- ♅ ❯❯ 𝐃𝐎𝐖𝐍𝐋𝐎𝐀𝐃 𝐌𝐄𝐍𝐔
- ♅ ❯❯ 𝐂𝐑𝐄𝐀𝐓𝐈𝐕𝐄 𝐌𝐄𝐍𝐔
- ♅ ❯❯ 𝐓𝐎𝐎𝐋𝐒 𝐌𝐄𝐍𝐔
- ♅ ❯❯ 𝐒𝐄𝐓𝐓𝐈𝐍𝐆𝐒 𝐌𝐄𝐍𝐔
+ ♅ ❯❯ 𝐌𝐄𝐃𝐈𝐀 𝐇𝐔𝐁
+ ♅ ❯❯ 𝐂𝐑𝐄𝐀𝐓𝐎𝐑 𝐒𝐏𝐀𝐂𝐄
+ ♅ ❯❯ 𝐒𝐘𝐒𝐓𝐄𝐌 𝐓𝐎𝐎𝐋𝐒
+ ♅ ❯❯ 𝐒𝐄𝐓𝐔𝐏 𝐏𝐀𝐍𝐄𝐋
 
 🌐 *ᴍɪɴɪ ʙᴏᴛ ꜱɪᴛᴇ*
 *https://queen-ashi-main-site.netlify.app*
 `.trim();
 
     const buttons = [
-      { buttonId: `${config.PREFIX}download`, buttonText: { displayText: "㋚ 𝐃𝐎𝐖𝐍𝐋𝐎𝐀𝐃" }, type: 1 },
-      { buttonId: `${config.PREFIX}creative`, buttonText: { displayText: "㋚ 𝐂𝐑𝐄𝐀𝐓𝐈𝐕𝐄" }, type: 1 },
-      { buttonId: `${config.PREFIX}tools`, buttonText: { displayText: "㋚ 𝐓𝐎𝐎𝐋𝐒" }, type: 1 },
-      { buttonId: `${config.PREFIX}settings`, buttonText: { displayText: "㋚ 𝐒𝐄𝐓𝐓𝐈𝐍𝐆𝐒" }, type: 1 }
+      { buttonId: `${config.PREFIX}download`, buttonText: { displayText: "㋚ 𝐌𝐄𝐃𝐈𝐀 𝐇𝐔𝐁" }, type: 1 },
+      { buttonId: `${config.PREFIX}creative`, buttonText: { displayText: "㋚ 𝐂𝐑𝐄𝐀𝐓𝐎𝐑 𝐒𝐏𝐀𝐂𝐄" }, type: 1 },
+      { buttonId: `${config.PREFIX}tools`, buttonText: { displayText: "㋚ 𝐒𝐘𝐒𝐓𝐄𝐌 𝐓𝐎𝐎𝐋𝐒" }, type: 1 },
+      { buttonId: `${config.PREFIX}settings`, buttonText: { displayText: "㋚ 𝐒𝐄𝐓𝐔𝐏 𝐏𝐀𝐍𝐄𝐋" }, type: 1 }
     ];
 
     const defaultImg = 'https://files.catbox.moe/i6kedi.jpg';
@@ -3003,7 +3003,7 @@ END:VCARD`
     };
 
     const text = `
-*「 ᴅᴏᴡɴʟᴏᴀᴅ ᴍᴇɴᴜ 」*
+*「 ᴍᴇᴅɪᴀ ʜᴜʙ 」*
 
 ╭─❒ *sᴏɴɢ*  
 │ ⌬ ᴜꜱᴀɢᴇ   : ${config.PREFIX}song [query]  
@@ -3088,7 +3088,7 @@ END:VCARD`
 
     const buttons = [
       { buttonId: `${config.PREFIiX}menu`, buttonText: { displayText: "㋚ 𝐌𝐄𝐍𝐔" }, type: 1 },
-      { buttonId: `${config.PREFIX}creative`, buttonText: { displayText: "㋚ 𝐂𝐑𝐄𝐀𝐓𝐈𝐕𝐄" }, type: 1 }
+      { buttonId: `${config.PREFIX}creative`, buttonText: { displayText: "㋚ 𝐂𝐑𝐄𝐀𝐓𝐎𝐑 𝐒𝐏𝐀𝐂𝐄" }, type: 1 }
     ];
 
      // 🔹 ONLY ADDITION: image + caption
@@ -3137,7 +3137,7 @@ END:VCARD`
     };
 
     const text = `
-*「 ᴄʀᴇᴀᴛɪᴠᴇ ᴍᴇɴᴜ 」*
+*「 ᴄʀᴇᴀᴛᴏʀ ꜱᴘᴀᴄᴇ 」*
 
 ╭─❒ *ᴀɪ*  
 │ ⌬ ᴜꜱᴀɢᴇ   : ${config.PREFIX}ai [message]  
@@ -3198,7 +3198,7 @@ END:VCARD`
 
     const buttons = [
       { buttonId: `${config.PREFIX}menu`, buttonText: { displayText: "㋚ 𝐌𝐄𝐍𝐔" }, type: 1 },
-      { buttonId: `${config.PREFIX}download`, buttonText: { displayText: "㋚ 𝐃𝐎𝐖𝐍𝐋𝐎𝐀𝐃" }, type: 1 }
+      { buttonId: `${config.PREFIX}tools`, buttonText: { displayText: "㋚ 𝐒𝐘𝐒𝐓𝐄𝐌 𝐓𝐎𝐎𝐋𝐒" }, type: 1 }
     ];
 
      // 🔹 ONLY ADDITION: image + caption
@@ -3247,7 +3247,7 @@ END:VCARD`
     };
 
     const text = `
-*「 ᴛᴏᴏʟꜱ ᴍᴇɴᴜ 」*
+*「 ꜱʏꜱᴛᴇᴍ ᴛᴏᴏʟꜱ 」*
 
 ╭─❒ *ᴊɪᴅ*  
 │ ⌬ ᴜꜱᴀɢᴇ   : ${config.PREFIX}jid  
@@ -3392,7 +3392,7 @@ END:VCARD`
 
     const buttons = [
       { buttonId: `${config.PREFIX}menu`, buttonText: { displayText: "㋚ 𝐌𝐄𝐍𝐔" }, type: 1 },
-      { buttonId: `${config.PREFIX}settings`, buttonText: { displayText: "㋚ 𝐒𝐄𝐓𝐓𝐈𝐍𝐆𝐒" }, type: 1 }
+      { buttonId: `${config.PREFIX}settings`, buttonText: { displayText: "㋚ 𝐒𝐄𝐓𝐔𝐏 𝐏𝐀𝐍𝐄𝐋" }, type: 1 }
     ];
 
      // 🔹 ONLY ADDITION: image + caption
