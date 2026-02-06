@@ -2506,110 +2506,188 @@ END:VCARD`
 }
 // ---------------------- PING PRO ----------------------
 case 'ping': {
-try {
+  try {
+    await socket.sendMessage(sender, {
+      react: { text: "🏓", key: msg.key }
+    });
 
-await socket.sendMessage(sender, {
-    react: { text: "⚡", key: msg.key }
-});
+    const start = Date.now();
 
-const start = Date.now();
+    // Send initial message with your style
+    let pingMsg = await socket.sendMessage(sender, {
+      text: "𓆩♡𓆪  *𝐏𝐈𝐍𝐆 𝐓𝐄𝐒𝐓*  𓆩♡𓆪\n┌─── ⋅ ∙ ∘ ☽ ༓ ☾ ∘ ⋅ ───┐\n   ☾⋆⁺₊  *𝐈𝐍𝐈𝐓𝐈𝐀𝐋𝐈𝐙𝐈𝐍𝐆*  ₊⁺⋆☽\n   \n   𐙚˚࿔  𝐒𝐭𝐚𝐭𝐮𝐬: Starting...\n└─── ⋅ ∙ ∘ ☽ ༓ ☾ ∘ ⋅ ───┘"
+    }, { quoted: msg });
 
-let pingMsg = await socket.sendMessage(sender, {
-    text: "```⚡ Initializing Speed Test...```"
-}, { quoted: msg });
+    // Enhanced loading animation with your symbols
+    const frames = [
+      "°𓏲ּ𝄢⊂⊃ֶָ֢ ˒ ⤿▰▱▱▱▱▱▱▱▱ 10% • Connecting",
+      "°𓏲ּ𝄢⊂⊃ֶָ֢ ˒ ⤿▰▰▰▱▱▱▱▱▱ 30% • Measuring",
+      "°𓏲ּ𝄢⊂⊃ֶָ֢ ˒ ⤿▰▰▰▰▰▱▱▱▱ 50% • Analyzing",
+      "°𓏲ּ𝄢⊂⊃ֶָ֢ ˒ ⤿▰▰▰▰▰▰▰▱▱▱ 70% • Processing",
+      "°𓏲ּ𝄢⊂⊃ֶָ֢ ˒ ⤿▰▰▰▰▰▰▰▰▰▱ 90% • Finalizing",
+      "°𓏲ּ𝄢⊂⊃ֶָ֢ ˒ ⤿▰▰▰▰▰▰▰▰▰▰ 100% • Complete"
+    ];
 
-// smooth loading animation
-const frames = [
-"▰▱▱▱▱▱▱▱▱▱ 10%",
-"▰▰▰▱▱▱▱▱▱▱ 30%",
-"▰▰▰▰▰▱▱▱▱▱ 50%",
-"▰▰▰▰▰▰▰▱▱▱ 70%",
-"▰▰▰▰▰▰▰▰▰▱ 90%",
-"▰▰▰▰▰▰▰▰▰▰ 100%"
-];
+    for (let i of frames) {
+      await new Promise(r => setTimeout(r, 350));
+      await socket.sendMessage(sender, { 
+        text: "```" + i + "```", 
+        edit: pingMsg.key 
+      });
+    }
 
-for (let i of frames) {
-    await new Promise(r => setTimeout(r, 350));
-    await socket.sendMessage(sender, { text: "```" + i + "```", edit: pingMsg.key });
+    const end = Date.now();
+    const speed = end - start;
+    const uptime = process.uptime().toFixed(0);
+    const ram = (process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2);
+    
+    // Determine speed status
+    let status = "";
+    let emoji = "";
+    if (speed < 100) {
+      status = "⚡ 𝐁𝐥𝐚𝐳𝐢𝐧𝐠 𝐅𝐚𝐬𝐭";
+      emoji = "⚡";
+    } else if (speed < 500) {
+      status = "🚀 𝐕𝐞𝐫𝐲 𝐅𝐚𝐬𝐭";
+      emoji = "🚀";
+    } else if (speed < 1000) {
+      status = "🐢 𝐍𝐨𝐫𝐦𝐚𝐥";
+      emoji = "🐢";
+    } else {
+      status = "🐌 𝐒𝐥𝐨𝐰";
+      emoji = "🐌";
+    }
+
+    // Final result in your aesthetic style
+    return await socket.sendMessage(sender, {
+      text: 
+`𓆩♡𓆪  *𝐏𝐈𝐍𝐆 𝐑𝐄𝐒𝐔𝐋𝐓𝐒*  𓆩♡𓆪
+
+┌─── ⋅ ∙ ∘ ☽ ༓ ☾ ∘ ⋅ ───┐
+   ☾⋆⁺₊  *𝐒𝐏𝐄𝐄𝐃 𝐓𝐄𝐒𝐓*  ₊⁺⋆☽
+   
+   𐙚˚࿔  *Latency* : ${speed} ms
+   𐙚˚࿔  *Status*  : ${status} ${emoji}
+   𐙚˚࿔  *Uptime*  : ${uptime} seconds
+   𐙚˚࿔  *RAM Use* : ${ram} MB
+   
+└─── ⋅ ∙ ∘ ☽ ༓ ☾ ∘ ⋅ ───┘
+
+°𓏲ּ𝄢⊂⊃ֶָ֢ ˒ ⤿📊  *𝐏𝐄𝐑𝐅𝐎𝐑𝐌𝐀𝐍𝐂𝐄*
+⊂⊃ֶָ֢ ˒ ⤿${speed < 100 ? "⚡ Excellent Speed" : speed < 500 ? "✅ Good Response" : "⚠️ Needs Optimization"}
+⊂⊃ֶָ֢ ˒ ⤿🤖 System Stable & Responsive
+⊂⊃ֶָ֢ ˒ ⤿💾 Memory Usage: ${ram} MB
+
+ˎˊ˗. ⋆‧₊˚──────────────────˚₊‧⋆ .˗ˊˎ
+
+⋆˚꩜｡⋆ > ⁺ִ ꤥ‌ ּ  𝐁𝐨𝐭 𝐑𝐞𝐬𝐩𝐨𝐧𝐬𝐞 𝐓𝐢𝐦𝐞 𝐀𝐧𝐚𝐥𝐲𝐳𝐞𝐝
+⋆˚꩜｡⋆ > ⁺ִ ꤥ‌ ּ  ${new Date().toLocaleString('en-US', { timeZone: 'Asia/Colombo' })}
+
+𐔌՞. .՞𐦯  *${botName || 'Queen Ashi MD'}*  𐦯՞. .՞𐔌`,
+      edit: pingMsg.key
+    });
+
+  } catch (e) {
+    console.log(e);
+    await socket.sendMessage(sender, {
+      text: "𓆩⚠️𓆪  *𝐏𝐈𝐍𝐆 𝐄𝐑𝐑𝐎𝐑*\n\n┌─── ⋅ ∙ ∘ ☽ ༓ ☾ ∘ ⋅ ───┐\n   ☾⋆⁺₊  *𝐄𝐑𝐑𝐎𝐇*  ₊⁺⋆☽\n   \n   𐙚˚࿔ 𝐅𝐚𝐢𝐥𝐞𝐝 𝐭𝐨 𝐜𝐚𝐥𝐜𝐮𝐥𝐚𝐭𝐞 𝐩𝐢𝐧𝐠\n└─── ⋅ ∙ ∘ ☽ ༓ ☾ ∘ ⋅ ───┘"
+    }, { quoted: msg });
+  }
+  break;
 }
-
-const end = Date.now();
-const speed = end - start;
-
-// random system feel data
-const uptime = process.uptime().toFixed(0);
-const ram = (process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2);
-
-return await socket.sendMessage(sender, {
-text:
-`╭━━〔 ⚡ *PONG REPORT* 〕━━⬣
-┃ 🏓 *Ping:* ${speed} ms
-┃ ⏱ *Uptime:* ${uptime}s
-┃ 💾 *RAM Used:* ${ram} MB
-╰━━━━━━━━━━━━━━━━⬣`,
-edit: pingMsg.key
-});
-
-} catch (e) {
-console.log(e)
-socket.sendMessage(sender,{text:"Ping error!"},{quoted:msg})
-}
-}
-break;
 // ---------------------- HACKER TERMINAL SIM ----------------------
 case 'terminal': {
-try {
-
-await socket.sendMessage(sender, {
-    react: { text: "💀", key: msg.key }
-});
-
-const start = Date.now();
-
-let base = await socket.sendMessage(sender, {
-    text: "```> Booting cyber terminal...```"
-}, { quoted: msg });
-
-// typewriter loading effect
-const lines = [
-"> Establishing encrypted tunnel...",
-"> Routing through proxy nodes...",
-"> Masking digital fingerprint...",
-"> Accessing secure protocol...",
-"> Running deep system probe...",
-"> Collecting diagnostic data..."
-];
-
-for (let line of lines) {
-    await new Promise(r => setTimeout(r, 500));
+  try {
     await socket.sendMessage(sender, {
+      react: { text: "💀", key: msg.key }
+    });
+
+    const start = Date.now();
+
+    // Initial message in your style
+    let base = await socket.sendMessage(sender, {
+      text: "𓆩♡𓆪  *𝐂𝐘𝐁𝐄𝐑 𝐓𝐄𝐑𝐌𝐈𝐍𝐀𝐋*  𓆩♡𓆪\n┌─── ⋅ ∙ ∘ ☽ ༓ ☾ ∘ ⋅ ───┐\n   ☾⋆⁺₊  *𝐈𝐍𝐈𝐓𝐈𝐀𝐋𝐈𝐙𝐈𝐍𝐆*  ₊⁺⋆☽\n   \n   𐙚˚࿔  𝐒𝐭𝐚𝐭𝐮𝐬: Booting sequence...\n└─── ⋅ ∙ ∘ ☽ ༓ ☾ ∘ ⋅ ───┘"
+    }, { quoted: msg });
+
+    // Cyber terminal loading sequence with your symbols
+    const lines = [
+      "°𓏲ּ𝄢⊂⊃ֶָ֢ ˒ ⤿ > Establishing encrypted tunnel...",
+      "°𓏲ּ𝄢⊂⊃ֶָ֢ ˒ ⤿ > Routing through proxy nodes...",
+      "°𓏲ּ𝄢⊂⊃ֶָ֢ ˒ ⤿ > Masking digital fingerprint...",
+      "°𓏲ּ𝄢⊂⊃ֶָ֢ ˒ ⤿ > Accessing secure protocol...",
+      "°𓏲ּ𝄢⊂⊃ֶָ֢ ˒ ⤿ > Running deep system probe...",
+      "°𓏲ּ𝄢⊂⊃ֶָ֢ ˒ ⤿ > Collecting diagnostic data..."
+    ];
+
+    for (let line of lines) {
+      await new Promise(r => setTimeout(r, 500));
+      await socket.sendMessage(sender, {
         text: "```" + line + "```",
         edit: base.key
+      });
+    }
+
+    const ping = Date.now() - start;
+
+    // Determine system status based on ping
+    let statusEmoji = "🟢";
+    let statusText = "";
+    if (ping < 300) {
+      statusText = "OPTIMAL";
+      statusEmoji = "⚡";
+    } else if (ping < 800) {
+      statusText = "STABLE";
+      statusEmoji = "✅";
+    } else {
+      statusText = "LAGGING";
+      statusEmoji = "⚠️";
+    }
+
+    await new Promise(r => setTimeout(r, 600));
+
+    // Final terminal report in your aesthetic style
+    return await socket.sendMessage(sender, {
+      text: 
+`𓆩♡𓆪  *𝐂𝐘𝐁𝐄𝐑 𝐓𝐄𝐑𝐌𝐈𝐍𝐀𝐋 𝐑𝐄𝐏𝐎𝐑𝐓*  𓆩♡𓆪
+
+┌─── ⋅ ∙ ∘ ☽ ༓ ☾ ∘ ⋅ ───┐
+   ☾⋆⁺₊  *𝐒𝐘𝐒𝐓𝐄𝐌 𝐃𝐈𝐀𝐆𝐍𝐎𝐒𝐓𝐈𝐂𝐒*  ₊⁺⋆☽
+   
+   𐙚˚࿔  *Response Time* : ${ping} ms
+   𐙚˚࿔  *System Status* : ${statusText} ${statusEmoji}
+   𐙚˚࿔  *Shield Layer*  : ACTIVE 🛡️
+   𐙚˚࿔  *Signal Route*  : SECURE 📡
+   𐙚˚࿔  *AI Monitor*    : ONLINE 🤖
+   
+└─── ⋅ ∙ ∘ ☽ ༓ ☾ ∘ ⋅ ───┘
+
+°𓏲ּ𝄢⊂⊃ֶָ֢ ˒ ⤿🔒  *𝐒𝐄𝐂𝐔𝐑𝐈𝐓𝐘 𝐋𝐀𝐘𝐄𝐑𝐒*
+⊂⊃ֶָ֢ ˒ ⤿🛡️  Encryption: AES-256 Active
+⊂⊃ֶָ֢ ˒ ⤿🌐  Proxy Nodes: 3/3 Operational
+⊂⊃ֶָ֢ ˒ ⤿📊  Data Integrity: 100% Verified
+
+°𓏲ּ𝄢⊂⊃ֶָ֢ ˒ ⤿⚙️  *𝐏𝐄𝐑𝐅𝐎𝐑𝐌𝐀𝐍𝐂𝐄*
+⊂⊃ֶָ֢ ˒ ⤿${ping < 300 ? "⚡ Blazing Fast Response" : ping < 800 ? "✅ Normal Latency" : "⚠️ High Latency Detected"}
+⊂⊃ֶָ֢ ˒ ⤿🤖 All Systems Nominal
+⊂⊃ֶָ֢ ˒ ⤿💀 Terminal Access: Secure
+
+ˎˊ˗. ⋆‧₊˚──────────────────˚₊‧⋆ .˗ˊˎ
+
+⋆˚꩜｡⋆ > ⁺ִ ꤥ‌ ּ  𝐂𝐲𝐛𝐞𝐫 𝐒𝐞𝐜𝐮𝐫𝐢𝐭𝐲 𝐒𝐜𝐚𝐧 𝐂𝐨𝐦𝐩𝐥𝐞𝐭𝐞
+⋆˚꩜｡⋆ > ⁺ִ ꤥ‌ ּ  ${new Date().toLocaleString('en-US', { timeZone: 'Asia/Colombo' })}
+
+𐔌՞. .՞𐦯  *𝐓𝐄𝐑𝐌𝐈𝐍𝐀𝐋 𝐀𝐂𝐂𝐄𝐒𝐒 𝐆𝐑𝐀𝐍𝐓𝐄𝐃*  𐦯՞. .՞𐔌`,
+      edit: base.key
     });
+
+  } catch (e) {
+    console.log(e);
+    await socket.sendMessage(sender, {
+      text: "𓆩⚠️𓆪  *𝐓𝐄𝐑𝐌𝐈𝐍𝐀𝐋 𝐄𝐑𝐑𝐎𝐑*\n\n┌─── ⋅ ∙ ∘ ☽ ༓ ☾ ∘ ⋅ ───┐\n   ☾⋆⁺₊  *𝐒𝐘𝐒𝐓𝐄𝐌 𝐅𝐀𝐈𝐋𝐔𝐑𝐄*  ₊⁺⋆☽\n   \n   𐙚˚࿔ 𝐂𝐲𝐛𝐞𝐫 𝐭𝐞𝐫𝐦𝐢𝐧𝐚𝐥 𝐚𝐜𝐜𝐞𝐬𝐬 𝐝𝐞𝐧𝐢𝐞𝐝\n└─── ⋅ ∙ ∘ ☽ ༓ ☾ ∘ ⋅ ───┘"
+    }, { quoted: msg });
+  }
+  break;
 }
-
-const ping = Date.now() - start;
-
-await new Promise(r => setTimeout(r, 600));
-
-return await socket.sendMessage(sender, {
-text:
-`╔═══〔 ☠ TERMINAL REPORT 〕═══╗
-⚡ Response Time : ${ping} ms
-🧩 System Status : STABLE
-🛡 Shield Layer  : ACTIVE
-📡 Signal Route  : SECURE
-🧠 AI Monitor    : ONLINE
-╚════════════════════════════╝`,
-edit: base.key
-});
-
-} catch (e) {
-console.log(e)
-socket.sendMessage(sender,{text:"Terminal error!"},{quoted:msg})
-}
-}
-break;
 // ---------------------- FUN PUK SCAN ----------------------
 case 'fun': {
 try {
