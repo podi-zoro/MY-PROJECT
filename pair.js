@@ -2788,11 +2788,12 @@ case 'bots': {
   }
   break;
 }
+
 case 'song': {
     const { ytsearch } = require('@dark-yasiya/yt-dl.js');
     const axios = require('axios');
 
-    const botName = '𝐐𝚄𝙴𝙴𝙽 𝐀𝚂𝙷𝙸 𝐌𝙳 𝐌𝙸𝙽𝙸'; 
+    const botName = 'QUEEN ASHI MD'; 
     
     const botMention = {
         key: {
@@ -2845,11 +2846,11 @@ case 'song': {
 
         const menuCaption = `*\`❝ ${title} ❞\`*
    
-   ⏱️  *Dᴜʀᴀᴛɪᴏɴ :* ${videoInfo.timestamp}
-   ✨  *Qᴜᴀʟɪᴛʏ :* ${quality || "128"}kbps
-   🖇️  *Lɪɴᴋ :* ${videoInfo.url}
+     ⏱️  *Dᴜʀᴀᴛɪᴏɴ :* ${videoInfo.timestamp}
+     🎶  *Qᴜᴀʟɪᴛʏ :* ${quality || "128"}kbps
+     🖇️  *Lɪɴᴋ :* ${videoInfo.url}
 
-> *P⊙WΞRΞD BY DΞV XΛNZ ⧉ CYBΞZ*
+㋚  𝐏𝙾𝚆𝙴𝚁𝙴𝙳 𝐁𝚈 ${botName}
 `;
 
         // මෙහිදී Buttons පෙන්වීමට උත්සාහ කරයි (සමහර WhatsApp අනුවාද වල පමණක් ක්‍රියා කරයි)
@@ -2890,8 +2891,7 @@ case 'song': {
                 if (quotedId !== messageId) return;
 
                 if (["1", "2", "3"].includes(selection)) {
-                    socket.ev.off("messages.upsert", handler); // Stop listening                    
-					await socket.sendMessage(sender, { react: { text: "⬇️", key: incoming.key } });
+                    socket.ev.off("messages.upsert", handler); // Stop listening                    await socket.sendMessage(sender, { react: { text: "⬇️", key: incoming.key } });
 
                     const commonParams = { url: downloadLink };
 
@@ -2928,7 +2928,7 @@ case 'song': {
         await socket.sendMessage(sender, { text: "❌ Error occurred!" });
     }
     break;
-			}
+					}
 case 'system': {
   try {
     const sanitized = (number || '').replace(/[^0-9]/g, '');
